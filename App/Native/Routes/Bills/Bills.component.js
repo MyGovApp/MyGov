@@ -3,8 +3,21 @@ import { View, Text } from 'react-native'
 import { classes } from './Bills.styles'
 
 export default class Bills extends Component {
+  constructor () {
+    super()
+    this.state = {
+      bills: []
+    }
+  }
+
+  componentDidMount () {
+    const { fetchBills } = this.props
+    fetchBills()
+  }
+
   render () {
-    const { toggleColor, color } = this.props
+    const { toggleColor, color, bills } = this.props
+    console.log(bills)
 
     return (
       <View style={classes.mainView}>
@@ -12,6 +25,7 @@ export default class Bills extends Component {
           onPress={toggleColor}
           style={[classes.helloWorld, { color }]}>
           Bills!
+          {bills[0] && bills[0].official_title}
         </Text>
       </View>
     )
@@ -20,5 +34,7 @@ export default class Bills extends Component {
 
 Bills.propTypes = {
   color: PropTypes.string.isRequired,
-  toggleColor: PropTypes.func.isRequired
+  toggleColor: PropTypes.func.isRequired,
+  fetchBills: PropTypes.func.isRequired,
+  bills: PropTypes.array.isRequired
 }

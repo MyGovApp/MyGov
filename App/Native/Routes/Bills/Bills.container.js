@@ -1,13 +1,16 @@
 import { connect } from 'react-redux'
-import { toggleColor } from '../../../Modules/Bills/Bills.modules'
+import { toggleColor, fetchBills } from '../../../Modules/Bills/Bills.modules'
 import Bills from './Bills.component'
 
 const mapDispatchToProps = {
-  toggleColor
+  toggleColor,
+  fetchBills
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  color: state.bills.color
+  color: state.bills.color,
+  loading: state.bills.loading,
+  bills: state.bills.bills
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Bills)

@@ -7,6 +7,8 @@ app.use(function (req, res, next) {
   next()
 })
 
+app.use(require('./routes/bills'))
+app.use(require('./routes/bill'))
 app.use(require('./routes/helloWorldAsync'))
 
 if (!module.parent) {
