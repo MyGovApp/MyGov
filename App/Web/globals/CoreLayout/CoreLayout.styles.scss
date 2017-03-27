@@ -1,0 +1,23 @@
+@import "../../Themes/base";
+
+.coreLayout {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+
+.applicaion {
+  height: 100%;
+  width: 100%;
+  transition: .5s ease-in-out;
+}
+
+.main {
+  overflow-wrap: break-word;
+  overflow-y: auto;
+  background-color: $appBackground;
+  height: 100%;
+  width: 100%;
+  margin-top: -40px;
+  padding-top: 40px;
+}
