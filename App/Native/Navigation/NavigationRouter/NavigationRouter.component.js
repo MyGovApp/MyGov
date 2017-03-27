@@ -7,7 +7,7 @@ import NavigationDrawer from '../NavigationDrawer'
 import NavItems from '../NavItems'
 
 // screens identified by the router
-import HelloWorld from '../../Routes/HelloWorld'
+import Bills from '../../Routes/Bills'
 import HelloWorldAsync from '../../Routes/HelloWorldAsync'
 
 /* **************************
@@ -28,9 +28,9 @@ class NavigationRouter extends Component {
           >
             <Scene
               initial
-              key='helloWorld'
-              component={HelloWorld}
-              title='Hello World'
+              key='bills'
+              component={Bills}
+              title='Bills'
               renderRightButton={NavItems.hamburgerButton}
               renderBackButton={() => false}
               direction='leftToRight'

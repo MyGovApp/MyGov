@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import helloWorld from '../../Modules/HelloWorld/HelloWorld.modules'
+import bills from '../../Modules/Bills/Bills.modules'
 import helloWorldAsync from '../../Modules/HelloWorldAsync/HelloWorldAsync.modules'
 
 export default combineReducers({
-  helloWorld,
+  bills,
   helloWorldAsync
 })

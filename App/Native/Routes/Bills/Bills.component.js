@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react'
 import { View, Text } from 'react-native'
-import { classes } from './HelloWorld.styles'
+import { classes } from './Bills.styles'
 
-export default class HelloWorld extends Component {
+export default class Bills extends Component {
   render () {
     const { toggleColor, color } = this.props
 
@@ -11,14 +11,14 @@ export default class HelloWorld extends Component {
         <Text
           onPress={toggleColor}
           style={[classes.helloWorld, { color }]}>
-          Hello World!
+          Bills!
         </Text>
       </View>
     )
   }
 }
 
-HelloWorld.propTypes = {
+Bills.propTypes = {
   color: PropTypes.string.isRequired,
   toggleColor: PropTypes.func.isRequired
 }
