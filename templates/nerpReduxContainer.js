@@ -26,20 +26,20 @@ export default connect(mapStateToProps, mapDispatchToProps)(ExampleComponent)
 // INPUT
 // ------------------------------------
 import { connect } from 'react-redux'
-${2:import { ${4:actionCreator} } from './${1:ExampleComponent}.modules.js'}
-import ${1:ExampleComponent} from './${1:ExampleComponent}.component.js'
+${3:import { ${5:actionCreator} \\} from '${2}'}
+import ${1:ExampleComponent} from './${1:ExampleComponent}.component'
 
-${2:const mapDispatchToProps = {
+${3:const mapDispatchToProps = {
   ${4:actionCreator}
 }}
 
-${3:const mapStateToProps = (state, ownProps) => ({
-  ${5:exampleProp}: state.${1:ExampleComponent}.${5:exampleProp}
-})}
+${5:const mapStateToProps = (state, ownProps) => ({
+  ${6:exampleProp}: state.${1:ExampleComponent}.${6:exampleProp}
+\\})}
 
 export default connect(mapStateToProps, mapDispatchToProps)(${1:ExampleComponent})
 
 // ------------------------------------
 // GENERATED
 // ------------------------------------
-'import { connect } from \'react-redux\'\n${2:import { ${4:actionCreator} \\} from \'./${1:ExampleComponent}.modules.js\'}\nimport ${1:ExampleComponent} from \'./${1:ExampleComponent}.component.js\'\n\n${2:const mapDispatchToProps = {\n\t${4:actionCreator}\n\\}}\n\n${3:const mapStateToProps = (state, ownProps) => ({\n\t${5:exampleProp}: state.${1:ExampleComponent}.${5:exampleProp}\n\\})}\n\nexport default connect(mapStateToProps, mapDispatchToProps)(${1:ExampleComponent})\n'
+'import { connect } from \'react-redux\'\n${3:import { ${5:actionCreator} \\} from \'${2}\'}\nimport ${1:ExampleComponent} from \'./${1:ExampleComponent}.component.js\'\n\n${3:const mapDispatchToProps = {\n\t${4:actionCreator}\n}}\n\n${5:const mapStateToProps = (state, ownProps) => ({\n\t${6:exampleProp}: state.${1:ExampleComponent}.${6:exampleProp}\n})}\n\nexport default connect(mapStateToProps, mapDispatchToProps)(${1:ExampleComponent})\n'

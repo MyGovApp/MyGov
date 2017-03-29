@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { fetchBills } from '../../../Modules/Bills/Bills.modules'
+import { fetchBills } from '../../../Modules/actions'
 import Bills from './Bills.component'
 
 const mapDispatchToProps = {

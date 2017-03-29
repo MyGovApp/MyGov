@@ -1,4 +1,5 @@
-import reducer, { toggleDrawer } from './NavigationDrawer.modules'
+import reducer from './NavigationDrawer.modules'
+import { toggleDrawer } from '../actions'
 
 describe('NavigationDrawer Actions', () => {
   it('should have a toggleDrawer action creator that returns a TOGGLE_DRAWER action', () => {
