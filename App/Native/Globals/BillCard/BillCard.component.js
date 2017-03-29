@@ -1,12 +1,12 @@
 import React, { Component, PropTypes } from 'react'
-import { View, TouchableOpacity, Text, Separator, Image } from 'react-native'
+import { View, Text } from 'react-native'
 import { truncate, upperCase } from 'lodash'
 import moment from 'moment'
 import styles from './BillCard.styles'
 import BillStatusSvg from '../BillStatusSvg'
 
 class BillCard extends Component {
-  LabelValue ({ name, label, value }) {
+  renderLabelValue ({ name, label, value }) {
     return (
       <Text style={[ styles[name], styles.textCommon ]}>
         {label && (<Text style={styles.boldSpan}>{label}</Text>)}
@@ -16,7 +16,7 @@ class BillCard extends Component {
   }
 
   render () {
-    const LabelValue = this.LabelValue
+    const LabelValue = this.renderLabelValue
 
     const {
       bill_id,
@@ -24,11 +24,9 @@ class BillCard extends Component {
       introduced_on,
       last_action_at,
       chamber,
-      sponsor,
       status,
       progress,
-      detailedStatus,
-      urls } = this.props
+      detailedStatus } = this.props
 
     const truncTitle = truncate(official_title, { length: 70, separator: /,? +/ })
     const upperId = upperCase(bill_id)
@@ -76,6 +74,15 @@ class BillCard extends Component {
   }
 }
 
-BillCard.propTypes = {}
+BillCard.propTypes = {
+  bill_id: PropTypes.string.isRequired,
+  official_title: PropTypes.string.isRequired,
+  introduced_on: PropTypes.string.isRequired,
+  last_action_at: PropTypes.string.isRequired,
+  chamber: PropTypes.string.isRequired,
+  status: PropTypes.string.isRequired,
+  progress: PropTypes.object.isRequired,
+  detailedStatus: PropTypes.string.isRequired
+}
 
 export default BillCard

@@ -1,9 +1,6 @@
-// @flow
-
 import React, { Component } from 'react'
-import { ScrollView, Image, BackAndroid } from 'react-native'
+import { ScrollView, BackAndroid } from 'react-native'
 import styles from './DrawerContent.styles'
-import { images } from '../../Themes'
 import DrawerButton from '../../Globals/DrawerButton'
 import { Actions as NavigationActions } from 'react-native-router-flux'
 
@@ -22,22 +19,15 @@ class DrawerContent extends Component {
     this.context.drawer.toggle()
   }
 
-  routeHelloWorld = () => {
+  route = (route) => {
     this.toggleDrawer()
-    NavigationActions.helloWorld()
-  }
-
-  routeHelloWorldAsync = () => {
-    this.toggleDrawer()
-    NavigationActions.HelloWorldAsync()
+    NavigationActions[route]()
   }
 
   render () {
     return (
       <ScrollView style={styles.container}>
-        <Image source={images.logo} style={styles.logo} />
-        <DrawerButton text='Hello World' onPress={this.routeHelloWorld} />
-        <DrawerButton text='Hello World Async' onPress={this.routeHelloWorldAsync} />
+        <DrawerButton text='Bills' onPress={() => this.route('bills')} />
       </ScrollView>
     )
   }

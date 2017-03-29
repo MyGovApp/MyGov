@@ -1,6 +1,3 @@
-// @flow
-
-import { StyleSheet } from 'react-native'
 import { metrics, colors } from '../../Themes/'
 
 const navButton = {
@@ -8,7 +5,7 @@ const navButton = {
   justifyContent: 'center'
 }
 
-export default StyleSheet.create({
+export default {
   backButton: {
     ...navButton,
     marginTop: -12,
@@ -25,4 +22,4 @@ export default StyleSheet.create({
     marginRight: metrics.baseMargin,
     alignItems: 'center'
   }
-})
+}

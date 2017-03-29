@@ -1,41 +1,45 @@
 import React, { Component, PropTypes } from 'react'
-import { View, Text } from 'react-native'
+import { View, ListView } from 'react-native'
 import { classes } from './Bills.styles'
 import BillCard from '../../Globals/BillCard'
 
 export default class Bills extends Component {
-  constructor () {
-    super()
-    this.state = {
-      bills: []
-    }
-  }
-
   componentDidMount () {
     const { fetchBills } = this.props
     fetchBills()
   }
 
+  renderBillsList ({ bills }) {
+    const billsDs = (new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 })).cloneWithRows(bills)
+
+    return (
+      <View style={classes.contentContainer}>
+        <ListView
+          dataSource={billsDs}
+          renderRow={(bill) => (
+            <BillCard
+              {...bill}
+              key={bill.bill_id}
+            />
+          )}
+        />
+      </View>
+    )
+  }
+
   render () {
-    const { toggleColor, color, bills } = this.props
-    console.log(bills[0])
+    const { bills } = this.props
+    const BillsList = this.renderBillsList
 
     return (
       <View style={classes.mainView}>
-        <Text
-          onPress={toggleColor}
-          style={[classes.helloWorld, { color }]}>
-          Bills!
-        </Text>
-        {bills[0] && (<BillCard {...bills[0]} />)}
+        {Boolean(bills.length) && (<BillsList bills={bills} />)}
       </View>
     )
   }
 }
 
 Bills.propTypes = {
-  color: PropTypes.string.isRequired,
-  toggleColor: PropTypes.func.isRequired,
   fetchBills: PropTypes.func.isRequired,
   bills: PropTypes.array.isRequired
 }

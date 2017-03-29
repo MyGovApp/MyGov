@@ -1,5 +1,3 @@
-// @flow
-
 import { StyleSheet } from 'react-native'
 import { fonts, metrics, colors } from '../../../../Themes/'
 

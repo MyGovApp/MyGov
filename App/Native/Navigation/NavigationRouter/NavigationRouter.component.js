@@ -1,5 +1,3 @@
-// @flow
-
 import React, { Component } from 'react'
 import { Scene, Router } from 'react-native-router-flux'
 import Styles from './NavigationRouter.styles'
@@ -8,11 +6,10 @@ import NavItems from '../NavItems'
 
 // screens identified by the router
 import Bills from '../../Routes/Bills'
-import HelloWorldAsync from '../../Routes/HelloWorldAsync'
 
-/* **************************
-* Documentation: https://github.com/aksonov/react-native-router-flux
-***************************/
+// ------------------------------------
+// Documentation: https://github.com/aksonov/react-native-router-flux
+// ------------------------------------
 
 class NavigationRouter extends Component {
   render () {
@@ -31,14 +28,6 @@ class NavigationRouter extends Component {
               key='bills'
               component={Bills}
               title='Bills'
-              renderRightButton={NavItems.hamburgerButton}
-              renderBackButton={() => false}
-              direction='leftToRight'
-            />
-            <Scene
-              key='HelloWorldAsync'
-              component={HelloWorldAsync}
-              title='Hello World | Async'
               renderRightButton={NavItems.hamburgerButton}
               renderBackButton={() => false}
               direction='leftToRight'

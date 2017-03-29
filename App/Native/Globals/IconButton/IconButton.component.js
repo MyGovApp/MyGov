@@ -3,8 +3,6 @@ import { View, Text, Image, TouchableHighlight } from 'react-native'
 import classes from './IconButton.styles.js'
 import { Actions as NavigationActions } from 'react-native-router-flux'
 
-console.log('NavigationActions', NavigationActions)
-
 const IconButton = ({ route, text, image }) => {
   return (
     <TouchableHighlight

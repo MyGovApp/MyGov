@@ -6,11 +6,11 @@ const styles = {
   },
   container: {
     backgroundColor: colors.backgroundLight,
-    flex: 1,
     shadowOpacity: 0.5,
     margin: 10,
     paddingTop: 20,
     shadowColor: colors.shadow,
+    alignItems: 'center',
     shadowOffset: {
       height: 5
     }
