@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { View, Text } from 'react-native'
 import { classes } from './Bills.styles'
+import BillCard from '../../Globals/BillCard'
 
 export default class Bills extends Component {
   constructor () {
@@ -17,7 +18,7 @@ export default class Bills extends Component {
 
   render () {
     const { toggleColor, color, bills } = this.props
-    console.log(bills)
+    console.log(bills[0])
 
     return (
       <View style={classes.mainView}>
@@ -25,8 +26,8 @@ export default class Bills extends Component {
           onPress={toggleColor}
           style={[classes.helloWorld, { color }]}>
           Bills!
-          {bills[0] && bills[0].official_title}
         </Text>
+        {bills[0] && (<BillCard {...bills[0]} />)}
       </View>
     )
   }
