@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import { View, ListView } from 'react-native'
+import { View, ListView, ActivityIndicator } from 'react-native'
 import { classes } from './Bills.styles'
 import BillCard from '../../Globals/BillCard'
 
@@ -28,12 +28,15 @@ export default class Bills extends Component {
   }
 
   render () {
-    const { bills } = this.props
+    const { bills, loading } = this.props
     const BillsList = this.renderBillsList
 
     return (
       <View style={classes.mainView}>
-        {Boolean(bills.length) && (<BillsList bills={bills} />)}
+        {loading
+          ? <ActivityIndicator />
+          : Boolean(bills.length) && (<BillsList bills={bills} />)
+        }
       </View>
     )
   }
@@ -41,5 +44,6 @@ export default class Bills extends Component {
 
 Bills.propTypes = {
   fetchBills: PropTypes.func.isRequired,
-  bills: PropTypes.array.isRequired
+  bills: PropTypes.array.isRequired,
+  loading: PropTypes.bool.isRequired
 }

@@ -8,7 +8,6 @@ export const createRoutes = (store) => {
     getChildRoutes (location, next) {
       require.ensure([], (require) => {
         next(null, [
-          require('./HelloWorldAsync').default(store)
         ])
       })
     }
