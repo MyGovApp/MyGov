@@ -13,3 +13,6 @@
   'nerpNativeComponent':
     'prefix':'nerpNativeComponent'
     'body':'import React, { Component, PropTypes } from \'react\'\nimport { ${2:Text, TouchableOpacity} } from \'react-native\'\nimport styles from \'./${1:ComponentName}.styles\'\n\nclass ${1:ComponentName} extends Component {\n\trender () {\n\t\treturn (\n\t\t\t${3:<TouchableOpacity onPress={this.props.onPress\\}>\n\t\t\t\t<Text style={styles.text\\}>{this.props.text\\}</Text>\n\t\t\t</TouchableOpacity>}\n\t\t)\n\t}\n}\n\n${1:ComponentName}.propTypes = {\n\t${4:onPress: PropTypes.func.isRequired,\n\ttext: PropTypes.string.isRequired}\n}\n\nexport default ${1:ComponentName}\n\n'
+  'nerpIndex':
+    'prefix':'nerpIndex'
+    'body':'import ${1:ExampleComponent} from \'./${1:ExampleComponent}.${2:component}.js\'\n\nexport default ${1:ExampleComponent}\n'

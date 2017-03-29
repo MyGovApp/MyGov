@@ -23,4 +23,4 @@ export default ${1:ExampleComponent}
 // ------------------------------------
 // GENERATED
 // ------------------------------------
-'import ${1:ExampleComponent} from \'./${1:ExampleComponent}.${2:component}.js\'\n\nexport default ${1:ExampleComponent}\n'
+import ${1:ExampleComponent} from \'./${1:ExampleComponent}.${2:component}.js\'\n\nexport default ${1:ExampleComponent}\n

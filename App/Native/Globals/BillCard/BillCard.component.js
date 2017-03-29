@@ -3,6 +3,7 @@ import { View, TouchableOpacity, Text, Separator, Image } from 'react-native'
 import { truncate, upperCase } from 'lodash'
 import moment from 'moment'
 import styles from './BillCard.styles'
+import BillStatusSvg from '../BillStatusSvg'
 
 class BillCard extends Component {
   LabelValue ({ name, label, value }) {
@@ -16,9 +17,20 @@ class BillCard extends Component {
 
   render () {
     const LabelValue = this.LabelValue
-    const { bill_id, official_title, introduced_on, last_action_at, chamber, sponsor, status, progress, detailedStatus, urls } = this.props
 
-    const truncTitle = truncate(official_title, { length: 80, separator: /,? +/ })
+    const {
+      bill_id,
+      official_title,
+      introduced_on,
+      last_action_at,
+      chamber,
+      sponsor,
+      status,
+      progress,
+      detailedStatus,
+      urls } = this.props
+
+    const truncTitle = truncate(official_title, { length: 70, separator: /,? +/ })
     const upperId = upperCase(bill_id)
     const pDateIntroduced = moment(introduced_on).format('MMM D, YYYY')
     const pDateLastAction = moment(last_action_at).format('MMM D, YYYY')
@@ -58,6 +70,7 @@ class BillCard extends Component {
           label='Detailed Status: '
           value={detailedStatus}
         />
+        <BillStatusSvg {...{ status, progress, chamber }} />
       </View>
     )
   }
