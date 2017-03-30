@@ -5,6 +5,6 @@ modules.handleAction('TOGGLE_DRAWER', (state, action) => ({
   drawerOpen: !state.drawerOpen
 }))
 
-const initialState = { drawerOpen: false }
+modules.initialState = { drawerOpen: false }
 
-export default modules.createReducer(initialState)
+export default modules.createReducer()
