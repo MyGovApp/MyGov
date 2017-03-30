@@ -12,7 +12,8 @@ modules.handleAction('RECEIVE_BILLS', (state, action) => ({
 
 modules.initialState = {
   loading: false,
-  bills: []
+  bills: [],
+  filteredBills: []
 }
 
 export default modules.createReducer()

@@ -8,7 +8,9 @@ const mapDispatchToProps = {
 
 const mapStateToProps = (state, ownProps) => ({
   loading: state.bills.loading,
-  bills: state.bills.bills
+  bills: state.bills.bills,
+  options: { ...state.drawerContent },
+  filteredBills: state.bills.filteredBills
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Bills)
