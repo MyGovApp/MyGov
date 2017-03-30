@@ -6,7 +6,9 @@ const mapDispatchToProps = {
   updateBillFilters
 }
 
-const mapStateToProps = (state, ownProps) => ({
-})
+const mapStateToProps = (state, ownProps) => {
+  const { filters, sortBy, sortOrder } = state.drawerContent
+  return { filters, sortBy, sortOrder }
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(DrawerContent)

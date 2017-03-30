@@ -21,7 +21,7 @@ export const toggleDrawer = () => ({ type: 'TOGGLE_DRAWER' })
 
 export const updateBillFilters = (updates) => ({
   type: 'UPDATE_BILL_FILTERS',
-  updates
+  ...updates
 })
 
 // { sortOrder }

@@ -25,9 +25,26 @@ class DrawerContent extends Component {
   }
 
   render () {
+    const { updateBillFilters, sortOrder } = this.props
+    console.log('drawerContent pre render props', this.props)
     return (
       <ScrollView style={styles.container}>
-        <DrawerButton text='Bills' onPress={() => this.route('bills')} />
+        <DrawerButton
+          text={`Sort ${sortOrder} By:`}
+          onPress={() => updateBillFilters({ sortOrder: sortOrder === 'acending' ? 'decending' : 'acending' })}
+        />
+        <DrawerButton
+          text='Date Introduced'
+          onPress={() => updateBillFilters({ sortBy: 'introduced' })}
+        />
+        <DrawerButton
+          text='Bill Progress'
+          onPress={() => updateBillFilters({ sortBy: 'progress' })}
+        />
+        <DrawerButton
+          text='Popularity'
+          onPress={() => updateBillFilters({ sortBy: 'popularity' })}
+        />
       </ScrollView>
     )
   }
