@@ -1,3 +1,3 @@
-import DrawerContent from './DrawerContent.component.js'
+import DrawerContent from './DrawerContent.container'
 
 export default DrawerContent

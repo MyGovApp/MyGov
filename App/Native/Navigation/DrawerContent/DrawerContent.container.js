@@ -1,13 +1,12 @@
 import { connect } from 'react-redux'
-import { actionCreator } from '../../../Modules/DrawerContent'
+import { updateBillFilters } from '../../../Modules/actions'
 import DrawerContent from './DrawerContent.component'
 
 const mapDispatchToProps = {
-  actionCreator
+  updateBillFilters
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  exampleProp: state.DrawerContent.exampleProp
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(DrawerContent)
