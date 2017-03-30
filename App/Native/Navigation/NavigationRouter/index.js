@@ -1,3 +1,3 @@
-import NavigationRouter from './NavigationRouter.component.js'
+import NavigationRouter from './NavigationRouter.container.js'
 
 export default NavigationRouter

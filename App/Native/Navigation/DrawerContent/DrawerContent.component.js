@@ -40,10 +40,10 @@ class DrawerContent extends Component {
     const {
       updateBillFilters,
       sortOrder,
-      statusActive,
-      statusTabled,
-      statusFailed,
-      statusEnacted
+      active,
+      tabled,
+      failed,
+      enacted
     } = this.props
 
     const FilterButton = this.renderFilterButton
@@ -74,19 +74,19 @@ class DrawerContent extends Component {
         />
         <DrawerButton
           text='Active'
-          onPress={() => updateBillFilters({ statusActive: !statusActive })}
+          onPress={() => updateBillFilters({ active: !active })}
         />
         <DrawerButton
           text='Tabled'
-          onPress={() => updateBillFilters({ statusTabled: !statusTabled })}
+          onPress={() => updateBillFilters({ tabled: !tabled })}
         />
         <DrawerButton
           text='Failed'
-          onPress={() => updateBillFilters({ statusFailed: !statusFailed })}
+          onPress={() => updateBillFilters({ failed: !failed })}
         />
         <DrawerButton
           text='Enacted'
-          onPress={() => updateBillFilters({ statusEnacted: !statusEnacted })}
+          onPress={() => updateBillFilters({ enacted: !enacted })}
         />
         <DrawerButton
           text='Filter By Issue:'
@@ -105,10 +105,10 @@ DrawerContent.contextTypes = {
 DrawerContent.propTypes = {
   updateBillFilters: PropTypes.func,
   sortOrder: PropTypes.string,
-  statusActive: PropTypes.bool,
-  statusTabled: PropTypes.bool,
-  statusFailed: PropTypes.bool,
-  statusEnacted: PropTypes.bool
+  active: PropTypes.bool,
+  tabled: PropTypes.bool,
+  failed: PropTypes.bool,
+  enacted: PropTypes.bool
 }
 
 export default DrawerContent

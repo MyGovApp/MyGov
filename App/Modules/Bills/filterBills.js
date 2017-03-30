@@ -5,8 +5,9 @@ const filterBills = (allBills, options) => {
   if (!allBills.length) return allBills
 
   const topicFilteredBills = filterBillsByTopic(allBills, options.filters)
+  const statusFilteredBills = filterBillsByStatus(topicFilteredBills, options)
 
-  return topicFilteredBills
+  return statusFilteredBills
 }
 
 const filterBillsByTopic = (allBills, topics) => {
@@ -26,6 +27,18 @@ const filterBillsByTopic = (allBills, topics) => {
   })
 
   return topicFilteredBills
+}
+
+const filterBillsByStatus = (topicFilteredBills, options) => {
+  let statusFilteredBills = []
+
+  topicFilteredBills.forEach(bill => {
+    if (options[bill.status]) {
+      statusFilteredBills.push(bill)
+    }
+  })
+
+  return statusFilteredBills
 }
 
 export default filterBills

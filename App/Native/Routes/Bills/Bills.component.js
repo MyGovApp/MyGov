@@ -11,7 +11,6 @@ export default class Bills extends Component {
 
   renderBillsList ({ bills }) {
     const billsDs = (new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 })).cloneWithRows(bills)
-
     return (
       <View style={classes.contentContainer}>
         <ListView

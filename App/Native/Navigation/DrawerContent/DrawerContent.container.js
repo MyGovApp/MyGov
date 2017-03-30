@@ -11,20 +11,20 @@ const mapStateToProps = (state, ownProps) => {
     filters,
     sortBy,
     sortOrder,
-    statusEnacted,
-    statusActive,
-    statusFailed,
-    statusTabled
+    enacted,
+    active,
+    failed,
+    tabled
   } = state.drawerContent
 
   return {
     filters,
     sortBy,
     sortOrder,
-    statusEnacted,
-    statusActive,
-    statusFailed,
-    statusTabled
+    enacted,
+    active,
+    failed,
+    tabled
   }
 }
 

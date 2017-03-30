@@ -20,10 +20,10 @@ modules.handleAction('UPDATE_BILL_FILTERS', (state, action) => {
 modules.initialState = {
   sortOrder: 'decending',
   sortBy: 'progress',
-  statusActive: true,
-  statusFailed: false,
-  statusTabled: false,
-  statusEnacted: false,
+  active: true,
+  failed: false,
+  tabled: false,
+  enacted: false,
   filters: []
 }
 
