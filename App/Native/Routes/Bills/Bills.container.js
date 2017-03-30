@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import { fetchBills } from '../../../Modules/actions'
 import Bills from './Bills.component'
+import filterBills from '../../../Modules/Bills/filterBills'
 
 const mapDispatchToProps = {
   fetchBills
@@ -8,7 +9,7 @@ const mapDispatchToProps = {
 
 const mapStateToProps = (state, ownProps) => ({
   loading: state.bills.loading,
-  bills: state.bills.bills,
+  bills: filterBills(state.bills.bills, state.drawerContent),
   options: { ...state.drawerContent },
   filteredBills: state.bills.filteredBills
 })

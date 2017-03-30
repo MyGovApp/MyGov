@@ -24,7 +24,7 @@ modules.initialState = {
   statusFailed: false,
   statusTabled: false,
   statusEnacted: false,
-  filters: [ 'education' ]
+  filters: []
 }
 
 export default modules.createReducer()
