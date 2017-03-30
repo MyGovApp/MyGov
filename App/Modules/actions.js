@@ -23,11 +23,3 @@ export const updateBillFilters = (updates) => ({
   type: 'UPDATE_BILL_FILTERS',
   ...updates
 })
-
-// { sortOrder }
-// { sortBy: 'progress' }
-//
-// {
-//   sortBy: 'progress',
-//   filter: 'education'
-// }

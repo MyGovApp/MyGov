@@ -1,16 +1,30 @@
+import { pull } from 'lodash'
 import ReduxModules from '../../Utilities/ReduxModules'
 const modules = new ReduxModules()
 
-modules.handleAction('UPDATE_BILL_FILTERS', (state, action) => ({
-  sortBy: action.sortBy ? action.sortBy : state.sortBy,
-  sortOrder: action.sortOrder ? action.sortOrder : state.sortOrder,
-  filters: action.filters ? action.filters : state.filters
-}))
+modules.handleAction('UPDATE_BILL_FILTERS', (state, action) => {
+  let filters
+
+  if (action.filter) {
+    filters = state.filters.find((val) => val === action.filter)
+      ? pull(state.filters, action.filter)
+      : [ ...state.filters, action.filter ]
+  }
+
+  return {
+    ...action,
+    filters: action.filter ? filters : state.filters
+  }
+})
 
 modules.initialState = {
   sortOrder: 'decending',
   sortBy: 'progress',
-  filters: []
+  statusActive: true,
+  statusFailed: false,
+  statusTabled: false,
+  statusEnacted: false,
+  filters: [ 'education' ]
 }
 
 export default modules.createReducer()

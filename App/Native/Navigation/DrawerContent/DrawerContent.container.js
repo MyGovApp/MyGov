@@ -7,8 +7,25 @@ const mapDispatchToProps = {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const { filters, sortBy, sortOrder } = state.drawerContent
-  return { filters, sortBy, sortOrder }
+  const {
+    filters,
+    sortBy,
+    sortOrder,
+    statusEnacted,
+    statusActive,
+    statusFailed,
+    statusTabled
+  } = state.drawerContent
+
+  return {
+    filters,
+    sortBy,
+    sortOrder,
+    statusEnacted,
+    statusActive,
+    statusFailed,
+    statusTabled
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(DrawerContent)
