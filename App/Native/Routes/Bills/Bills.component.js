@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import { View, ListView, ActivityIndicator } from 'react-native'
+import { View, ListView, ActivityIndicator, Text } from 'react-native'
 import { classes } from './Bills.styles'
 import BillCard from '../../Globals/BillCard'
 
@@ -13,6 +13,7 @@ export default class Bills extends Component {
     const billsDs = (new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 })).cloneWithRows(bills)
     return (
       <View style={classes.contentContainer}>
+        <Text style={classes.billCount}>{`${bills.length} bills match your filters`}</Text>
         <ListView
           dataSource={billsDs}
           renderRow={(bill) => (

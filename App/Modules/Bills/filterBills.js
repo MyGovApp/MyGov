@@ -1,66 +1,63 @@
 import { camelCase } from 'lodash'
+import moment from 'moment'
 import filterTopics from '../../Native/Navigation/DrawerContent/billFilters'
 
 const filterBills = (allBills, options) => {
   if (!allBills.length) return allBills
 
-  const topicFilteredBills = filterBillsByTopic(allBills, options.filters)
-  const statusFilteredBills = filterBillsByStatus(topicFilteredBills, options)
-  const sortedBills = sortBills(statusFilteredBills, options.sortBy, options.sortOrder)
+  const statusFilteredBills = filterBillsByStatus(allBills, options)
+  const topicFilteredBills = filterBillsByTopic(statusFilteredBills, options.filters)
+  const sortedBills = sortBills(topicFilteredBills, options.sortBy, options.sortOrder)
 
   return sortedBills
 }
 
-const filterBillsByTopic = (allBills, topics) => {
-  if (!topics.length) return allBills
-  let topicFilteredBills = []
+const filterBillsByTopic = (bills, topics) => {
+  if (!topics.length) return bills
+  let newBills = []
 
   topics.forEach(topic => {
     const filter = filterTopics.find(filter => camelCase(filter.label) === topic)
     filter.topics.forEach(keyWord => {
-      allBills.forEach(bill => {
+      bills.forEach(bill => {
         if (bill.official_title.toLowerCase().includes(keyWord)) {
-          topicFilteredBills.push(bill)
+          newBills.push(bill)
         }
       })
     })
   })
 
-  return topicFilteredBills
+  return newBills
 }
 
-const filterBillsByStatus = (topicFilteredBills, options) => {
-  let statusFilteredBills = []
+const filterBillsByStatus = (bills, options) => {
+  let newBills = []
 
-  topicFilteredBills.forEach(bill => {
+  bills.forEach(bill => {
     if (options[bill.status]) {
-      statusFilteredBills.push(bill)
+      newBills.push(bill)
     }
   })
 
-  return statusFilteredBills
+  return newBills
 }
 
-const sortBills = (statusFilteredBills, sortBy, sortOrder) => {
-  console.log('sortOrder', sortOrder)
-  console.log("sortOrder === 'acending'", sortOrder === 'acending')
-  const compare = (a, b) => {
-    if (sortOrder === 'acending') {
-      return a < b
-    } else {
-      return a > b
-    }
-  }
+const sortBills = (bills, sortBy, sortOrder) => {
+  const compare = (a, b) => sortOrder === 'acending' ? a < b : a > b
 
   if (sortBy === 'progress') {
-    return statusFilteredBills.sort((billA, billB) => {
-      if (compare(billA.progress.index, billB.progress.index)) {
-        return -1
-      } else {
-        return 1
-      }
-    })
+    return bills.sort((billA, billB) => (
+      compare(billA.progress.index, billB.progress.index) ? -1 : 1
+    ))
   }
+
+  if (sortBy === 'introduced') {
+    return bills.sort((billA, billB) => (
+      compare(moment(billA.introduced_on).unix(), moment(billB.introduced_on).unix()) ? -1 : 1
+    ))
+  }
+
+  return bills
 }
 
 export default filterBills

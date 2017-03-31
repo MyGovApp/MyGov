@@ -4,5 +4,8 @@ export const classes = {
     marginTop: 64,
     flex: 1,
     justifyContent: 'center'
+  },
+  billCount: {
+    textAlign: 'center'
   }
 }
