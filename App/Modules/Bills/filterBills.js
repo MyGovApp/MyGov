@@ -12,6 +12,25 @@ const filterBills = (allBills, options) => {
   return sortedBills
 }
 
+const deepEqual = (a, b) => JSON.stringify(a) === JSON.stringify(b)
+
+const filterBillsByStatus = (bills, options) => {
+  const params = [ options.active, options.tabled, options.failed, options.enacted ]
+  if (deepEqual(filterBillsByStatus.cachedParams, params)) return filterBillsByStatus.cachedBills
+  filterBillsByStatus.cachedParams = params
+
+  let newBills = []
+
+  bills.forEach(bill => {
+    if (options[bill.status]) {
+      newBills.push(bill)
+    }
+  })
+
+  filterBillsByStatus.cachedBills = newBills
+  return newBills
+}
+
 const filterBillsByTopic = (bills, topics) => {
   if (!topics.length) return bills
   let newBills = []
@@ -25,18 +44,6 @@ const filterBillsByTopic = (bills, topics) => {
         }
       })
     })
-  })
-
-  return newBills
-}
-
-const filterBillsByStatus = (bills, options) => {
-  let newBills = []
-
-  bills.forEach(bill => {
-    if (options[bill.status]) {
-      newBills.push(bill)
-    }
   })
 
   return newBills
