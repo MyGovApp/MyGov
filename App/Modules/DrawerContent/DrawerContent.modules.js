@@ -7,7 +7,7 @@ modules.handleAction('UPDATE_BILL_FILTERS', (state, action) => {
 
   if (action.filter) {
     filters = state.filters.find((val) => val === action.filter)
-      ? pull(state.filters, action.filter)
+      ? [ ...pull(state.filters, action.filter) ]
       : [ ...state.filters, action.filter ]
   }
 
