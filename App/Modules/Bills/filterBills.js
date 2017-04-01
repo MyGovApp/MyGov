@@ -2,8 +2,6 @@ import { camelCase } from 'lodash'
 import moment from 'moment'
 import filterTopics from '../../Native/Navigation/DrawerContent/billFilters'
 
-const deepEqual = (a, b) => JSON.stringify(a) === JSON.stringify(b)
-
 const filterBills = (allBills, options) => {
   if (!allBills.length) return allBills
 
@@ -13,6 +11,8 @@ const filterBills = (allBills, options) => {
 
   return sortedBills
 }
+
+const deepEqual = (a, b) => JSON.stringify(a) === JSON.stringify(b)
 
 const filterBillsByStatus = (bills, options) => {
   const { active, tabled, failed, enacted } = options
@@ -47,7 +47,8 @@ const filterBillsByTopic = (bills, topics) => {
     const filter = filterTopics.find(filter => camelCase(filter.label) === topic)
     filter.topics.forEach(keyWord => {
       bills.forEach(bill => {
-        if (bill.official_title.toLowerCase().includes(keyWord)) {
+        if (bill.official_title.toLowerCase().includes(keyWord) &&
+        !newBills.find((existingBill) => bill === existingBill)) {
           newBills.push(bill)
         }
       })
