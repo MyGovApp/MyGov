@@ -10,6 +10,7 @@ const images = {
   checkIcon2: require('../../Assets/Images/checkIcon2.png'),
   congressIcon: require('../../Assets/Images/congressIcon.png'),
   crimeIcon: require('../../Assets/Images/crimeIcon.gif'),
+  downArrow: require('../../Assets/Images/downArrow.png'),
   eastAsiaIcon: require('../../Assets/Images/eastAsiaIcon.png'),
   economyIcon: require('../../Assets/Images/economyIcon.png'),
   educationIcon: require('../../Assets/Images/educationIcon.png'),
@@ -25,6 +26,7 @@ const images = {
   militaryIcon: require('../../Assets/Images/militaryIcon.png'),
   notificationIcon: require('../../Assets/Images/notificationIcon.png'),
   tabledIcon: require('../../Assets/Images/tabledIcon.png'),
+  upArrow: require('../../Assets/Images/upArrow.png'),
   womenIcon: require('../../Assets/Images/womenIcon.png')
 }
 

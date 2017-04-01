@@ -62,6 +62,7 @@ class DrawerContent extends Component {
           onPress={() => updateBillFilters({
             sortOrder: sortOrder === 'acending' ? 'decending' : 'acending'
           })}
+          rightIcon={sortOrder === 'acending' ? images.upArrow : images.downArrow}
           isIndex
         />
         <DrawerButton
