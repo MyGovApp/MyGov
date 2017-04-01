@@ -33,7 +33,7 @@ class DrawerContent extends Component {
       <DrawerButton
         text={label}
         onPress={() => updateBillFilters({ filter: camelCase(label) })}
-        icon={images[`${camelCase(label)}Icon`]}
+        leftIcon={images[`${camelCase(label)}Icon`]}
       />
     )
   }
@@ -62,12 +62,13 @@ class DrawerContent extends Component {
         <DrawerButton
           text='Date Introduced'
           onPress={() => updateBillFilters({ sortBy: 'introduced' })}
-          icon={images.calendarIcon}
+          leftIcon={images.calendarIcon}
+          rightIcon={images.calendarIcon}
         />
         <DrawerButton
           text='Bill Progress'
           onPress={() => updateBillFilters({ sortBy: 'progress' })}
-          icon={images.checkIcon}
+          rightIcon={images.checkIcon}
         />
         <DrawerButton
           text='Filter By Status:'
@@ -77,22 +78,22 @@ class DrawerContent extends Component {
         <DrawerButton
           text='Active'
           onPress={() => updateBillFilters({ active: !active })}
-          icon={images.flagIcon}
+          leftIcon={images.flagIcon}
         />
         <DrawerButton
           text='Tabled'
           onPress={() => updateBillFilters({ tabled: !tabled })}
-          icon={images.tabledIcon}
+          leftIcon={images.tabledIcon}
         />
         <DrawerButton
           text='Failed'
           onPress={() => updateBillFilters({ failed: !failed })}
-          icon={images.failedIcon}
+          leftIcon={images.failedIcon}
         />
         <DrawerButton
           text='Enacted'
           onPress={() => updateBillFilters({ enacted: !enacted })}
-          icon={images.enactedIcon}
+          leftIcon={images.enactedIcon}
         />
         <DrawerButton
           text='Filter By Issue:'
