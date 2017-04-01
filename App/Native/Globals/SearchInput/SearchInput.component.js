@@ -16,7 +16,9 @@ class SearchInput extends Component {
         <Text style={styles.searchText}>Search</Text>
         <TextInput
           style={styles.input}
+          placeholder='Search'
           clearButtonMode='always'
+          onChangeText={(text) => this.props.searchBills(text)}
         />
       </View>
     )
@@ -24,7 +26,8 @@ class SearchInput extends Component {
 }
 
 SearchInput.propTypes = {
-  height: PropTypes.number.isRequired
+  height: PropTypes.number.isRequired,
+  searchBills: PropTypes.func.isRequired
 }
 
 export default SearchInput

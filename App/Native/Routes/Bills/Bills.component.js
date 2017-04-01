@@ -38,11 +38,13 @@ export default class Bills extends Component {
 
     return (
       <View>
+        {!bills.length && (<Text style={styles.noBills}>No bills found</Text>)}
         <SearchInput height={this.state.searchInputHeight} />
         <Text style={styles.billCount}>
           {`${bills.length} bills match your filters`}
         </Text>
         <ListView
+          enableEmptySections
           ref={billsList => { this.billsList = billsList }}
           dataSource={billsDs}
           onScroll={this.handleScroll}
@@ -66,7 +68,7 @@ export default class Bills extends Component {
       <View style={styles.mainView}>
         {loading
           ? <ActivityIndicator />
-          : Boolean(bills.length) && (<BillsList bills={bills} />)
+          : <BillsList bills={bills} />
         }
       </View>
     )

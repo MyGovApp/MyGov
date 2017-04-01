@@ -1,8 +1,8 @@
 const colors = {
   backgroundWhite: '#FFF',
   backgroundGray: '#ececec',
+  darkGrey: '#777777',
   clear: 'rgba(0,0,0,0)',
-  cloud: 'rgba(200,200,200, 0.35)',
   drawer: 'rgba(30, 30, 29, 0.95)',
   frost: '#D8D8D8',
   primaryBlue: '#112E50',

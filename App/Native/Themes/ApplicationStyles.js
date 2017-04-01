@@ -45,7 +45,7 @@ const ApplicationStyles = {
     }
   },
   darkLabelContainer: {
-    backgroundColor: Colors.cloud,
+    backgroundColor: Colors.backgroundLight,
     padding: Metrics.smallMargin
   },
   darkLabel: {

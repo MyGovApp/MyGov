@@ -17,6 +17,11 @@ export const fetchBills = () => {
   }
 }
 
+export const searchBills = (search) => ({
+  type: 'SEARCH_BILLS',
+  search
+})
+
 export const toggleDrawer = () => ({ type: 'TOGGLE_DRAWER' })
 
 export const updateBillFilters = (updates) => ({

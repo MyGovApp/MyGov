@@ -1,4 +1,4 @@
-import { colors } from '../../Themes'
+import { colors, fonts } from '../../Themes'
 
 export const styles = {
   mainView: {
@@ -10,5 +10,11 @@ export const styles = {
   },
   billCount: {
     textAlign: 'center'
+  },
+  noBills: {
+    color: colors.darkGrey,
+    textAlign: 'center',
+    paddingBottom: 50,
+    ...fonts.style.h2
   }
 }
