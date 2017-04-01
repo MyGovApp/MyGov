@@ -27,13 +27,16 @@ class DrawerContent extends Component {
     NavigationActions[route]()
   }
 
-  renderFilterButton = ({ label }) => {
+  renderFilterButton = ({ label, checked }) => {
     const { updateBillFilters } = this.props
+    const rightIcon = checked ? images.checkIcon2 : null
+
     return (
       <DrawerButton
         text={label}
         onPress={() => updateBillFilters({ filter: camelCase(label) })}
         leftIcon={images[`${camelCase(label)}Icon`]}
+        {...{ rightIcon }}
       />
     )
   }
@@ -42,10 +45,12 @@ class DrawerContent extends Component {
     const {
       updateBillFilters,
       sortOrder,
+      sortBy,
       active,
       tabled,
       failed,
-      enacted
+      enacted,
+      filters
     } = this.props
 
     const FilterButton = this.renderFilterButton
@@ -63,44 +68,53 @@ class DrawerContent extends Component {
           text='Date Introduced'
           onPress={() => updateBillFilters({ sortBy: 'introduced' })}
           leftIcon={images.calendarIcon}
-          rightIcon={images.calendarIcon}
+          rightIcon={sortBy === 'introduced' && images.checkIcon2}
         />
         <DrawerButton
           text='Bill Progress'
           onPress={() => updateBillFilters({ sortBy: 'progress' })}
-          rightIcon={images.checkIcon}
+          leftIcon={images.checkIcon}
+          rightIcon={sortBy === 'progress' && images.checkIcon2}
         />
         <DrawerButton
           text='Filter By Status:'
-          onPress={() => {}}
           isIndex
         />
         <DrawerButton
           text='Active'
           onPress={() => updateBillFilters({ active: !active })}
           leftIcon={images.flagIcon}
+          rightIcon={active && images.checkIcon2}
         />
         <DrawerButton
           text='Tabled'
           onPress={() => updateBillFilters({ tabled: !tabled })}
           leftIcon={images.tabledIcon}
+          rightIcon={tabled && images.checkIcon2}
         />
         <DrawerButton
           text='Failed'
           onPress={() => updateBillFilters({ failed: !failed })}
           leftIcon={images.failedIcon}
+          rightIcon={failed && images.checkIcon2}
         />
         <DrawerButton
           text='Enacted'
           onPress={() => updateBillFilters({ enacted: !enacted })}
           leftIcon={images.enactedIcon}
+          rightIcon={enacted && images.checkIcon2}
         />
         <DrawerButton
           text='Filter By Issue:'
-          onPress={() => {}}
           isIndex
         />
-        {billFilters.map((filter, i) => <FilterButton key={i} label={filter.label} />)}
+        {billFilters.map((filter, i) => (
+          <FilterButton
+            key={i}
+            label={filter.label}
+            checked={filters.find((filterMatch) => filterMatch === camelCase(filter.label))}
+          />
+        ))}
       </ScrollView>
     )
   }
@@ -113,10 +127,12 @@ DrawerContent.contextTypes = {
 DrawerContent.propTypes = {
   updateBillFilters: PropTypes.func,
   sortOrder: PropTypes.string,
+  sortBy: PropTypes.string,
   active: PropTypes.bool,
   tabled: PropTypes.bool,
   failed: PropTypes.bool,
-  enacted: PropTypes.bool
+  enacted: PropTypes.bool,
+  filters: PropTypes.array
 }
 
 export default DrawerContent

@@ -16,9 +16,11 @@ class DrawerButton extends Component {
           onPress={this.props.onPress}
           style={[ styles.container, indexContainer, leftIconContainer ]}
         >
-          {leftIcon && (<Image source={leftIcon} style={styles.icon} />)}
-          <Text style={[ styles.text, indexText ]}>{this.props.text}</Text>
-          {rightIcon && (<Image source={rightIcon} style={styles.icon} />)}
+          <View style={styles.leftGroup}>
+            {leftIcon && (<Image source={leftIcon} style={styles.iconLeft} />)}
+            <Text style={[ styles.text, indexText ]}>{this.props.text}</Text>
+          </View>
+          {rightIcon && (<Image source={rightIcon} style={styles.iconRight} />)}
         </TouchableOpacity>
       </View>
     )
@@ -26,10 +28,10 @@ class DrawerButton extends Component {
 }
 
 DrawerButton.propTypes = {
-  onPress: PropTypes.func.isRequired,
   text: PropTypes.string.isRequired,
-  leftIcon: PropTypes.number,
-  rightIcon: PropTypes.number,
+  onPress: PropTypes.func,
+  leftIcon: PropTypes.any,
+  rightIcon: PropTypes.any,
   isIndex: PropTypes.bool
 }
 
