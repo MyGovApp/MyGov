@@ -5,7 +5,7 @@ const styles = {
     fontWeight: '600'
   },
   container: {
-    backgroundColor: colors.backgroundLight,
+    backgroundColor: colors.backgroundWhite,
     shadowOpacity: 0.5,
     margin: 10,
     paddingTop: 20,

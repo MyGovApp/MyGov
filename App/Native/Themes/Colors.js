@@ -1,5 +1,6 @@
 const colors = {
-  backgroundLight: '#FFF',
+  backgroundWhite: '#FFF',
+  backgroundGray: '#ececec',
   clear: 'rgba(0,0,0,0)',
   cloud: 'rgba(200,200,200, 0.35)',
   drawer: 'rgba(30, 30, 29, 0.95)',
