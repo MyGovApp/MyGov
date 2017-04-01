@@ -1,7 +1,8 @@
 export default {
   container: {
     flex: 1,
-    padding: 20
+    paddingTop: 20,
+    paddingBottom: 20
   },
   logo: {
     alignSelf: 'center'

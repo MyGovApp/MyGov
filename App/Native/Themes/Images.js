@@ -1,10 +1,30 @@
-// leave off @2x/@3x
 const images = {
-  logo: require('../../Assets/Images/ir.png'),
+  accountIcon: require('../../Assets/Images/accountIcon.png'),
+  agricultureIcon: require('../../Assets/Images/agricultureIcon.png'),
+  billDetailIcon: require('../../Assets/Images/billDetailIcon.png'),
   billsIcon: require('../../Assets/Images/billsIcon.png'),
+  calendarIcon: require('../../Assets/Images/calendarIcon.png'),
+  cancelCircleIcon: require('../../Assets/Images/cancelCircleIcon.png'),
+  centralAsiaIcon: require('../../Assets/Images/centralAsiaIcon.png'),
+  checkIcon: require('../../Assets/Images/checkIcon.png'),
   congressIcon: require('../../Assets/Images/congressIcon.png'),
+  crimeIcon: require('../../Assets/Images/crimeIcon.gif'),
+  eastAsiaIcon: require('../../Assets/Images/eastAsiaIcon.png'),
+  economyIcon: require('../../Assets/Images/economyIcon.png'),
+  educationIcon: require('../../Assets/Images/educationIcon.png'),
+  enactedIcon: require('../../Assets/Images/enactedIcon.png'),
+  energyIcon: require('../../Assets/Images/energyIcon.png'),
+  environmentIcon: require('../../Assets/Images/environmentIcon.png'),
+  eyeIcon: require('../../Assets/Images/eyeIcon.png'),
+  failedIcon: require('../../Assets/Images/failedIcon.png'),
+  flagIcon: require('../../Assets/Images/flagIcon.png'),
+  healthCareIcon: require('../../Assets/Images/healthCareIcon.png'),
+  lgbtIcon: require('../../Assets/Images/lgbtIcon.png'),
+  middleEastIcon: require('../../Assets/Images/middleEastIcon.png'),
+  militaryIcon: require('../../Assets/Images/militaryIcon.png'),
   notificationIcon: require('../../Assets/Images/notificationIcon.png'),
-  accountIcon: require('../../Assets/Images/accountIcon.png')
+  tabledIcon: require('../../Assets/Images/tabledIcon.png'),
+  womenIcon: require('../../Assets/Images/womenIcon.png')
 }
 
 export default images
