@@ -12,6 +12,7 @@ const IconButton = ({ route, text, image }) => {
       <View style={classes.navItem}>
         <Image
           source={image}
+          style={{ height: 25, width: 25, padding: 5 }}
         />
         <Text
           style={classes.text}

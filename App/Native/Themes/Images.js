@@ -4,7 +4,6 @@ const images = {
   billDetailIcon: require('../../Assets/Images/billDetailIcon.png'),
   billsIcon: require('../../Assets/Images/billsIcon.png'),
   calendarIcon: require('../../Assets/Images/calendarIcon.png'),
-  cancelCircleIcon: require('../../Assets/Images/cancelCircleIcon.png'),
   centralAsiaIcon: require('../../Assets/Images/centralAsiaIcon.png'),
   checkIcon: require('../../Assets/Images/checkIcon.png'),
   checkIcon2: require('../../Assets/Images/checkIcon2.png'),
