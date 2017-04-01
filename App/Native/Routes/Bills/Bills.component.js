@@ -17,6 +17,10 @@ export default class Bills extends Component {
     fetchBills()
   }
 
+  componentWillReceiveProps () {
+    if (this.billsList) this.billsList.scrollTo({ y: 0 })
+  }
+
   handleScroll = (e) => {
     let currentScroll = e.nativeEvent.contentOffset.y
 
@@ -39,6 +43,7 @@ export default class Bills extends Component {
           {`${bills.length} bills match your filters`}
         </Text>
         <ListView
+          ref={billsList => { this.billsList = billsList }}
           dataSource={billsDs}
           onScroll={this.handleScroll}
           scrollEventThrottle={400}
