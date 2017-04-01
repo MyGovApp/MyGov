@@ -61,8 +61,15 @@ const filterBillsByTopic = (bills, topics) => {
 }
 
 const filterBillsBySearch = (bills, search) => {
+  const params = [ bills, search ]
+
+  if (!search.length) return bills
+  if (deepEqual(params, filterBillsBySearch.cachedParams)) return filterBillsBySearch.cachedBills
+  filterBillsBySearch.cachedParams = params
+
   const newBills = bills.filter((bill) => bill.official_title.toLowerCase().includes(search.toLowerCase()))
 
+  filterBillsBySearch.cachedBills = newBills
   return newBills
 }
 

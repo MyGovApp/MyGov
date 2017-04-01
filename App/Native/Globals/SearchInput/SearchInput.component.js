@@ -15,6 +15,7 @@ class SearchInput extends Component {
       <View style={[ styles.searchContainer, showHide ]}>
         <Text style={styles.searchText}>Search</Text>
         <TextInput
+          value={this.props.search}
           style={styles.input}
           placeholder='Search'
           clearButtonMode='always'

@@ -7,6 +7,7 @@ const mapDispatchToProps = {
 }
 
 const mapStateToProps = (state, ownProps) => ({
+  search: state.searchInput.search
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchInput)
