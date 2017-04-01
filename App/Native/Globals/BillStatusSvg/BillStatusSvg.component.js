@@ -423,6 +423,7 @@ const BillStatus = ({ status, progress, chamber }) => {
     <Svg
       height='60'
       width='350'
+      style={{ margin: 10 }}
     >
       <Line
         className='lS1'

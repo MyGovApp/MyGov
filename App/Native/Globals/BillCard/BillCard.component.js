@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, Image, TouchableOpacity } from 'react-native'
 import { truncate, upperCase } from 'lodash'
+import { Actions as NavigationActions } from 'react-native-router-flux'
+import { images } from '../../Themes'
 import moment from 'moment'
 import styles from './BillCard.styles'
 import BillStatusSvg from '../BillStatusSvg'
@@ -69,6 +71,10 @@ class BillCard extends Component {
           value={detailedStatus}
         />
         <BillStatusSvg {...{ status, progress, chamber }} />
+        <TouchableOpacity style={styles.buttonBorder} onPress={() => NavigationActions.bill()}>
+          <Image source={images.billDetailIcon} style={{ height: 30, width: 30 }} />
+          <Text style={styles.billDetials}>Bill Details</Text>
+        </TouchableOpacity>
       </View>
     )
   }

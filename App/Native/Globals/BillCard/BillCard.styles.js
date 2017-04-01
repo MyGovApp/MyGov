@@ -1,4 +1,4 @@
-import { colors } from '../../Themes'
+import { colors, fonts } from '../../Themes'
 
 const styles = {
   boldSpan: {
@@ -29,6 +29,21 @@ const styles = {
   title: {
     fontSize: 20,
     fontWeight: '600'
+  },
+  billDetials: {
+    color: colors.darkGrey,
+    paddingLeft: 10,
+    ...fonts.style.normal
+  },
+  buttonBorder: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderTopColor: colors.frost,
+    borderTopWidth: 1,
+    flex: 1,
+    width: 300,
+    padding: 5
   }
 }
 
