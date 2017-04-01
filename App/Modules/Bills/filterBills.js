@@ -2,6 +2,8 @@ import { camelCase } from 'lodash'
 import moment from 'moment'
 import filterTopics from '../../Native/Navigation/DrawerContent/billFilters'
 
+const deepEqual = (a, b) => JSON.stringify(a) === JSON.stringify(b)
+
 const filterBills = (allBills, options) => {
   if (!allBills.length) return allBills
 
@@ -12,10 +14,11 @@ const filterBills = (allBills, options) => {
   return sortedBills
 }
 
-const deepEqual = (a, b) => JSON.stringify(a) === JSON.stringify(b)
-
 const filterBillsByStatus = (bills, options) => {
-  const params = [ options.active, options.tabled, options.failed, options.enacted ]
+  const { active, tabled, failed, enacted } = options
+  const params = [ bills, active, tabled, failed, enacted ]
+
+  if (!(active || tabled || failed || enacted)) return bills
   if (deepEqual(filterBillsByStatus.cachedParams, params)) return filterBillsByStatus.cachedBills
   filterBillsByStatus.cachedParams = params
 
@@ -32,7 +35,12 @@ const filterBillsByStatus = (bills, options) => {
 }
 
 const filterBillsByTopic = (bills, topics) => {
+  const params = [ bills, topics ]
+
   if (!topics.length) return bills
+  if (deepEqual(params, filterBillsByTopic.cachedParams)) return filterBillsByTopic.cachedBills
+  filterBillsByTopic.cachedParams = params
+
   let newBills = []
 
   topics.forEach(topic => {
@@ -46,25 +54,33 @@ const filterBillsByTopic = (bills, topics) => {
     })
   })
 
+  filterBillsByTopic.cachedBills = newBills
   return newBills
 }
 
 const sortBills = (bills, sortBy, sortOrder) => {
+  const params = [ bills, sortBy, sortOrder ]
   const compare = (a, b) => sortOrder === 'acending' ? a < b : a > b
 
+  if (deepEqual(params, sortBills.cachedParams)) return sortBills.cachedBills
+  sortBills.cachedParams = params
+
+  let newBills = bills
+
   if (sortBy === 'progress') {
-    return bills.sort((billA, billB) => (
+    newBills = bills.sort((billA, billB) => (
       compare(billA.progress.index, billB.progress.index) ? -1 : 1
     ))
   }
 
   if (sortBy === 'introduced') {
-    return bills.sort((billA, billB) => (
+    newBills = bills.sort((billA, billB) => (
       compare(moment(billA.introduced_on).unix(), moment(billB.introduced_on).unix()) ? -1 : 1
     ))
   }
 
-  return bills
+  sortBills.cachedBills = newBills
+  return newBills
 }
 
 export default filterBills
