@@ -9,7 +9,7 @@ const mapDispatchToProps = {
 
 const mapStateToProps = (state, ownProps) => ({
   loading: state.bills.loading,
-  bills: filterBills(state.bills.bills, state.drawerContent, state.searchInput.search),
+  bills: filterBills(state.bills.bills, state.drawerContent, state.searchInput.search, state.bills.myBills),
   options: { ...state.drawerContent },
   filteredBills: state.bills.filteredBills
 })

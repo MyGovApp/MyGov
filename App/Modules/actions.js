@@ -39,15 +39,32 @@ function toggleToMyBills (billId) {
 function fetchBills () {
   return dispatch => {
     dispatch({ type : 'START_REQUEST' })
-    return fetch('http://192.168.0.17:3001/api/v1/bills')
-      .then(res => res.json())
+    return Promise.all([
+      fetchApi(dispatch),
+      fetchMyBills(dispatch)
+    ])
+  }
+}
+
+const fetchApi = (dispatch) => (
+  fetch('http://192.168.0.17:3001/api/v1/bills')
+    .then(res => res.json())
       .then(bills => dispatch({
         type: 'RECEIVE_BILLS',
         bills
       }))
       .catch(err => console.log('Error: ', err))
-  }
-}
+)
+
+const fetchMyBills = (dispatch) => (
+  AsyncStorage.getItem('myBills')
+  .then(myBills => {
+    if (!myBills) return []
+    return JSON.parse(myBills)
+  })
+  .then(myBills => dispatch({ type: 'RECEIVE_MYBILLS', myBills }))
+  .catch(err => console.log('err : ', err))
+)
 
 function searchBills (search) {
   return {

@@ -2,11 +2,12 @@ import { camelCase } from 'lodash'
 import moment from 'moment'
 import filterTopics from '../../Native/Navigation/DrawerContent/billFilters'
 
-const filterBills = (allBills, options, search) => {
+const filterBills = (allBills, options, search, myBills) => {
   if (!allBills.length) return allBills
 
   const statusFilteredBills = filterBillsByStatus(allBills, options)
-  const topicFilteredBills = filterBillsByTopic(statusFilteredBills, options.filters)
+  const myBillsFilteredBills = filterMyBills(statusFilteredBills, options.myBills, myBills)
+  const topicFilteredBills = filterBillsByTopic(myBillsFilteredBills, options.filters)
   const searchFilteredBills = filterBillsBySearch(topicFilteredBills, search)
   const sortedBills = sortBills(searchFilteredBills, options.sortBy, options.sortOrder)
 
@@ -24,6 +25,10 @@ const filterBillsByStatus = (bills, options) => {
 
   return newBills
 }
+
+const filterMyBills = (bills, shouldFilter, myBills) => !shouldFilter
+  ? bills
+  : bills.filter(bill => myBills.find(myBill => myBill === bill.bill_id))
 
 const filterBillsByTopic = (bills, topics) => {
   if (!topics.length) return bills

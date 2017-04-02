@@ -141,7 +141,8 @@ Bill.propTypes = {
   detailedStatus: PropTypes.string.isRequired,
   sponsor: PropTypes.object.isRequired,
   urls: PropTypes.object.isRequired,
-  toggleToMyBills: PropTypes.func.isRequired
+  toggleToMyBills: PropTypes.func.isRequired,
+  isAdded: PropTypes.bool.isRequired
 }
 
 export default Bill
