@@ -28,7 +28,8 @@ class SearchInput extends Component {
 
 SearchInput.propTypes = {
   height: PropTypes.number.isRequired,
-  searchBills: PropTypes.func.isRequired
+  searchBills: PropTypes.func.isRequired,
+  search: PropTypes.string
 }
 
 export default SearchInput
