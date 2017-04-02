@@ -1,25 +1,22 @@
 import React, { Component, PropTypes } from 'react'
 import { View, Text, Image, TouchableOpacity } from 'react-native'
-import { truncate, upperCase } from 'lodash'
+import { truncate, upperCase, capitalize } from 'lodash'
 import { Actions as NavigationActions } from 'react-native-router-flux'
 import { images } from '../../Themes'
 import moment from 'moment'
 import styles from './BillCard.styles'
 import BillStatusSvg from '../BillStatusSvg'
+import LabelValue from '../LabelValue'
 
 class BillCard extends Component {
-  renderLabelValue ({ name, label, value }) {
-    return (
-      <Text style={[ styles[name], styles.textCommon ]}>
-        {label && (<Text style={styles.boldSpan}>{label}</Text>)}
-        {value}
-      </Text>
-    )
+  constructor () {
+    super()
+    this.state = {
+      showFullTitle: false
+    }
   }
 
   render () {
-    const LabelValue = this.renderLabelValue
-
     const {
       bill_id,
       official_title,
@@ -27,51 +24,51 @@ class BillCard extends Component {
       last_action_at,
       chamber,
       status,
-      progress,
-      detailedStatus } = this.props
+      progress } = this.props
 
-    const truncTitle = truncate(official_title, { length: 70, separator: /,? +/ })
+    const { showFullTitle } = this.state
+
+    const truncTitle = truncate(official_title, { length: 65, separator: /,? +/ })
     const upperId = upperCase(bill_id)
     const pDateIntroduced = moment(introduced_on).format('MMM D, YYYY')
     const pDateLastAction = moment(last_action_at).format('MMM D, YYYY')
 
     return (
       <View style={styles.container}>
-        <LabelValue
-          name='title'
-          value={truncTitle}
-        />
+        <TouchableOpacity
+          onPress={() => this.setState({ showFullTitle: !showFullTitle })}
+        >
+          <LabelValue
+            name='title'
+            value={showFullTitle ? official_title : truncTitle}
+          />
+        </TouchableOpacity>
         <LabelValue
           name='id'
           value={upperId}
         />
         <LabelValue
+          name='status'
+          label='Status: '
+          value={capitalize(status)}
+        />
+        <LabelValue
           name='dateIntroduced'
           label='Date Introduced: '
           value={pDateIntroduced}
+          style={{ paddingTop: 5 }}
         />
         <LabelValue
           name='lastAction'
           label='Last Action: '
           value={pDateLastAction}
-        />
-        <LabelValue
-          name='status'
-          label='Status: '
-          value={status}
-        />
-        <LabelValue
-          name='progress'
-          label='Progress: '
-          value={progress.text}
-        />
-        <LabelValue
-          name='detailedStatus'
-          label='Detailed Status: '
-          value={detailedStatus}
+          style={{ paddingTop: 5 }}
         />
         <BillStatusSvg {...{ status, progress, chamber }} />
-        <TouchableOpacity style={styles.buttonBorder} onPress={() => NavigationActions.bill()}>
+        <TouchableOpacity
+          style={styles.buttonBorder}
+          onPress={() => NavigationActions.bill({ ...this.props })}
+        >
           <Image source={images.billDetailIcon} style={{ height: 30, width: 30 }} />
           <Text style={styles.billDetials}>Bill Details</Text>
         </TouchableOpacity>
@@ -87,8 +84,7 @@ BillCard.propTypes = {
   last_action_at: PropTypes.string.isRequired,
   chamber: PropTypes.string.isRequired,
   status: PropTypes.string.isRequired,
-  progress: PropTypes.object.isRequired,
-  detailedStatus: PropTypes.string.isRequired
+  progress: PropTypes.object.isRequired
 }
 
 export default BillCard

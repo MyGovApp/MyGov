@@ -1,11 +1,12 @@
 const type = {
   base: 'HelveticaNeue',
   bold: 'HelveticaNeue-Bold',
-  emphasis: 'HelveticaNeue-Italic'
+  emphasis: 'HelveticaNeue-Italic',
+  serif: 'Cochin'
 }
 
 const size = {
-  h1: 38,
+  h1: 22,
   h2: 34,
   h3: 30,
   h4: 26,
@@ -20,7 +21,7 @@ const size = {
 
 const style = {
   h1: {
-    fontFamily: type.base,
+    fontFamily: type.serif,
     fontSize: size.h1
   },
   h2: {
@@ -28,7 +29,7 @@ const style = {
     fontSize: size.h2
   },
   h3: {
-    fontFamily: type.emphasis,
+    fontFamily: type.serif,
     fontSize: size.h3
   },
   h4: {
