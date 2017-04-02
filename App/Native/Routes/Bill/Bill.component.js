@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import { Text, View, ScrollView } from 'react-native'
+import { Text, View, ScrollView, AsyncStorage } from 'react-native'
 import moment from 'moment'
 import { capitalize } from 'lodash'
 import fetch from '../../../Utilities/isomorphic-fetch'
@@ -7,6 +7,7 @@ import styles from './Bill.styles'
 import LabelValue from '../../Globals/LabelValue'
 import BillStatusSvg from '../../Globals/BillStatusSvg'
 import ExternalLink from '../../Globals/ExternalLink'
+import Button from '../../Globals/Button'
 
 class Bill extends Component {
   constructor () {
@@ -34,7 +35,9 @@ class Bill extends Component {
       status,
       progress,
       detailedStatus,
-      sponsor } = this.props
+      sponsor,
+      toggleToMyBills,
+      isAdded } = this.props
 
     const upperId = bill_id.toUpperCase()
     const pDateIntroduced = moment(introduced_on).format('MMM D, YYYY')
@@ -62,6 +65,16 @@ class Bill extends Component {
             label='Chamber: '
             value={capitalize(chamber)}
             style={{ paddingTop: 5, paddingBottom: 15 }}
+          />
+          <Button
+            text={`${isAdded ? 'Remove From' : 'Add To'} My Bills`}
+            onPress={() => toggleToMyBills(bill_id)}
+            buttonStyle={{ marginBottom: 20 }}
+          />
+          <Button
+            text='Clear Storage'
+            onPress={() => AsyncStorage.clear()}
+            buttonStyle={{ marginBottom: 20 }}
           />
         </View>
         <View style={styles.summaryContainer}>
@@ -127,7 +140,8 @@ Bill.propTypes = {
   progress: PropTypes.object.isRequired,
   detailedStatus: PropTypes.string.isRequired,
   sponsor: PropTypes.object.isRequired,
-  urls: PropTypes.object.isRequired
+  urls: PropTypes.object.isRequired,
+  toggleToMyBills: PropTypes.func.isRequired
 }
 
 export default Bill

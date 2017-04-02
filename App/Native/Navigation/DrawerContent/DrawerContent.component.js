@@ -50,7 +50,8 @@ class DrawerContent extends Component {
       tabled,
       failed,
       enacted,
-      filters
+      filters,
+      myBills
     } = this.props
 
     const FilterButton = this.renderFilterButton
@@ -106,6 +107,12 @@ class DrawerContent extends Component {
           rightIcon={enacted && images.checkIcon2}
         />
         <DrawerButton
+          text='My Bills'
+          onPress={() => updateBillFilters({ myBills: !myBills })}
+          leftIcon={images.myBillsIcon}
+          rightIcon={myBills && images.checkIcon2}
+        />
+        <DrawerButton
           text='Filter By Issue:'
           isIndex
         />
@@ -133,6 +140,7 @@ DrawerContent.propTypes = {
   tabled: PropTypes.bool,
   failed: PropTypes.bool,
   enacted: PropTypes.bool,
+  myBills: PropTypes.bool,
   filters: PropTypes.array
 }
 

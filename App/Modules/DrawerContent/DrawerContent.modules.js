@@ -24,6 +24,7 @@ modules.initialState = {
   failed: false,
   tabled: false,
   enacted: false,
+  myBills: false,
   filters: []
 }
 

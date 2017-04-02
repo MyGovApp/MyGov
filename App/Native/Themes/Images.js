@@ -23,6 +23,7 @@ const images = {
   lgbtIcon: require('../../Assets/Images/lgbtIcon.png'),
   middleEastIcon: require('../../Assets/Images/middleEastIcon.png'),
   militaryIcon: require('../../Assets/Images/militaryIcon.png'),
+  myBillsIcon: require('../../Assets/Images/myBillsIcon.png'),
   notificationIcon: require('../../Assets/Images/notificationIcon.png'),
   tabledIcon: require('../../Assets/Images/tabledIcon.png'),
   upArrow: require('../../Assets/Images/upArrow.png'),

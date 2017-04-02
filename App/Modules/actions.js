@@ -1,10 +1,42 @@
-// press cmd + k + 1 in atom to view a condensed registry.
-// press cmd + k + 0 in atom to revert.
-// search the project (cmd + shift + f in atom) for an 'ACTION_TYPE' to identify subscribers
-// search the project for an actionCreator to identify dispatchers
-// please keep alphebetical
+import { AsyncStorage } from 'react-native'
+import { pull } from 'lodash'
+import fetch from '../Utilities/isomorphic-fetch'
 
-export const fetchBills = () => {
+// NOTE:
+// Search the project for an actionCreator to identify dispatchers
+// Search the project for an 'ACTION_TYPE' to identify subscribers
+// The use of ES5 function syntax here takes advantage of function hoisting,
+// allowing us to keep the exports at the top of this file as a readabile actions registry
+// Please keep alphebetical
+
+export {
+  toggleToMyBills,
+  fetchBills,
+  searchBills,
+  toggleDrawer,
+  updateBillFilters
+}
+
+function toggleToMyBills (billId) {
+  return dispatch => {
+    return AsyncStorage.getItem('myBills')
+      .then(myBills => {
+        if (!myBills) return []
+        return JSON.parse(myBills)
+      })
+      .then(myBills => {
+        const newMyBills = myBills.find(bill => bill === billId)
+          ? [ ...pull(myBills, billId) ]
+          : [ ...myBills, billId ]
+
+        dispatch({ type: 'RECEIVE_MYBILLS', myBills: newMyBills })
+        AsyncStorage.setItem('myBills', JSON.stringify(newMyBills))
+      })
+      .catch(err => console.log('err : ', err))
+  }
+}
+
+function fetchBills () {
   return dispatch => {
     dispatch({ type : 'START_REQUEST' })
     return fetch('http://192.168.0.17:3001/api/v1/bills')
@@ -17,14 +49,18 @@ export const fetchBills = () => {
   }
 }
 
-export const searchBills = (search) => ({
-  type: 'SEARCH_BILLS',
-  search
-})
+function searchBills (search) {
+  return {
+    type: 'SEARCH_BILLS',
+    search
+  }
+}
 
-export const toggleDrawer = () => ({ type: 'TOGGLE_DRAWER' })
+function toggleDrawer () { return { type: 'TOGGLE_DRAWER' } }
 
-export const updateBillFilters = (updates) => ({
-  type: 'UPDATE_BILL_FILTERS',
-  ...updates
-})
+function updateBillFilters (updates) {
+  return {
+    type: 'UPDATE_BILL_FILTERS',
+    ...updates
+  }
+}

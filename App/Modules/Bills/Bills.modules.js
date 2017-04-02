@@ -10,10 +10,15 @@ modules.handleAction('RECEIVE_BILLS', (state, action) => ({
   loading: false
 }))
 
+modules.handleAction('RECEIVE_MYBILLS', (state, action) => ({
+  myBills: action.myBills
+}))
+
 modules.initialState = {
   loading: false,
   bills: [],
-  filteredBills: []
+  filteredBills: [],
+  myBills: []
 }
 
 export default modules.createReducer()
