@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import { Text, View, ScrollView, AsyncStorage } from 'react-native'
+import { Text, View, ScrollView } from 'react-native'
 import moment from 'moment'
 import { capitalize } from 'lodash'
 import fetch from '../../../Utilities/isomorphic-fetch'
@@ -69,11 +69,6 @@ class Bill extends Component {
           <Button
             text={`${isAdded ? 'Remove From' : 'Add To'} My Bills`}
             onPress={() => toggleToMyBills(bill_id)}
-            buttonStyle={{ marginBottom: 20 }}
-          />
-          <Button
-            text='Clear Storage'
-            onPress={() => AsyncStorage.clear()}
             buttonStyle={{ marginBottom: 20 }}
           />
         </View>

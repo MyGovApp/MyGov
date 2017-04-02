@@ -15,6 +15,9 @@ const filterBills = (allBills, options, search, myBills) => {
 }
 
 const filterBillsByStatus = (bills, options) => {
+  const { active, tabled, failed, enacted } = options
+  if (!(active || tabled || failed || enacted)) return bills
+
   let newBills = []
 
   bills.forEach(bill => {
@@ -72,6 +75,15 @@ const sortBills = (bills, sortBy, sortOrder) => {
       compare(
         moment(billA.introduced_on).unix(),
         moment(billB.introduced_on).unix()
+      ) ? -1 : 1
+    ))
+  }
+
+  if (sortBy === 'lastAction') {
+    newBills = bills.sort((billA, billB) => (
+      compare(
+        moment(billA.last_action_at).unix(),
+        moment(billB.last_action_at).unix()
       ) ? -1 : 1
     ))
   }

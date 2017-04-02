@@ -67,16 +67,22 @@ class DrawerContent extends Component {
           isIndex
         />
         <DrawerButton
+          text='Bill Progress'
+          onPress={() => updateBillFilters({ sortBy: 'progress' })}
+          leftIcon={images.checkIcon}
+          rightIcon={sortBy === 'progress' && images.checkIcon2}
+        />
+        <DrawerButton
           text='Date Introduced'
           onPress={() => updateBillFilters({ sortBy: 'introduced' })}
           leftIcon={images.calendarIcon}
           rightIcon={sortBy === 'introduced' && images.checkIcon2}
         />
         <DrawerButton
-          text='Bill Progress'
-          onPress={() => updateBillFilters({ sortBy: 'progress' })}
-          leftIcon={images.checkIcon}
-          rightIcon={sortBy === 'progress' && images.checkIcon2}
+          text='Last Action'
+          onPress={() => updateBillFilters({ sortBy: 'lastAction' })}
+          leftIcon={images.lastActionIcon}
+          rightIcon={sortBy === 'lastAction' && images.checkIcon2}
         />
         <DrawerButton
           text='Filter By Status:'

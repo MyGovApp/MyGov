@@ -22,7 +22,7 @@ export default class Bills extends Component {
   }
 
   handleScroll = (e) => {
-    let currentScroll = e.nativeEvent.contentOffset.yCH
+    let currentScroll = e.nativeEvent.contentOffset.y
 
     if (currentScroll < -20) {
       this.setState({ searchInputHeight: 50 })
