@@ -17,8 +17,9 @@ router.get('/api/v1/bill/', (req, res) => {
     .then(summary => {
       if (summary) {
         res.json(summary)
+      } else {
+        res.json('A summary is in progress.')
       }
-      res.json('A summary is in progress.')
     })
     .catch(err => {
       console.log(err)

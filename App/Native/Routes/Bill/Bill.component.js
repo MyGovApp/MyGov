@@ -19,10 +19,8 @@ class Bill extends Component {
   componentDidMount () {
     fetch('http://192.168.0.17:3001/api/v1/bill', {
       headers: { url: this.props.urls.congress }
-    }).then(res => res.text())
-      .then(summary => {
-        this.setState({ summary: summary.slice(1, -1) })
-      })
+    }).then(res => res.json())
+      .then(summary => this.setState({ summary }))
       .catch(err => console.log(err))
   }
 
