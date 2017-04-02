@@ -2,13 +2,31 @@ import React, { Component, PropTypes } from 'react'
 import { Text, View, ScrollView } from 'react-native'
 import moment from 'moment'
 import { capitalize } from 'lodash'
+import fetch from '../../../Utilities/isomorphic-fetch'
 import styles from './Bill.styles'
 import LabelValue from '../../Globals/LabelValue'
 import BillStatusSvg from '../../Globals/BillStatusSvg'
+import ExternalLink from '../../Globals/ExternalLink'
 
 class Bill extends Component {
+  constructor () {
+    super()
+    this.state = {
+      summary: 'loading...'
+    }
+  }
+
+  componentDidMount () {
+    fetch('http://192.168.0.17:3001/api/v1/bill', {
+      headers: { url: this.props.urls.congress }
+    }).then(res => res.text())
+      .then(summary => {
+        this.setState({ summary: summary.slice(1, -1) })
+      })
+      .catch(err => console.log(err))
+  }
+
   render () {
-    console.log('this.props : ', this.props)
     const {
       bill_id,
       official_title,
@@ -70,7 +88,7 @@ class Bill extends Component {
           />
           <LabelValue
             name='lastAction'
-            label='Last Action At: '
+            label='Last Action On: '
             value={pDateLastAction}
             style={{ paddingTop: 5, paddingBottom: 10 }}
           />
@@ -78,6 +96,23 @@ class Bill extends Component {
         </View>
         <View style={styles.summaryContainer}>
           <Text style={styles.id}>Bill Summary</Text>
+          <LabelValue
+            name='billSummary'
+            value={this.state.summary}
+            style={{ paddingTop: 15, paddingBottom: 15 }}
+          />
+        </View>
+        <View style={styles.summaryContainer}>
+          <Text style={styles.id}>More Info</Text>
+          <ExternalLink
+            text='Congress.gov'
+            url={this.props.urls.congress}
+          />
+          <ExternalLink
+            text='GovTrack.us'
+            url={this.props.urls.govtrack}
+            style={{ paddingBottom: 10 }}
+          />
         </View>
       </ScrollView>
     )
@@ -93,7 +128,8 @@ Bill.propTypes = {
   status: PropTypes.string.isRequired,
   progress: PropTypes.object.isRequired,
   detailedStatus: PropTypes.string.isRequired,
-  sponsor: PropTypes.object.isRequired
+  sponsor: PropTypes.object.isRequired,
+  urls: PropTypes.object.isRequired
 }
 
 export default Bill
