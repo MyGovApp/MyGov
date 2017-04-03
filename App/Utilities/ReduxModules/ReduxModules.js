@@ -16,6 +16,7 @@ export default class ReduxModules {
 
   createReducer () {
     return (state = this.initialState, action) => {
+      if (!action) return state
       const handler = this.actionHandlers[action.type]
       return handler ? handler(state, action) : state
     }
