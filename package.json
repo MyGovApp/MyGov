@@ -6,7 +6,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ianlancaster/react-native-web-quickstart.git"
+    "url": "git+https://github.com/MyGovApp/MyGov.git"
   },
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
@@ -140,6 +140,14 @@
     "webpack": "^1.14.0",
     "webpack-dev-middleware": "^1.10.1",
     "webpack-loader": "0.0.1"
+  },
+  "jest": {
+    "globals": {
+      "__DEV__": true
+    },
+    "collectCoverage": false,
+    "verbose": true,
+    "preset": "jest-react-native"
   },
   "config": {
     "ghooks": {
