@@ -12,7 +12,6 @@ const styles = {
     borderBottomWidth: 1
   },
   id: {
-    fontFamily: fonts.type.serif,
     paddingTop: 10,
     fontSize: 25
   },

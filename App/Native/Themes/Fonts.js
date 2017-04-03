@@ -2,7 +2,7 @@ const type = {
   base: 'HelveticaNeue',
   bold: 'HelveticaNeue-Bold',
   emphasis: 'HelveticaNeue-Italic',
-  serif: 'Cochin'
+  serif: 'American Typewriter'
 }
 
 const size = {
