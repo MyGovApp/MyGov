@@ -1,48 +1,91 @@
-# React Native Web Quickstart
+# MyGov | An app by the people, for the people.
 
-This repository serves as a simple hello world example and starter kit for those that would like to develop a codebase that deploys to web, Android, and ios while reusing a significant portion of the codebase. Note, that this repository does not use libraries that compile react native components to web like react-web or react-native-web. It does, however, share the react native view layer for Android and ios entirely, and shares all Redux modules between web and native.
+Note: MyGov is currently in pre-alpha development. MVP alpha deployments for iOS and web are tentatively scheduled for the beginning of June 2017. Only the bill tracking features shown in the first two GIFs below will be available in the alpha release, but additional features will soon follow. Take a look at the [living MyGov prototype](https://projects.invisionapp.com/d/main#/console/9918131/212448806/preview) to get a peek at what is coming next!
 
-This starter is meant to support a mobile first design approach. I recommend mirroring the mobile web version with your native, then removing the iphone preview container from the web view to develop the desktop version.
+## Intro
 
-The web version (left) pulled heavily from @davezuko's [react-redux-starter-kit](https://github.com/davezuko/react-redux-starter-kit). The react native setup is based on V1 Infinite Red's [ignite starter kit](https://github.com/infinitered/ignite).
+MyGov is an open-source, 100% transparent, non-partisan American political engagement app for Android, iOS, and the web. It is MyGov's goal to create a more engaged and informed American public, and to make the American government more responsive to the will of the people. Using MyGov you can:
+* Browse all of the proposed bills in Congress based on progress, topic, and status.
+* Get notifications about activity surrounding legislation or political officials.
+* Vote on and share your opinion on key political issues.
+* Easily identify and contact your representatives.
+* Learn about the American political system from a completely non-biased perspective.
 
-![web version](https://media.giphy.com/media/3ohze3CYn17FvlSnK0/giphy.gif)
-![ios version](https://media.giphy.com/media/3og0IUziJhTeNEKYJW/giphy.gif)
-![android version](https://media.giphy.com/media/xUPGcGqiCIbHnOiN5m/giphy.gif)
 
-## Getting Started
+MyGov makes keeping up with congress and voicing your opinion on legislation easy and meaningful. Enter in your voting address to identify your representatives, then choose categories of legislation that you care about. View all of the bills proposed by congress and track them along their journey to becoming law. Follow a bill that you are especially invested in to receive notifications when the bill's status changes. Easily and effectively voice your opinion about a bill by using the bill's 'take action' button. The best representative to contact about a bill will change depending on the status of the bill. The 'take action' button does the hard work for you by showing you which representative you need to contact and by offering multiple ways to contact the representative right from the app.
 
-To start using the app:
+<br>
 
-#### Clone this repo
-`git clone https://github.com/ianlancaster/react-native-web-quickstart.git`
+![Demo GIF 1](https://media.giphy.com/media/l4FGCQiMSvYqOKM5q/giphy.gif)
+![Demo GIF 2](https://media.giphy.com/media/3oKIPE1BJDhFxTAn72/giphy.gif)
+![Demo GIF 2](https://media.giphy.com/media/3o7bukMcySOVMCgpmE/giphy.gif)
 
-#### Install the dependancies
-`npm i`
+## Download MyGov
 
-#### Start the server (for the async example)
-`npm run start:server`
+Web - alpha release scheduled for 6/1/17
 
-#### Start a view layer
-`npm run start:web` or `npm run start:ios` or `npm run start:android`
+iOS - alpha release scheduled for 6/1/17
 
-###### Note for Android:
+Android - alpha release scheduled for 7/1/17
 
-Make sure you closely follow the android section of the [getting started guide](https://facebook.github.io/react-native/docs/getting-started.html) for react native. In addition, the first time you build in Android Studio you should get some warnings saying that the build tool version for a few files is too low. For each of these files click on 'open file' and change buildToolsVersion to "25.0.0". You should then be able to build without issues. Make sure that your emulator is running before you run `npm run start:android`.
+## MyGov's Mission
 
-## Features
+It is MyGov's mission to nurture an American public that is more informed, engaged, and knowledgeable when it comes to the topic of American politics.
 
-This repository includes many helpful features including:
-* A comprehensive testing suite (react native too!)
-* JS standard code style
-* Linting and testing pre-commit hooks
-* My own killer abstraction of Redux
-* Redux dev tools integration and logger
-* Prebuilt navigation drawer
-* react-native-router-flux for native and react plain route for web
-* Modular SASS architecture
+## The Why
 
-## Caveats
-There are a number of open issues I still need to work on. If you run into a problem with the repository that is not already documented please add an issue. Pull requests welcome!
+MyGov was originally conceived in response to a [video](https://www.youtube.com/watch?v=5tu32CCA_Ig) released by the organization [Represent.us](https://represent.us/) that highlighted a [Princeton study](https://scholar.princeton.edu/sites/default/files/mgilens/files/gilens_and_page_2014_-testing_theories_of_american_politics.doc.pdf) that showed that there was almost no correlation between public opinion of legislation and its probability of becoming law. The study did show a much stronger correlation between the wants of the top 10% of income earners and interest groups, and bills becoming law.
 
-Make sure to use the version of fetch included in the Utilities folder of this repository if you want your requests to work across all platforms!
+![Princeton study findings](./App/Assets/Images/princetonStudyFindings.png)
+
+To quote the study:
+
+>The estimated impact of average citizens’ preferences drops precipitously, to a non-significant, near-zero level. Clearly the median citizen or “median voter” at the heart of theories of Majoritarian Electoral Democracy does not do well when put up against economic elites and organized interest groups.
+
+Represent.us identified corruption and money in politics as one of the main drivers of the impact disparity shown above. If you are interested in taking part in the anti-corruption effort we highly suggest you check out their movement.
+
+MyGov approaches this problem from a different angle. Where Represent.us focuses on making the voice of money and corporations in government quieter, MyGov focuses on making the voice of the average citizen louder.
+
+## The How
+
+MyGov has three primary goals to achieve its mission of creating a healthier Democracy. They are to:
+
+1. Help users become more knowledgeable about the American political system as a whole.
+* Help users stay informed and updated on the American political system.
+* Help users share their opinions on political issues with their peers and representatives.
+
+### Details
+
+##### 1) Political Knowledge
+When talking about 'political knowledge' we are referring to knowledge of how the American political system works in general. This includes things like how a bill becomes law, how cases make it to the Supreme Court, what powers each of the branches of American government has, and how checks and balances work. MyGov strives to increase political knowledge in three ways:
+
+* Design a UI that depicts political systems in a way that is intuitive and easy to understand.
+* Implement graduation cap icons that can be clicked to learn more about a particular screen or feature of government. (Much like the Google Analytics' implementation)
+* Link to or embed quality external resources from reputable sources for additional learning.
+
+##### 2) Staying informed
+It is important that citizens not only be knowledgeable about the American political system as a whole, but that they also stay informed on current political issues and legislation. MyGov seeks to create a more informed public by:
+
+* Scouring the web to compile, maintain, and frequently update an accurate and robust political activity database.
+* Displaying political activity in an intuitive and easy to consume way.
+* Designing a UI that focuses on the political activities that are most important.
+* Allowing users to follow and receive updates on individuals, groups, and pieces of legislation.
+
+##### 3) Getting engaged
+MyGov strives to make it as easy as possible for its knowledgeable and informed users to engage in politics with their peers and representatives. MyGov assists with political engagement by:
+
+* Allowing users to vote approving or disapproving of individuals, groups, or pieces of legislation.
+* Allowing users to comment on Political activity.
+* Allowing users to share app information with their social networks.
+* Making it easy to identify and contact representatives.
+* Highlighting the key officials that issues pertain to.
+
+In addition to the primary goals that focus on the American public, MyGov also strives to provide value to representatives by:
+
+1. Providing valuable information about the will of their constituents.
+* Assisting with communication to constituents.
+* Verifying accounts and normalizing poll numbers to provide the most objectively correct numbers possible.
+
+## Contributing
+
+At this early stage of development I would ask that you contact me directly at ianclancaster@gmail.com if you are interested in contributing. I will be setting up more developed contribution guidelines as the app matures.
