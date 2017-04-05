@@ -1,6 +1,6 @@
 import { fonts } from '../../Themes'
 
-const styles = {
+export default {
   boldSpan: {
     fontWeight: '600'
   },
@@ -16,5 +16,3 @@ const styles = {
     ...fonts.style.h1
   }
 }
-
-export default styles

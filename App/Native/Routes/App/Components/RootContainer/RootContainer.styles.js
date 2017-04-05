@@ -1,7 +1,6 @@
-import { StyleSheet } from 'react-native'
 import { fonts, metrics, colors } from '../../../../Themes/'
 
-export default StyleSheet.create({
+export default {
   applicationView: {
     flex: 1
   },
@@ -21,4 +20,4 @@ export default StyleSheet.create({
     height: 200,
     alignSelf: 'center'
   }
-})
+}

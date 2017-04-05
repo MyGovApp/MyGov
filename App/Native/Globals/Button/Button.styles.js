@@ -1,6 +1,6 @@
 import { fonts, colors } from '../../Themes'
 
-const styles = {
+export default {
   default: {
     container: {
       backgroundColor: colors.primaryBlue,
@@ -16,5 +16,3 @@ const styles = {
     }
   }
 }
-
-export default styles

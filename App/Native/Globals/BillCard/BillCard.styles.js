@@ -1,6 +1,6 @@
 import { colors, fonts } from '../../Themes'
 
-const styles = {
+export default {
   container: {
     backgroundColor: colors.backgroundWhite,
     shadowOpacity: 0.5,
@@ -30,5 +30,3 @@ const styles = {
     padding: 5
   }
 }
-
-export default styles

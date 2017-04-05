@@ -1,10 +1,8 @@
 import { colors } from '../../Themes'
 
-const styles = {
+export default {
   footerContainer: {
     backgroundColor: colors.primaryBlue,
     flexDirection: 'row'
   }
 }
-
-export default styles

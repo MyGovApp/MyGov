@@ -1,4 +1,4 @@
-const styles = {
+export default {
   searchContainer: {
     flex: 1,
     justifyContent: 'center'
@@ -19,5 +19,3 @@ const styles = {
     textAlign: 'center'
   }
 }
-
-export default styles

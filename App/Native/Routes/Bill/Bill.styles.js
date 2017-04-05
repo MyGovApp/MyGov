@@ -1,6 +1,6 @@
 import { fonts, colors } from '../../Themes'
 
-const styles = {
+export default {
   mainContainer: {
     paddingLeft: 10,
     paddingRight: 10,
@@ -22,5 +22,3 @@ const styles = {
     paddingBottom: 30
   }
 }
-
-export default styles

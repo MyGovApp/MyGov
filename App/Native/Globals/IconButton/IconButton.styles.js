@@ -1,4 +1,4 @@
-const styles = {
+export default {
   touchableHighlight: {
     flex: 1,
     height: 50,
@@ -16,5 +16,3 @@ const styles = {
     justifyContent: 'space-around'
   }
 }
-
-export default styles
