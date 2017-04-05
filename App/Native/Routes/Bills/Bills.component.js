@@ -1,8 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { View, ListView, ActivityIndicator, Text } from 'react-native'
 import s from './Bills.styles'
-import BillCard from '../../Globals/BillCard'
-import SearchInput from '../../Globals/SearchInput'
+import { BillCard, SearchInput } from '../../Globals'
 
 export default class Bills extends Component {
   constructor () {

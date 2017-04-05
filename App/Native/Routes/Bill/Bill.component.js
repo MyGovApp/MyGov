@@ -5,10 +5,7 @@ import { Text, View, ScrollView } from 'react-native'
 import { capitalize } from 'lodash'
 
 import s from './Bill.styles'
-import LabelValue from '../../Globals/LabelValue'
-import BillStatusSvg from '../../Globals/BillStatusSvg'
-import ExternalLink from '../../Globals/ExternalLink'
-import Button from '../../Globals/Button'
+import { LabelValue, BillStatusSvg, ExternalLink, Button } from '../../Globals'
 
 class Bill extends Component {
   constructor () {

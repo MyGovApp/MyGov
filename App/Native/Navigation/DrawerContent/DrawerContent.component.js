@@ -3,8 +3,8 @@ import { ScrollView, BackAndroid } from 'react-native'
 import { Actions as NavigationActions } from 'react-native-router-flux'
 import { camelCase } from 'lodash'
 import { images as I } from '../../Themes'
+import { DrawerButton } from '../../Globals'
 import s from './DrawerContent.styles'
-import DrawerButton from '../../Globals/DrawerButton'
 import billFilters from './billFilters'
 
 class DrawerContent extends Component {
