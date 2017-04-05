@@ -1,10 +1,10 @@
 import ReduxModules from '../../Utilities/ReduxModules'
-const modules = new ReduxModules()
+const m = new ReduxModules()
 
-modules.handleAction('SEARCH_BILLS', (state, action) => {
-  return { search: action.search }
+m.handleAction('SEARCH_BILLS', (s, a) => {
+  return { search: a.search }
 })
 
-modules.initialState = { search: '' }
+m.initialState = { search: '' }
 
-export default modules.createReducer()
+export default m.createReducer()

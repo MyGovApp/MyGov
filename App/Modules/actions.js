@@ -10,30 +10,11 @@ import fetch from '../Utilities/isomorphic-fetch'
 // Please keep alphebetical
 
 export {
-  toggleToMyBills,
   fetchBills,
   searchBills,
   toggleDrawer,
+  toggleToMyBills,
   updateBillFilters
-}
-
-function toggleToMyBills (billId) {
-  return dispatch => {
-    return AsyncStorage.getItem('myBills')
-      .then(myBills => {
-        if (!myBills) return []
-        return JSON.parse(myBills)
-      })
-      .then(myBills => {
-        const newMyBills = myBills.find(bill => bill === billId)
-          ? [ ...pull(myBills, billId) ]
-          : [ ...myBills, billId ]
-
-        dispatch({ type: 'RECEIVE_MYBILLS', myBills: newMyBills })
-        AsyncStorage.setItem('myBills', JSON.stringify(newMyBills))
-      })
-      .catch(err => console.log('err : ', err))
-  }
 }
 
 function fetchBills () {
@@ -74,6 +55,25 @@ function searchBills (search) {
 }
 
 function toggleDrawer () { return { type: 'TOGGLE_DRAWER' } }
+
+function toggleToMyBills (billId) {
+  return dispatch => {
+    return AsyncStorage.getItem('myBills')
+      .then(myBills => {
+        if (!myBills) return []
+        return JSON.parse(myBills)
+      })
+      .then(myBills => {
+        const newMyBills = myBills.find(bill => bill === billId)
+          ? [ ...pull(myBills, billId) ]
+          : [ ...myBills, billId ]
+
+        dispatch({ type: 'RECEIVE_MYBILLS', myBills: newMyBills })
+        AsyncStorage.setItem('myBills', JSON.stringify(newMyBills))
+      })
+      .catch(err => console.log('err : ', err))
+  }
+}
 
 function updateBillFilters (updates) {
   return {

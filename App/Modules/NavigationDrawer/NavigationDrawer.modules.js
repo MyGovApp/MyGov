@@ -1,10 +1,10 @@
 import ReduxModules from '../../Utilities/ReduxModules'
-const modules = new ReduxModules()
+const m = new ReduxModules()
 
-modules.handleAction('TOGGLE_DRAWER', (state, action) => ({
-  drawerOpen: !state.drawerOpen
+m.handleAction('TOGGLE_DRAWER', (s, a) => ({
+  drawerOpen: !s.drawerOpen
 }))
 
-modules.initialState = { drawerOpen: false }
+m.initialState = { drawerOpen: false }
 
-export default modules.createReducer()
+export default m.createReducer()

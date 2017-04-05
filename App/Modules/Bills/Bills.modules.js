@@ -1,23 +1,24 @@
-import { handleAction, createReducer } from '../../Utilities/ReduxModules/ReduxModules-copy'
+import ReduxModules from '../../Utilities/ReduxModules'
+const m = new ReduxModules()
 
-handleAction('START_REQUEST', (state, action) => ({
+m.handleAction('START_REQUEST', (s, a) => ({
   loading: true
 }))
 
-handleAction('RECEIVE_BILLS', (state, action) => ({
-  bills: action.bills,
+m.handleAction('RECEIVE_BILLS', (s, a) => ({
+  bills: a.bills,
   loading: false
 }))
 
-handleAction('RECEIVE_MYBILLS', (state, action) => ({
-  myBills: action.myBills
+m.handleAction('RECEIVE_MYBILLS', (s, a) => ({
+  myBills: a.myBills
 }))
 
-const initialState = {
+m.initialState = {
   loading: false,
   bills: [],
   filteredBills: [],
   myBills: []
 }
 
-export default createReducer(initialState)
+export default m.createReducer()
