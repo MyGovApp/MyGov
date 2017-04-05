@@ -47,7 +47,7 @@ function fetchBills () {
 }
 
 const fetchApi = (dispatch) => (
-  fetch('http://192.168.0.17:3001/api/v1/bills')
+  fetch('http://localhost:3001/api/v1/bills')
     .then(res => res.json())
       .then(bills => dispatch({
         type: 'RECEIVE_BILLS',
