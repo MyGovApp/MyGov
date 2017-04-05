@@ -2,7 +2,7 @@ import React, { PropTypes, Component } from 'react'
 import Drawer from 'react-native-drawer'
 import { DefaultRenderer, Actions as NavigationActions } from 'react-native-router-flux'
 import DrawerContent from '../DrawerContent'
-import Styles from './NavigationDrawer.styles'
+import s from './NavigationDrawer.styles'
 import Footer from '../../Globals/Footer'
 
 // ------------------------------------
@@ -21,7 +21,7 @@ class NavigationDrawer extends Component {
         onOpen={() => NavigationActions.refresh({ key: state.key, open: true })}
         onClose={() => NavigationActions.refresh({ key: state.key, open: false })}
         content={<DrawerContent />}
-        styles={Styles}
+        styles={s}
         side='right'
         tapToClose
         openDrawerOffset={0.2}

@@ -1,10 +1,5 @@
 import React, { PropTypes } from 'react'
-import Svg, {
-    Circle,
-    G,
-    Line,
-    Text
-} from 'react-native-svg'
+import Svg, { Circle, G, Line, Text } from 'react-native-svg'
 
 const BillStatus = ({ status, progress, chamber }) => {
   const green = '#B8E986'

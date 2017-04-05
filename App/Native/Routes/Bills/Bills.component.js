@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { View, ListView, ActivityIndicator, Text } from 'react-native'
-import { styles } from './Bills.styles'
+import s from './Bills.styles'
 import BillCard from '../../Globals/BillCard'
 import SearchInput from '../../Globals/SearchInput'
 
@@ -38,9 +38,9 @@ export default class Bills extends Component {
 
     return (
       <View>
-        {!bills.length && (<Text style={styles.noBills}>No bills found</Text>)}
+        {!bills.length && (<Text style={s.noBills}>No bills found</Text>)}
         <SearchInput height={this.state.searchInputHeight} />
-        <Text style={styles.billCount}>
+        <Text style={s.billCount}>
           {`${bills.length} bills match your filters`}
         </Text>
         <ListView
@@ -65,7 +65,7 @@ export default class Bills extends Component {
     const BillsList = this.renderBillsList
 
     return (
-      <View style={styles.mainView}>
+      <View style={s.mainView}>
         {loading
           ? <ActivityIndicator />
           : <BillsList bills={bills} />

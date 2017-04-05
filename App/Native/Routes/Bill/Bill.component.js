@@ -1,9 +1,10 @@
+import moment from 'moment'
+import fetch from '../../../Utilities/isomorphic-fetch'
 import React, { Component, PropTypes } from 'react'
 import { Text, View, ScrollView } from 'react-native'
-import moment from 'moment'
 import { capitalize } from 'lodash'
-import fetch from '../../../Utilities/isomorphic-fetch'
-import styles from './Bill.styles'
+
+import s from './Bill.styles'
 import LabelValue from '../../Globals/LabelValue'
 import BillStatusSvg from '../../Globals/BillStatusSvg'
 import ExternalLink from '../../Globals/ExternalLink'
@@ -45,10 +46,10 @@ class Bill extends Component {
     const sponsorFull = `${sponsor.title}. ${sponsor.first_name} ${sponsor.last_name}`
 
     return (
-      <ScrollView style={styles.mainContainer}>
-        <View style={styles.summaryContainer}>
-          <Text style={styles.id}>{upperId}</Text>
-          <Text style={styles.title}>{official_title}</Text>
+      <ScrollView style={s.mainContainer}>
+        <View style={s.summaryContainer}>
+          <Text style={s.id}>{upperId}</Text>
+          <Text style={s.title}>{official_title}</Text>
           <LabelValue
             name='dateIntroduced'
             label='Introduced: '
@@ -72,8 +73,8 @@ class Bill extends Component {
             buttonStyle={{ marginBottom: 20 }}
           />
         </View>
-        <View style={styles.summaryContainer}>
-          <Text style={styles.id}>Bill Progress</Text>
+        <View style={s.summaryContainer}>
+          <Text style={s.id}>Bill Progress</Text>
           <LabelValue
             name='status'
             label='Status: '
@@ -100,16 +101,16 @@ class Bill extends Component {
           />
           <BillStatusSvg {...{ status, progress, chamber }} />
         </View>
-        <View style={styles.summaryContainer}>
-          <Text style={styles.id}>Bill Summary</Text>
+        <View style={s.summaryContainer}>
+          <Text style={s.id}>Bill Summary</Text>
           <LabelValue
             name='billSummary'
             value={this.state.summary}
             style={{ paddingTop: 15, paddingBottom: 15 }}
           />
         </View>
-        <View style={styles.summaryContainer}>
-          <Text style={styles.id}>More Info</Text>
+        <View style={s.summaryContainer}>
+          <Text style={s.id}>More Info</Text>
           <ExternalLink
             text='Congress.gov'
             url={this.props.urls.congress}

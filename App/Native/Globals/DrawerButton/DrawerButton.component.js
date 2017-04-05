@@ -1,26 +1,35 @@
 import React, { Component, PropTypes } from 'react'
 import { Text, TouchableOpacity, Image, View } from 'react-native'
-import styles from './DrawerButton.styles'
+import s from './DrawerButton.styles'
 
 class DrawerButton extends Component {
-  render () {
-    const indexContainer = this.props.isIndex ? styles.indexContainer : {}
-    const indexText = this.props.isIndex ? styles.indexText : {}
-    const indexBorder = this.props.isIndex ? styles.indexBorder : {}
+  setup () {
     const { leftIcon, rightIcon } = this.props
-    const leftIconContainer = leftIcon && !rightIcon ? styles.leftIconContainer : {}
+
+    return {
+      indexContainer: this.props.isIndex ? s.indexContainer : {},
+      indexText: this.props.isIndex ? s.indexText : {},
+      indexBorder: this.props.isIndex ? s.indexBorder : {},
+      leftIconContainer: leftIcon && !rightIcon ? s.leftIconContainer : {},
+      leftIcon,
+      rightIcon
+    }
+  }
+
+  render () {
+    const { indexContainer, indexText, indexBorder, leftIcon, rightIcon, leftIconContainer } = this.setup()
 
     return (
-      <View style={[ styles.borderContainer, indexBorder ]}>
+      <View style={[ s.borderContainer, indexBorder ]}>
         <TouchableOpacity
           onPress={this.props.onPress}
-          style={[ styles.container, indexContainer, leftIconContainer ]}
+          style={[ s.container, indexContainer, leftIconContainer ]}
         >
-          <View style={styles.leftGroup}>
-            {leftIcon && (<Image source={leftIcon} style={styles.iconLeft} />)}
-            <Text style={[ styles.text, indexText ]}>{this.props.text}</Text>
+          <View style={s.leftGroup}>
+            {leftIcon && (<Image source={leftIcon} style={s.iconLeft} />)}
+            <Text style={[ s.text, indexText ]}>{this.props.text}</Text>
           </View>
-          {rightIcon && (<Image source={rightIcon} style={styles.iconRight} />)}
+          {rightIcon && (<Image source={rightIcon} style={s.iconRight} />)}
         </TouchableOpacity>
       </View>
     )

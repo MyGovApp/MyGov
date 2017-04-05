@@ -1,6 +1,6 @@
 import { colors, fonts } from '../../Themes'
 
-export const styles = {
+export default {
   mainView: {
     flexDirection: 'column',
     marginTop: 64,

@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { View, StatusBar } from 'react-native'
 import NavigationRouter from '../../../../Navigation/NavigationRouter'
-import styles from './RootContainer.styles'
+import s from './RootContainer.styles'
 
 class RootContainer extends Component {
   render () {
     return (
-      <View style={styles.applicationView}>
+      <View style={s.applicationView}>
         <StatusBar barStyle='light-content' />
         <NavigationRouter />
       </View>

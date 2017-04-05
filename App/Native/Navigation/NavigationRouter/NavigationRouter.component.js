@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Scene, Router } from 'react-native-router-flux'
-import Styles from './NavigationRouter.styles'
+import s from './NavigationRouter.styles'
 import NavigationDrawer from '../NavigationDrawer'
 import NavItems from '../NavItems'
 
@@ -19,10 +19,10 @@ class NavigationRouter extends Component {
         <Scene key='drawer' component={NavigationDrawer} open={false}>
           <Scene
             key='drawerChildrenWrapper'
-            navigationBarStyle={Styles.navBar}
-            titleStyle={Styles.title}
-            leftButtonIconStyle={Styles.leftButton}
-            rightButtonTextStyle={Styles.rightButton}
+            navigationBarStyle={s.navBar}
+            titleStyle={s.title}
+            leftButtonIconStyle={s.leftButton}
+            rightButtonTextStyle={s.rightButton}
           >
             <Scene
               initial

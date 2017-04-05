@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { Text, TouchableOpacity } from 'react-native'
-import styles from './Button.styles'
+import s from './Button.styles'
 
 class Button extends Component {
   render () {
@@ -8,10 +8,10 @@ class Button extends Component {
     return (
       <TouchableOpacity
         onPress={onPress}
-        style={[ styles.default.container, buttonStyle ]}
+        style={[ s.default.container, buttonStyle ]}
       >
         <Text
-          style={[ styles.default.text, textStyle ]}
+          style={[ s.default.text, textStyle ]}
         >{text}</Text>
       </TouchableOpacity>
     )

@@ -1,12 +1,13 @@
+import moment from 'moment'
 import React, { Component, PropTypes } from 'react'
 import { View, Text, Image, TouchableOpacity } from 'react-native'
 import { truncate, upperCase, capitalize } from 'lodash'
 import { Actions as NavigationActions } from 'react-native-router-flux'
-import { images } from '../../Themes'
-import moment from 'moment'
-import styles from './BillCard.styles'
+
+import s from './BillCard.styles'
 import BillStatusSvg from '../BillStatusSvg'
 import LabelValue from '../LabelValue'
+import { images as I } from '../../Themes'
 
 class BillCard extends Component {
   constructor () {
@@ -34,7 +35,7 @@ class BillCard extends Component {
     const pDateLastAction = moment(last_action_at).format('MMM D, YYYY')
 
     return (
-      <View style={styles.container}>
+      <View style={s.container}>
         <TouchableOpacity
           onPress={() => this.setState({ showFullTitle: !showFullTitle })}
         >
@@ -66,11 +67,11 @@ class BillCard extends Component {
         />
         <BillStatusSvg {...{ status, progress, chamber }} />
         <TouchableOpacity
-          style={styles.buttonBorder}
+          style={s.buttonBorder}
           onPress={() => NavigationActions.bill({ ...this.props })}
         >
-          <Image source={images.billDetailIcon} style={{ height: 30, width: 30 }} />
-          <Text style={styles.billDetials}>Bill Details</Text>
+          <Image source={I.billDetailIcon} style={{ height: 30, width: 30 }} />
+          <Text style={s.billDetials}>Bill Details</Text>
         </TouchableOpacity>
       </View>
     )

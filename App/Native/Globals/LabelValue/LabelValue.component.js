@@ -1,13 +1,13 @@
 import React, { Component, PropTypes } from 'react'
 import { Text } from 'react-native'
-import styles from './LabelValue.styles'
+import s from './LabelValue.styles'
 
 class LabelValue extends Component {
   render () {
     const { name, label, value, style } = this.props
     return (
-      <Text style={[ styles[name], styles.textCommon, style ]}>
-        {label && (<Text style={styles.boldSpan}>{label}</Text>)}
+      <Text style={[ s[name], s.textCommon, style ]}>
+        {label && (<Text style={s.boldSpan}>{label}</Text>)}
         {value}
       </Text>
     )

@@ -2,8 +2,8 @@ import React, { Component, PropTypes } from 'react'
 import { ScrollView, BackAndroid } from 'react-native'
 import { Actions as NavigationActions } from 'react-native-router-flux'
 import { camelCase } from 'lodash'
-import { images } from '../../Themes'
-import styles from './DrawerContent.styles'
+import { images as I } from '../../Themes'
+import s from './DrawerContent.styles'
 import DrawerButton from '../../Globals/DrawerButton'
 import billFilters from './billFilters'
 
@@ -29,13 +29,13 @@ class DrawerContent extends Component {
 
   renderFilterButton = ({ label, checked }) => {
     const { updateBillFilters } = this.props
-    const rightIcon = checked ? images.checkIcon2 : null
+    const rightIcon = checked ? I.checkIcon2 : null
 
     return (
       <DrawerButton
         text={label}
         onPress={() => updateBillFilters({ filter: camelCase(label) })}
-        leftIcon={images[`${camelCase(label)}Icon`]}
+        leftIcon={I[`${camelCase(label)}Icon`]}
         {...{ rightIcon }}
       />
     )
@@ -57,32 +57,32 @@ class DrawerContent extends Component {
     const FilterButton = this.renderFilterButton
 
     return (
-      <ScrollView style={styles.container}>
+      <ScrollView style={s.container}>
         <DrawerButton
           text={`Sort ${sortOrder} By:`}
           onPress={() => updateBillFilters({
             sortOrder: sortOrder === 'acending' ? 'decending' : 'acending'
           })}
-          rightIcon={sortOrder === 'acending' ? images.upArrow : images.downArrow}
+          rightIcon={sortOrder === 'acending' ? I.upArrow : I.downArrow}
           isIndex
         />
         <DrawerButton
           text='Bill Progress'
           onPress={() => updateBillFilters({ sortBy: 'progress' })}
-          leftIcon={images.checkIcon}
-          rightIcon={sortBy === 'progress' && images.checkIcon2}
+          leftIcon={I.checkIcon}
+          rightIcon={sortBy === 'progress' && I.checkIcon2}
         />
         <DrawerButton
           text='Date Introduced'
           onPress={() => updateBillFilters({ sortBy: 'introduced' })}
-          leftIcon={images.calendarIcon}
-          rightIcon={sortBy === 'introduced' && images.checkIcon2}
+          leftIcon={I.calendarIcon}
+          rightIcon={sortBy === 'introduced' && I.checkIcon2}
         />
         <DrawerButton
           text='Last Action'
           onPress={() => updateBillFilters({ sortBy: 'lastAction' })}
-          leftIcon={images.lastActionIcon}
-          rightIcon={sortBy === 'lastAction' && images.checkIcon2}
+          leftIcon={I.lastActionIcon}
+          rightIcon={sortBy === 'lastAction' && I.checkIcon2}
         />
         <DrawerButton
           text='Filter By Status:'
@@ -91,32 +91,32 @@ class DrawerContent extends Component {
         <DrawerButton
           text='Active'
           onPress={() => updateBillFilters({ active: !active })}
-          leftIcon={images.flagIcon}
-          rightIcon={active && images.checkIcon2}
+          leftIcon={I.flagIcon}
+          rightIcon={active && I.checkIcon2}
         />
         <DrawerButton
           text='Tabled'
           onPress={() => updateBillFilters({ tabled: !tabled })}
-          leftIcon={images.tabledIcon}
-          rightIcon={tabled && images.checkIcon2}
+          leftIcon={I.tabledIcon}
+          rightIcon={tabled && I.checkIcon2}
         />
         <DrawerButton
           text='Failed'
           onPress={() => updateBillFilters({ failed: !failed })}
-          leftIcon={images.failedIcon}
-          rightIcon={failed && images.checkIcon2}
+          leftIcon={I.failedIcon}
+          rightIcon={failed && I.checkIcon2}
         />
         <DrawerButton
           text='Enacted'
           onPress={() => updateBillFilters({ enacted: !enacted })}
-          leftIcon={images.enactedIcon}
-          rightIcon={enacted && images.checkIcon2}
+          leftIcon={I.enactedIcon}
+          rightIcon={enacted && I.checkIcon2}
         />
         <DrawerButton
           text='My Bills'
           onPress={() => updateBillFilters({ myBills: !myBills })}
-          leftIcon={images.myBillsIcon}
-          rightIcon={myBills && images.checkIcon2}
+          leftIcon={I.myBillsIcon}
+          rightIcon={myBills && I.checkIcon2}
         />
         <DrawerButton
           text='Filter By Issue:'

@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { View, Text, TextInput } from 'react-native'
-import styles from './SearchInput.styles'
+import s from './SearchInput.styles'
 
 class SearchInput extends Component {
   render () {
@@ -12,11 +12,11 @@ class SearchInput extends Component {
     if (this.props.height === 0) return null
 
     return (
-      <View style={[ styles.searchContainer, showHide ]}>
-        <Text style={styles.searchText}>Search</Text>
+      <View style={[ s.searchContainer, showHide ]}>
+        <Text style={s.searchText}>Search</Text>
         <TextInput
           value={this.props.search}
-          style={styles.input}
+          style={s.input}
           placeholder='Search'
           clearButtonMode='always'
           onChangeText={(text) => this.props.searchBills(text)}
