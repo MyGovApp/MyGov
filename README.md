@@ -51,8 +51,8 @@ MyGov approaches this problem from a different angle. Where Represent.us focuses
 MyGov has three primary goals to achieve its mission of creating a healthier Democracy. They are to:
 
 1. Help users become more knowledgeable about the American political system as a whole.
-* Help users stay informed and updated on the American political system.
-* Help users share their opinions on political issues with their peers and representatives.
+2. Help users stay informed and updated on the American political system.
+3. Help users share their opinions on political issues with their peers and representatives.
 
 ### Details
 
@@ -83,8 +83,8 @@ MyGov strives to make it as easy as possible for its knowledgeable and informed 
 In addition to the primary goals that focus on the American public, MyGov also strives to provide value to representatives by:
 
 1. Providing valuable information about the will of their constituents.
-* Assisting with communication to constituents.
-* Verifying accounts and normalizing poll numbers to provide the most objectively correct numbers possible.
+2. Assisting with communication to constituents.
+3. Verifying accounts and normalizing poll numbers to provide the most objectively correct numbers possible.
 
 ## Contributing
 
