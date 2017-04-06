@@ -12,7 +12,7 @@ MyGov is an open-source, 100% transparent, non-partisan American political engag
 * Learn about the American political system from a completely non-biased perspective.
 
 
-MyGov makes keeping up with congress and voicing your opinion on legislation easy and meaningful. Enter in your voting address to identify your representatives, then choose categories of legislation that you care about. View all of the bills proposed by congress and track them along their journey to becoming law. Follow a bill that you are especially invested in to receive notifications when the bill's status changes. Easily and effectively voice your opinion about a bill by using the bill's 'take action' button. The best representative to contact about a bill will change depending on the status of the bill. The 'take action' button does the hard work for you by showing you which representative you need to contact and by offering multiple ways to contact the representative right from the app.
+MyGov makes keeping up with Congress and voicing your opinion on legislation easy and meaningful. Enter in your voting address to identify your representatives, then choose categories of legislation that you care about. View all of the bills proposed by Congress and track them along their journey to becoming law. Follow a bill that you are especially invested in to receive notifications when the bill's status changes. Easily and effectively voice your opinion about a bill by using the bill's 'take action' button. The best representative to contact about a bill will change depending on the status of the bill. The 'take action' button does the hard work for you by showing you which representative you need to contact and by offering multiple ways to contact the representative right from the app.
 
 <br>
 
@@ -75,7 +75,7 @@ It is important that citizens not only be knowledgeable about the American polit
 MyGov strives to make it as easy as possible for its knowledgeable and informed users to engage in politics with their peers and representatives. MyGov assists with political engagement by:
 
 * Allowing users to vote approving or disapproving of individuals, groups, or pieces of legislation.
-* Allowing users to comment on Political activity.
+* Allowing users to comment on political activity.
 * Allowing users to share app information with their social networks.
 * Making it easy to identify and contact representatives.
 * Highlighting the key officials that issues pertain to.
