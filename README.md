@@ -48,10 +48,10 @@ MyGov approaches this problem from a different angle. Where Represent.us focuses
 
 ## The How
 
-MyGov has three primary goals to achieve its mission of creating a healthier Democracy. They are to:
+MyGov has three primary goals to achieve its mission of creating a healthier democracy. They are:
 
 1. Help users become more knowledgeable about the American political system as a whole.
-2. Help users stay informed and updated on the American political system.
+2. Help users stay informed and updated on the American politics.
 3. Help users share their opinions on political issues with their peers and representatives.
 
 ### Details
@@ -60,7 +60,7 @@ MyGov has three primary goals to achieve its mission of creating a healthier Dem
 When talking about 'political knowledge' we are referring to knowledge of how the American political system works in general. This includes things like how a bill becomes law, how cases make it to the Supreme Court, what powers each of the branches of American government has, and how checks and balances work. MyGov strives to increase political knowledge in three ways:
 
 * Design a UI that depicts political systems in a way that is intuitive and easy to understand.
-* Implement graduation cap icons that can be clicked to learn more about a particular screen or feature of government. (Much like the Google Analytics' implementation)
+* Implement graduation cap icons that can be clicked to learn more about a particular screen or feature of government. (Much like the Google Analytics implementation)
 * Link to or embed quality external resources from reputable sources for additional learning.
 
 ##### 2) Staying informed
