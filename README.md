@@ -1,6 +1,6 @@
 # MyGov | An app by the people, for the people.
 
-Note: MyGov is currently in pre-alpha development. MVP alpha deployments for iOS and web are tentatively scheduled for the beginning of June 2017. Only the bill tracking features shown in the first two GIFs below will be available in the alpha release, but additional features will soon follow. Take a look at the [living MyGov prototype](https://projects.invisionapp.com/d/main#/console/9918131/212448806/preview) to get a peek at what is coming next!
+Note: MyGov is currently in pre-alpha development. MVP alpha deployments for iOS and web are tentatively scheduled for the beginning of June 2017. Only the bill tracking features shown in the first two GIFs below will be available in the alpha release, but additional features will soon follow. Take a look at the [living MyGov prototype](https://invis.io/VJ9VWH3SG#/212448806_Login_Screen) to get a peek at what is coming next!
 
 ## Intro
 
