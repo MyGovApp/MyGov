@@ -11,7 +11,7 @@ describe('returnDetailedStatus', () => {
       for (var i = 0; i < progressIndexLength; i++) {
         chambers.forEach(chamber => {
           expect(returnDetailedStatus(status, { index: i, text: 'default to progress.text' }, chamber))
-            .to.equal(expectedValues[`${status}|${i}|${chamber}`])
+            .to.equal(expectedValues[`${status}|${i}|${chamber}`], `in case ${status}|${i}|${chamber}`)
         })
       }
     })
@@ -96,8 +96,8 @@ const expectedValues = {
   "tabled|12|senate": "default to progress.text",
   "tabled|13|house": "default to progress.text",
   "tabled|13|senate": "default to progress.text",
-  "tabled|14|house": "Tabled by House and Senate after presidential veto",
-  "tabled|14|senate": "Tabled by Senate and House after presidential veto",
+  "tabled|14|house": undefined,
+  "tabled|14|senate": undefined,
   "tabled|15|house": "Tabled by House and Senate after presidential veto",
   "tabled|15|senate": "Tabled by Senate and House after presidential veto",
   "tabled|16|house": "default to progress.text",
