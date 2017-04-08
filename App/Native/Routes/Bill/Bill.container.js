@@ -7,7 +7,7 @@ const mapDispatchToProps = {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  isAdded: Boolean(state.bills.myBills.find(bill => bill === ownProps.billId))
+  isAdded: Boolean(state.Bills.myBills.find(bill => bill === ownProps.billId))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Bill)

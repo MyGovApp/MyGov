@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
-import bills from '../../Modules/Bills/Bills.modules'
-import drawerContent from '../../Modules/DrawerContent/DrawerContent.modules'
-import searchInput from '../../Modules/SearchInput/SearchInput.modules'
+import Bills from '../../Modules/Bills/Bills.modules'
+import DrawerContent from '../../Modules/DrawerContent/DrawerContent.modules'
+import SearchInput from '../../Modules/SearchInput/SearchInput.modules'
 
 export default combineReducers({
-  bills,
-  drawerContent,
-  searchInput
+  Bills,
+  DrawerContent,
+  SearchInput
 })

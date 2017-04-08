@@ -8,10 +8,10 @@ const mapDispatchToProps = {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  loading: state.bills.loading,
-  bills: filterBills(state.bills.bills, state.drawerContent, state.searchInput.search, state.bills.myBills),
-  options: { ...state.drawerContent },
-  filteredBills: state.bills.filteredBills
+  loading: state.Bills.loading,
+  bills: filterBills(state.Bills.bills, state.DrawerContent, state.SearchInput.search, state.Bills.myBills),
+  options: { ...state.DrawerContent },
+  filteredBills: state.Bills.filteredBills
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Bills)

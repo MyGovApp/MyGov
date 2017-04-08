@@ -14,7 +14,7 @@ const props = {
 const newStore = configureMockStore([thunk])
 
 const mockStore = newStore({
-  searchInput: {
+  SearchInput: {
     search: ''
   }
 })

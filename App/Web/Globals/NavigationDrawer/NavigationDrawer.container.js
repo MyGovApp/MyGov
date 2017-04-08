@@ -3,7 +3,7 @@ import { toggleDrawer } from '../../../Modules/actions'
 import NavigationDrawer from './NavigationDrawer.component.js'
 
 const mapStateToProps = (state, ownProps) => ({
-  drawerOpen: state.navigationDrawer.drawerOpen
+  drawerOpen: state.NavigationDrawer.drawerOpen
 })
 
 const mapDispatchToProps = {

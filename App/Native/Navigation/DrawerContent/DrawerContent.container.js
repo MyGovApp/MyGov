@@ -6,6 +6,6 @@ const mapDispatchToProps = {
   updateBillFilters
 }
 
-const mapStateToProps = (state, ownProps) => ({ ...state.drawerContent })
+const mapStateToProps = (state, ownProps) => ({ ...state.DrawerContent })
 
 export default connect(mapStateToProps, mapDispatchToProps)(DrawerContent)
