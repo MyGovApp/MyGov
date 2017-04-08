@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Native SearchInput should render the SearchInput component correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flex": 1,
+        "justifyContent": "center",
+      },
+      Object {
+        "marginBottom": 0.5,
+        "marginTop": 0.5,
+      },
+    ]
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "fontSize": 18,
+        "textAlign": "center",
+      }
+    }
+  >
+    Search
+  </Text>
+  <TextInput
+    clearButtonMode="always"
+    onChangeText={[Function]}
+    placeholder="Search"
+    style={
+      Object {
+        "backgroundColor": "white",
+        "borderRadius": 15,
+        "height": 30,
+        "marginLeft": 10,
+        "marginRight": 10,
+        "marginTop": 5,
+        "paddingLeft": 20,
+        "paddingRight": 20,
+        "textAlign": "center",
+      }
+    }
+    value={undefined}
+  />
+</View>
+`;
+
+exports[`Native SearchInput should render the SearchInput container correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flex": 1,
+        "justifyContent": "center",
+      },
+      Object {
+        "marginBottom": 0.5,
+        "marginTop": 0.5,
+      },
+    ]
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "fontSize": 18,
+        "textAlign": "center",
+      }
+    }
+  >
+    Search
+  </Text>
+  <TextInput
+    clearButtonMode="always"
+    onChangeText={[Function]}
+    placeholder="Search"
+    style={
+      Object {
+        "backgroundColor": "white",
+        "borderRadius": 15,
+        "height": 30,
+        "marginLeft": 10,
+        "marginRight": 10,
+        "marginTop": 5,
+        "paddingLeft": 20,
+        "paddingRight": 20,
+        "textAlign": "center",
+      }
+    }
+    value=""
+  />
+</View>
+`;
