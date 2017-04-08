@@ -50,25 +50,21 @@ class Bill extends Component {
           <LabelValue
             name='dateIntroduced'
             label='Introduced: '
-            value={pDateIntroduced}
-          />
+            value={pDateIntroduced} />
           <LabelValue
             name='sponsor'
             label='Sponsor: '
             value={sponsorFull}
-            style={{ paddingTop: 5 }}
-          />
+            style={{ paddingTop: 5 }} />
           <LabelValue
             name='chamber'
             label='Chamber: '
             value={capitalize(chamber)}
-            style={{ paddingTop: 5, paddingBottom: 15 }}
-          />
+            style={{ paddingTop: 5, paddingBottom: 15 }} />
           <Button
             text={`${isAdded ? 'Remove From' : 'Add To'} My Bills`}
             onPress={() => toggleToMyBills(billId)}
-            buttonStyle={{ marginBottom: 20 }}
-          />
+            buttonStyle={{ marginBottom: 20 }} />
         </View>
         <View style={s.summaryContainer}>
           <Text style={s.id}>Bill Progress</Text>
@@ -76,26 +72,22 @@ class Bill extends Component {
             name='status'
             label='Status: '
             value={capitalize(status)}
-            style={{ paddingTop: 20 }}
-          />
+            style={{ paddingTop: 20 }} />
           <LabelValue
             name='detailedStatus'
             label='Detailed Status: '
             value={detailedStatus}
-            style={{ paddingTop: 5 }}
-          />
+            style={{ paddingTop: 5 }} />
           <LabelValue
             name='progress'
             label='Progress: '
             value={progress.text}
-            style={{ paddingTop: 5 }}
-          />
+            style={{ paddingTop: 5 }} />
           <LabelValue
             name='lastAction'
             label='Last Action On: '
             value={pDateLastAction}
-            style={{ paddingTop: 5, paddingBottom: 10 }}
-          />
+            style={{ paddingTop: 5, paddingBottom: 10 }} />
           <BillStatusSvg {...{ status, progress, chamber }} />
         </View>
         <View style={s.summaryContainer}>
@@ -103,20 +95,17 @@ class Bill extends Component {
           <LabelValue
             name='billSummary'
             value={this.state.summary}
-            style={{ paddingTop: 15, paddingBottom: 15 }}
-          />
+            style={{ padding: 15, textAlign: 'justify' }} />
         </View>
         <View style={s.summaryContainer}>
           <Text style={s.id}>More Info</Text>
           <ExternalLink
             text='Congress.gov'
-            url={this.props.urls.congress}
-          />
+            url={this.props.urls.congress} />
           <ExternalLink
             text='GovTrack.us'
             url={this.props.urls.govtrack}
-            style={{ paddingBottom: 10 }}
-          />
+            style={{ paddingBottom: 10 }} />
         </View>
       </ScrollView>
     )
