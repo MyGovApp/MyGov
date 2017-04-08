@@ -7,6 +7,7 @@ import NavItems from '../NavItems'
 // screens identified by the router
 import Bills from '../../Routes/Bills'
 import Bill from '../../Routes/Bill'
+import Dev from '../../Routes/Dev'
 
 // ------------------------------------
 // Documentation: https://github.com/aksonov/react-native-router-flux
@@ -22,8 +23,8 @@ class NavigationRouter extends Component {
             navigationBarStyle={s.navBar}
             titleStyle={s.title}
             leftButtonIconStyle={s.leftButton}
-            rightButtonTextStyle={s.rightButton}
-          >
+            rightButtonTextStyle={s.rightButton} >
+
             <Scene
               initial
               key='bills'
@@ -31,13 +32,16 @@ class NavigationRouter extends Component {
               title='Bills'
               renderRightButton={NavItems.hamburgerButton}
               renderBackButton={() => false}
-              direction='leftToRight'
-            />
+              direction='leftToRight' />
             <Scene
               key='bill'
               component={Bill}
-              title='Bill Detial'
-            />
+              title='Bill Detial' />
+            <Scene
+              key='dev'
+              component={Dev}
+              title='Dev Screen' />
+
           </Scene>
         </Scene>
       </Router>

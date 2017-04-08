@@ -9,7 +9,7 @@ const Footer = () => {
     { route: 'bills', text: 'Bills', image: I.billsIcon },
     { route: 'congress', text: 'Congress', image: I.congressIcon },
     { route: 'notifications', text: 'Notifications', image: I.notificationIcon },
-    { route: 'account', text: 'Me', image: I.accountIcon }
+    { route: 'dev', text: 'Dev', image: I.devIcon }
   ]
 
   return (
