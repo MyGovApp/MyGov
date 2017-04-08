@@ -51,7 +51,7 @@ export default class Bills extends Component {
           renderRow={(bill) => (
             <BillCard
               {...bill}
-              key={bill.bill_id}
+              key={bill.billId}
             />
           )}
         />

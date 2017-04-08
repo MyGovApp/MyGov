@@ -19,20 +19,20 @@ class BillCard extends Component {
 
   render () {
     const {
-      bill_id,
-      official_title,
-      introduced_on,
-      last_action_at,
+      billId,
+      officialTitle,
+      introducedOn,
+      lastActionAt,
       chamber,
       status,
       progress } = this.props
 
     const { showFullTitle } = this.state
 
-    const truncTitle = truncate(official_title, { length: 65, separator: /,? +/ })
-    const upperId = upperCase(bill_id)
-    const pDateIntroduced = moment(introduced_on).format('MMM D, YYYY')
-    const pDateLastAction = moment(last_action_at).format('MMM D, YYYY')
+    const truncTitle = truncate(officialTitle, { length: 65, separator: /,? +/ })
+    const upperId = upperCase(billId)
+    const pDateIntroduced = moment(introducedOn).format('MMM D, YYYY')
+    const pDateLastAction = moment(lastActionAt).format('MMM D, YYYY')
 
     return (
       <View style={s.container}>
@@ -41,7 +41,7 @@ class BillCard extends Component {
         >
           <LabelValue
             name='title'
-            value={showFullTitle ? official_title : truncTitle}
+            value={showFullTitle ? officialTitle : truncTitle}
           />
         </TouchableOpacity>
         <LabelValue
@@ -79,10 +79,10 @@ class BillCard extends Component {
 }
 
 BillCard.propTypes = {
-  bill_id: PropTypes.string.isRequired,
-  official_title: PropTypes.string.isRequired,
-  introduced_on: PropTypes.string.isRequired,
-  last_action_at: PropTypes.string.isRequired,
+  billId: PropTypes.string.isRequired,
+  officialTitle: PropTypes.string.isRequired,
+  introducedOn: PropTypes.string.isRequired,
+  lastActionAt: PropTypes.string.isRequired,
   chamber: PropTypes.string.isRequired,
   status: PropTypes.string.isRequired,
   progress: PropTypes.object.isRequired

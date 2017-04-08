@@ -1,4 +1,4 @@
-import moment from 'moment'
+const moment = require('moment')
 
 const returnProgress = (h, chamber) => {
   let primary, secondary, Primary, Secondary

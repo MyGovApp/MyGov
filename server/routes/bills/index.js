@@ -1,7 +1,6 @@
 const express = require('express')
 const fetch = require('isomorphic-fetch')
 const router = express.Router()
-const pick = require('lodash').pick
 const moment = require('moment')
 const returnDetailedStatus = require('./returnDetailedStatus')
 const returnProgress = require('./returnProgress')
@@ -14,17 +13,17 @@ const getAllBills = () => {
     .then(response => response.json())
     .then(billsAll => billsAll.results.reduce((billsPruned, bill) => {
       billsPruned.push(Object.assign({},
-        pick(bill, [
-          'official_title',
-          'bill_id',
-          'introduced_on',
-          'last_action_at',
-          'chamber',
-          'history',
-          'sponsor',
-          'urls'
-        ]),
-        additionalData(bill.history, bill.chamber, bill.last_action_at)
+        {
+          officialTitle: bill.official_title,
+          billId: bill.bill_id,
+          introducedOn: bill.introduced_on,
+          lastActionAt: bill.last_action_at,
+          chamber: bill.chamber,
+          history: bill.history,
+          sponsor: bill.sponsor,
+          urls: bill.urls
+        },
+        additionalData(bill.history, bill.chamber, bill.lastActionAt)
       ))
       return billsPruned
     }, []))

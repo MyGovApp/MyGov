@@ -31,7 +31,7 @@ const filterBillsByStatus = (bills, options) => {
 
 const filterMyBills = (bills, shouldFilter, myBills) => !shouldFilter
   ? bills
-  : bills.filter(bill => myBills.find(myBill => myBill === bill.bill_id))
+  : bills.filter(bill => myBills.find(myBill => myBill === bill.billId))
 
 const filterBillsByTopic = (bills, topics) => {
   if (!topics.length) return bills
@@ -41,7 +41,7 @@ const filterBillsByTopic = (bills, topics) => {
     const filter = filterTopics.find(filter => camelCase(filter.label) === topic)
     filter.topics.forEach(keyWord => {
       bills.forEach(bill => {
-        if (bill.official_title.toLowerCase().includes(keyWord) &&
+        if (bill.officialTitle.toLowerCase().includes(keyWord) &&
         !newBills.find((existingBill) => bill === existingBill)) {
           newBills.push(bill)
         }
@@ -54,7 +54,7 @@ const filterBillsByTopic = (bills, topics) => {
 
 const filterBillsBySearch = (bills, search) => {
   const newBills = bills.filter((bill) => {
-    return bill.official_title.toLowerCase().includes(search.toLowerCase())
+    return bill.officialTitle.toLowerCase().includes(search.toLowerCase())
   })
   return newBills
 }
@@ -73,8 +73,8 @@ const sortBills = (bills, sortBy, sortOrder) => {
   if (sortBy === 'introduced') {
     newBills = bills.sort((billA, billB) => (
       compare(
-        moment(billA.introduced_on).unix(),
-        moment(billB.introduced_on).unix()
+        moment(billA.introducedOn).unix(),
+        moment(billB.introducedOn).unix()
       ) ? -1 : 1
     ))
   }
@@ -82,8 +82,8 @@ const sortBills = (bills, sortBy, sortOrder) => {
   if (sortBy === 'lastAction') {
     newBills = bills.sort((billA, billB) => (
       compare(
-        moment(billA.last_action_at).unix(),
-        moment(billB.last_action_at).unix()
+        moment(billA.lastActionAt).unix(),
+        moment(billB.lastActionAt).unix()
       ) ? -1 : 1
     ))
   }

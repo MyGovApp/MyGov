@@ -25,10 +25,10 @@ class Bill extends Component {
 
   render () {
     const {
-      bill_id,
-      official_title,
-      introduced_on,
-      last_action_at,
+      billId,
+      officialTitle,
+      introducedOn,
+      lastActionAt,
       chamber,
       status,
       progress,
@@ -37,16 +37,16 @@ class Bill extends Component {
       toggleToMyBills,
       isAdded } = this.props
 
-    const upperId = bill_id.toUpperCase()
-    const pDateIntroduced = moment(introduced_on).format('MMM D, YYYY')
-    const pDateLastAction = moment(last_action_at).format('MMM D, YYYY')
+    const upperId = billId.toUpperCase()
+    const pDateIntroduced = moment(introducedOn).format('MMM D, YYYY')
+    const pDateLastAction = moment(lastActionAt).format('MMM D, YYYY')
     const sponsorFull = `${sponsor.title}. ${sponsor.first_name} ${sponsor.last_name}`
 
     return (
       <ScrollView style={s.mainContainer}>
         <View style={s.summaryContainer}>
           <Text style={s.id}>{upperId}</Text>
-          <Text style={s.title}>{official_title}</Text>
+          <Text style={s.title}>{officialTitle}</Text>
           <LabelValue
             name='dateIntroduced'
             label='Introduced: '
@@ -66,7 +66,7 @@ class Bill extends Component {
           />
           <Button
             text={`${isAdded ? 'Remove From' : 'Add To'} My Bills`}
-            onPress={() => toggleToMyBills(bill_id)}
+            onPress={() => toggleToMyBills(billId)}
             buttonStyle={{ marginBottom: 20 }}
           />
         </View>
@@ -124,10 +124,10 @@ class Bill extends Component {
 }
 
 Bill.propTypes = {
-  bill_id: PropTypes.string.isRequired,
-  official_title: PropTypes.string.isRequired,
-  introduced_on: PropTypes.string.isRequired,
-  last_action_at: PropTypes.string.isRequired,
+  billId: PropTypes.string.isRequired,
+  officialTitle: PropTypes.string.isRequired,
+  introducedOn: PropTypes.string.isRequired,
+  lastActionAt: PropTypes.string.isRequired,
   chamber: PropTypes.string.isRequired,
   status: PropTypes.string.isRequired,
   progress: PropTypes.object.isRequired,
