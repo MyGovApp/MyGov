@@ -1,11 +1,7 @@
-import { fonts, colors } from '../../Themes'
+import { fonts, colors, applicationStyles } from '../../Themes'
 
 export default {
-  mainContainer: {
-    paddingLeft: 10,
-    paddingRight: 10,
-    paddingTop: 70
-  },
+  ...applicationStyles.screen,
   summaryContainer: {
     alignItems: 'center',
     borderBottomColor: colors.frost,

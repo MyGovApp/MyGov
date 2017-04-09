@@ -44,6 +44,7 @@ export default class Bills extends Component {
         </Text>
         <ListView
           enableEmptySections
+          showsVerticalScrollIndicator={false}
           ref={billsList => { this.billsList = billsList }}
           dataSource={billsDs}
           onScroll={this.handleScroll}
@@ -64,7 +65,7 @@ export default class Bills extends Component {
     const BillsList = this.renderBillsList
 
     return (
-      <View style={s.mainView}>
+      <View style={s.mainContainer}>
         {loading
           ? <ActivityIndicator />
           : <BillsList bills={bills} />

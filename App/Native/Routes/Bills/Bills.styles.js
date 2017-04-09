@@ -1,10 +1,9 @@
-import { colors, fonts } from '../../Themes'
+import { colors, fonts, applicationStyles } from '../../Themes'
 
 export default {
-  mainView: {
+  mainContainer: {
+    ...applicationStyles.screen.mainContainer,
     flexDirection: 'column',
-    marginTop: 64,
-    flex: 1,
     justifyContent: 'center',
     backgroundColor: colors.backgroundGray
   },

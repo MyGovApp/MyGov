@@ -4,13 +4,15 @@ export default {
   container: {
     backgroundColor: colors.backgroundWhite,
     shadowOpacity: 0.5,
-    margin: 10,
+    marginTop: 10,
+    marginBottom: 10,
     paddingTop: 20,
     paddingRight: 5,
     paddingLeft: 5,
     shadowColor: colors.shadow,
     alignItems: 'center',
     shadowOffset: {
+      width: 10,
       height: 5
     }
   },

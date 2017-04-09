@@ -13,6 +13,9 @@
   'nerpNativeComponent':
     'prefix':'nerpNativeComponent'
     'body':'import React, { Component, PropTypes } from \'react\'\nimport { ${2:Text, TouchableOpacity} } from \'react-native\'\nimport styles from \'./${1:ComponentName}.styles\'\n\nclass ${1:ComponentName} extends Component {\n\trender () {\n\t\treturn (\n\t\t\t${3:<TouchableOpacity onPress={this.props.onPress\\}>\n\t\t\t\t<Text style={styles.text\\}>{this.props.text\\}</Text>\n\t\t\t</TouchableOpacity>}\n\t\t)\n\t}\n}\n\n${1:ComponentName}.propTypes = {\n\t${4:onPress: PropTypes.func.isRequired,\n\ttext: PropTypes.string.isRequired}\n}\n\nexport default ${1:ComponentName}\n\n'
+  'nerpNativeStyles':
+    'prefix':'nerpNativeStyles'
+    'body':'import { applicationStyles } from \'${1:navigate to themes directory}\'\n\nexport default {\n\t...applicationStyles.screen${2}\n}\n'
   'nerpNativeTestAssertions':
     'prefix':'nerpNativeTestAssertions'
     'body':'import \'react-native\'\nimport React from \'react\' // eslint-disable-line\nimport renderer from \'react-test-renderer\'\nimport { ComponentWrapper${2:, ContainerWrapper} } from \'./${1:Example}.setup\'\n\ndescribe(\'Native ${1:Example}\', () => {\n\tit(\'should render the ${1:Example} component correctly\', () => {\n\t\tconst tree = renderer.create(ComponentWrapper()).toJSON()\n\t\texpect(tree).toMatchSnapshot()\n\t})\n\n${2:\tit(\'should render the ${1:Example} container correctly\', () => {\n\t\tconst tree = renderer.create(ContainerWrapper()).toJSON()\n\t\texpect(tree).toMatchSnapshot()\n\t\\})}\n})\n'
