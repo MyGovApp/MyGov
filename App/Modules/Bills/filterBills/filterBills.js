@@ -1,10 +1,11 @@
 import { pick } from 'lodash'
 import cache from '../../../Utilities/cache'
 
-// It hard to tell if the caching is actually helping.
-// Leaving the code here to optimize later work on later.
+// It would appear that my caching effors actually made things slower.
+// Leaving the code here to optimize and work on later.
+// noCache enabled in meantime.
 cache.verbose = false
-cache.noCache = false
+cache.noCache = true
 
 import {
   filterBillsByStatus,
