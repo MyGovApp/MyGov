@@ -1,14 +1,16 @@
 const cache = (callback, params, verbose) => {
+  const startTime = Date.now()
   const deepEqual = (a, b) => a === JSON.stringify(b)
 
   let result
+  let resultType
 
   if (callback.pureResolves) {
     callback.pureResolves(params).forEach((resolve, i) => {
       if (resolve.log) console.log('PureResolve log: ', resolve.log)
       if (resolve.test) {
         result = resolve.resolve
-        if (verbose || cache.verbose) console.log(`%c returning pure resolve for ${callback.name}`, 'color: #B8E986')
+        resultType = 'pureResolve'
       }
     })
   }
@@ -20,22 +22,31 @@ const cache = (callback, params, verbose) => {
         if (resolve.log) console.log('Resolve log: ', resolve.log)
         if (resolve.test) {
           result = resolve.resolve
-          if (verbose || cache.verbose) console.log(`%c returning resolve for ${callback.name}`, 'color: #3d8de7')
+          resultType = 'resolve'
         }
       })
     }
     if (deepEqual(callback.cache.params, params)) {
-      if (verbose || cache.verbose) console.log(`%c returning cached result for ${callback.name}`, 'color: #3d8de7')
       result = callback.cache.result
+      resultType = 'cache'
     }
   }
 
   if (!result) {
-    if (verbose || cache.verbose) console.log(`%c returning proccessed result for ${callback.name}`, 'color: #FFD1D1')
     result = callback(...params)
+    resultType = 'processed'
   }
 
   callback.cache = { params: JSON.stringify(params), result }
+
+  if (verbose || cache.verbose) {
+    const funcTime = Date.now() - startTime
+    if (resultType === 'pureResolve') console.log(`%c ${funcTime}ms | returning pure resolve for ${callback.name}`, 'color: #B8E986')
+    if (resultType === 'resolve') console.log(`%c ${funcTime}ms | returning resolve for ${callback.name}`, 'color: #3d8de7')
+    if (resultType === 'cache') console.log(`%c ${funcTime}ms | returning cached result for ${callback.name}`, 'color: #3dbde7')
+    if (resultType === 'processed') console.log(`%c ${funcTime}ms | returning proccessed result for ${callback.name}`, 'color: #FFD1D1')
+  }
+
   return result
 }
 
