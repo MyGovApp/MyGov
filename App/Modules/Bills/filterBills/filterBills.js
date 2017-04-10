@@ -1,7 +1,7 @@
 import { pick } from 'lodash'
+import cache from '../../../Utilities/cache'
 
 import {
-  cache,
   filterBillsByStatus,
   filterMyBills,
   filterBillsByTopic,

@@ -10,7 +10,7 @@ const filterBillsByStatus = (bills, stati) => {
   return newBills
 }
 
-filterBillsByStatus.resolves = (p, cP, cR) => [
+filterBillsByStatus.pureResolves = (p) => [
   { test: !p[1].active && !p[1].tabled && !p[1].failed && !p[1].enacted, resolve: p[0] }
 ]
 

@@ -2,7 +2,6 @@ import { camelCase } from 'lodash'
 import filterTopics from '../../../Native/Navigation/DrawerContent/billFilters'
 
 const filterBillsByTopic = (bills, topics) => {
-  if (!topics.length) return bills
   let newBills = []
 
   topics.forEach(topic => {
@@ -19,5 +18,9 @@ const filterBillsByTopic = (bills, topics) => {
 
   return newBills
 }
+
+filterBillsByTopic.pureResolves = (p) => [
+  { test: !p[1].length, resolve: p[0] }
+]
 
 export default filterBillsByTopic
