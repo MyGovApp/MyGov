@@ -1,7 +1,10 @@
 import { pick } from 'lodash'
 import cache from '../../../Utilities/cache'
 
-cache.verbose = true
+// It hard to tell if the caching is actually helping.
+// Leaving the code here to optimize later work on later.
+cache.verbose = false
+cache.noCache = false
 
 import {
   filterBillsByStatus,
