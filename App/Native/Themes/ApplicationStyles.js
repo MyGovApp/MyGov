@@ -10,7 +10,8 @@ const ApplicationStyles = {
     mainContainer: {
       flex: 1,
       marginTop: Metrics.navBarHeight,
-      padding: 10
+      paddingLeft: 10,
+      paddingRight: 10
     },
     backgroundImage: {
       position: 'absolute',
