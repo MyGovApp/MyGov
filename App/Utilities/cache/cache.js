@@ -8,7 +8,7 @@ const cache = (callback, params, verbose) => {
       if (resolve.log) console.log('PureResolve log: ', resolve.log)
       if (resolve.test) {
         result = resolve.resolve
-        if (verbose || cache.verbose) console.log(`returning pure resolve for ${callback.name}`)
+        if (verbose || cache.verbose) console.log(`%c returning pure resolve for ${callback.name}`, 'color: #B8E986')
       }
     })
   }
@@ -20,18 +20,18 @@ const cache = (callback, params, verbose) => {
         if (resolve.log) console.log('Resolve log: ', resolve.log)
         if (resolve.test) {
           result = resolve.resolve
-          if (verbose || cache.verbose) console.log(`returning resolve for ${callback.name}`)
+          if (verbose || cache.verbose) console.log(`%c returning resolve for ${callback.name}`, 'color: #3d8de7')
         }
       })
     }
     if (deepEqual(callback.cache.params, params)) {
-      if (verbose || cache.verbose) console.log(`returning cached result for ${callback.name}`)
+      if (verbose || cache.verbose) console.log(`%c returning cached result for ${callback.name}`, 'color: #3d8de7')
       result = callback.cache.result
     }
   }
 
   if (!result) {
-    if (verbose || cache.verbose) console.log(`returning proccessed result for ${callback.name}`)
+    if (verbose || cache.verbose) console.log(`%c returning proccessed result for ${callback.name}`, 'color: #FFD1D1')
     result = callback(...params)
   }
 
