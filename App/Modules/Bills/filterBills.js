@@ -1,27 +1,62 @@
-import { camelCase } from 'lodash'
+import { camelCase, pick } from 'lodash'
 import moment from 'moment'
 import filterTopics from '../../Native/Navigation/DrawerContent/billFilters'
 
 const filterBills = (allBills, options, search, myBills) => {
   if (!allBills.length) return allBills
 
-  const statusFilteredBills = filterBillsByStatus(allBills, options)
-  const myBillsFilteredBills = filterMyBills(statusFilteredBills, options.myBills, myBills)
-  const topicFilteredBills = filterBillsByTopic(myBillsFilteredBills, options.filters)
-  const searchFilteredBills = filterBillsBySearch(topicFilteredBills, search)
-  const sortedBills = sortBills(searchFilteredBills, options.sortBy, options.sortOrder)
+  const stati = pick(options, [ 'active', 'tabled', 'failed', 'enacted' ])
+  const statusFilteredBills = cache(filterBillsByStatus, [ allBills, stati ])
+  const myBillsFilteredBills = cache(filterMyBills, [ statusFilteredBills, options.myBills, myBills ])
+  const topicFilteredBills = cache(filterBillsByTopic, [ myBillsFilteredBills, options.filters ])
+  const searchFilteredBills = cache(filterBillsBySearch, [ topicFilteredBills, search ])
+
+  const extensions = [(p, cP, cR) => ({ test: p[2] !== cP[2] && p[1] === cP[1], resolve: cR.reverse() })]
+  const sortedBills = cache(sortBills, [ searchFilteredBills, options.sortBy, options.sortOrder ], extensions)
 
   return sortedBills
 }
 
-const filterBillsByStatus = (bills, options) => {
-  const { active, tabled, failed, enacted } = options
+const cache = (callback, params, extensions = []) => {
+  const deepEqual = (a, b) => a === JSON.stringify(b)
+
+  let resolve
+
+  if (callback.cache) {
+    extensions.forEach((extension, i) => {
+      const obj = extension(params, JSON.parse(callback.cache.params), callback.cache.result)
+      console.log('params[2] :  : ', params[2])
+      console.log('callback.cache.params[2] :  : ', callback.cache.params[2])
+      console.log('obj', obj)
+      if (obj.test) {
+        resolve = obj.resolve
+        console.log(`returning resolve for ${callback.name}`)
+      }
+    })
+
+    if (deepEqual(callback.cache.params, params)) {
+      console.log(`rendering cached ${callback.name}`)
+      resolve = callback.cache.result
+    }
+  }
+
+  if (resolve) {
+    return resolve
+  }
+  console.log(`rendering processed ${callback.name}`)
+  const result = callback(...params)
+  callback.cache = { params: JSON.stringify(params), result }
+  return result
+}
+
+const filterBillsByStatus = (bills, stati) => {
+  const { active, tabled, failed, enacted } = stati
   if (!(active || tabled || failed || enacted)) return bills
 
   let newBills = []
 
   bills.forEach(bill => {
-    if (options[bill.status]) {
+    if (stati[bill.status]) {
       newBills.push(bill)
     }
   })
