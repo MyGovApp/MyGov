@@ -14,8 +14,13 @@ m.handleAction('RECEIVE_MYBILLS', (s, a) => ({
   myBills: a.myBills
 }))
 
+m.handleAction('SCROLL_REACH_END', (s, a) => ({
+  renderPage: s.renderPage + 1
+}))
+
 m.initialState = {
   loading: false,
+  renderPage: 1,
   bills: [],
   filteredBills: [],
   myBills: []

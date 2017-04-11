@@ -7,15 +7,16 @@ class Bills extends Component {
   }
 
   componentDidMount () {
-    console.log('ping')
     this.props.fetchBills()
   }
 
   render () {
+    const { renderPage } = this.props
+    const shortBills = this.props.bills.slice(0, 50 * renderPage)
     return (
       <div>
         <h2>Bills Route</h2>
-        {this.props.bills.map((bill, i) => (<p key={i}>{bill.officialTitle}</p>))}
+        {shortBills.map((bill, i) => (<p key={i}>{i} | {bill.officialTitle}</p>))}
       </div>
     )
   }
@@ -23,7 +24,8 @@ class Bills extends Component {
 
 Bills.propTypes = {
   fetchBills: PropTypes.func.isRequired,
-  bills: PropTypes.array.isRequired
+  bills: PropTypes.array.isRequired,
+  renderPage: PropTypes.number.isRequired
 }
 
 module.exports = Bills

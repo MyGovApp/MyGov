@@ -9,15 +9,14 @@ import fetch from '../Utilities/isomorphic-fetch'
 
 export {
   fetchBills,
+  scrollReachEnd,
   searchBills,
   toggleDrawer,
   updateBillFilters
 }
 
 function fetchBills () {
-  console.log('ping2')
   return dispatch => {
-    console.log('ping3')
     dispatch({ type : 'START_REQUEST' })
     return fetchApi(dispatch)
   }
@@ -32,6 +31,10 @@ const fetchApi = (dispatch) => (
       }))
       .catch(err => console.log('Error: ', err))
 )
+
+function scrollReachEnd () {
+  return { type: 'SCROLL_REACH_END' }
+}
 
 function searchBills (search) {
   return {

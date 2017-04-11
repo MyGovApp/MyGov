@@ -5,6 +5,23 @@ import classes from './CoreLayout.styles.scss'
 import NavigationDrawer from 'Globals/NavigationDrawer'
 
 class CoreLayout extends Component {
+  componentDidMount () {
+    this.watchScrollEvents()
+  }
+
+  watchScrollEvents () {
+    const { scrollReachEnd } = this.props
+    const main = document.getElementById('main')
+
+    main.onscroll = (e) => {
+      const { scrollHeight, scrollTop, offsetHeight } = e.srcElement
+
+      if ((scrollHeight - scrollTop) < (offsetHeight + 1)) {
+        scrollReachEnd()
+      }
+    }
+  }
+
   render () {
     const { children, drawerOpen } = this.props
     const toggleStyle = drawerOpen ? { marginLeft: '-80%' } : { marginLeft: 0 }
@@ -15,7 +32,7 @@ class CoreLayout extends Component {
           className={classes.applicaion}
           style={toggleStyle}>
           <Header />
-          <main className={classes.main}>
+          <main id='main' className={classes.main}>
             {children}
           </main>
         </div>
@@ -27,7 +44,8 @@ class CoreLayout extends Component {
 
 CoreLayout.propTypes = {
   children: PropTypes.node,
-  drawerOpen: PropTypes.bool
+  drawerOpen: PropTypes.bool,
+  scrollReachEnd: PropTypes.func
 }
 
 module.exports = CoreLayout
