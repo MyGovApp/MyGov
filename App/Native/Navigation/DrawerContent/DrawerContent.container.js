@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { updateBillFilters } from '../../../Modules/actions'
+import { updateBillFilters } from '../../../Actions/nativeActions'
 import DrawerContent from './DrawerContent.component'
 
 const mapDispatchToProps = {

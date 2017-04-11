@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { searchBills } from '../../../Modules/actions'
+import { searchBills } from '../../../Actions/nativeActions'
 import SearchInput from './SearchInput.component.js'
 
 const mapDispatchToProps = {

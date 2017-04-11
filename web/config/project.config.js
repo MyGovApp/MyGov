@@ -10,6 +10,7 @@ debug('Creating default configuration.')
 // ========================================================
 const config = {
   env : process.env.NODE_ENV || 'development',
+  platform: process.env.PLATFORM || 'web',
 
   // ----------------------------------
   // Project Structure
@@ -76,9 +77,12 @@ Edit at Your Own Risk
 // N.B.: globals added here must _also_ be added to .eslintrc
 config.globals = {
   'process.env'  : {
-    'NODE_ENV' : JSON.stringify(config.env)
+    'NODE_ENV' : JSON.stringify(config.env),
+    'PLATFORM'  : JSON.stringify(config.platform)
   },
   'NODE_ENV'     : config.env,
+  'PLATFORM'     : config.platform,
+  '__WEB__'      : config.platform === 'web',
   '__DEV__'      : config.env === 'development',
   '__PROD__'     : config.env === 'production',
   '__TEST__'     : config.env === 'test',

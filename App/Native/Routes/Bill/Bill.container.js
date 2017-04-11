@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { toggleToMyBills } from '../../../Modules/actions'
+import { toggleToMyBills } from '../../../Actions/nativeActions'
 import Bill from './Bill.component.js'
 
 const mapDispatchToProps = {

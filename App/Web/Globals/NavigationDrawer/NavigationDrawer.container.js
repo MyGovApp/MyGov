@@ -1,10 +1,10 @@
 import { connect } from 'react-redux'
-import { toggleDrawer } from '../../../Modules/actions'
+import { toggleDrawer } from '../../../Actions/webActions'
 import NavigationDrawer from './NavigationDrawer.component.js'
 
-const mapStateToProps = (state, ownProps) => ({
-  drawerOpen: state.NavigationDrawer.drawerOpen
-})
+const mapStateToProps = (state, ownProps) => {
+  return { drawerOpen: state.NavigationDrawer.drawerOpen }
+}
 
 const mapDispatchToProps = {
   toggleDrawer

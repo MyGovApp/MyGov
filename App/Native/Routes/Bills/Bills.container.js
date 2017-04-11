@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { fetchBills } from '../../../Modules/actions'
+import { fetchBills } from '../../../Actions/nativeActions'
 import Bills from './Bills.component'
 import filterBills from '../../../Modules/Bills/filterBills'
 

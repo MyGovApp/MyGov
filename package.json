@@ -12,7 +12,7 @@
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "start:ios": "react-native run-ios",
     "start:android": "react-native run-android",
-    "start:web": "node web/bin/dev-server",
+    "start:web": "better-npm-run start:web",
     "start:server": "node server",
     "compile:web": "better-npm-run compile:web",
     "compile:web:prod": "better-npm-run compile:web:prod",
@@ -56,6 +56,12 @@
       "env": {
         "DEBUG": "app:*",
         "NODE_ENV": "production"
+      }
+    },
+    "start:web": {
+      "command": "node web/bin/dev-server",
+      "env": {
+        "PLATFORM_ENV": "web"
       }
     }
   },

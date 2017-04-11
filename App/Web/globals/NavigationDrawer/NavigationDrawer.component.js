@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { Link } from 'react-router'
 import classes from './NavigationDrawer.styles.scss'
-import logo from '../../../Assets/Images/ir.png'
 
 class NavigationDrawer extends Component {
   constructor () {
@@ -16,8 +15,6 @@ class NavigationDrawer extends Component {
       <div
         className={classes.drawer}
         style={toggleStyle}>
-
-        <img src={logo} style={classes.logo} />
 
         <Link
           to='hello-world'
