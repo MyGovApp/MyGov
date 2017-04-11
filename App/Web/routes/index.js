@@ -9,7 +9,8 @@ export const createRoutes = (store) => {
       require.ensure([], (require) => {
         next(null, [
           require('./HelloWorld').default(store),
-          require('./HelloWorldAsync').default(store)
+          require('./HelloWorldAsync').default(store),
+          require('./Bills').default(store)
         ])
       })
     }

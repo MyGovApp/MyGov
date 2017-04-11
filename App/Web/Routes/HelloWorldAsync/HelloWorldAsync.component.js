@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import classes from './HelloWorldAsync.styles.scss'
-import Loader from '../../Globals/Loader'
+import Loader from 'Globals/Loader'
 
 class HelloWorld extends Component {
   constructor () {

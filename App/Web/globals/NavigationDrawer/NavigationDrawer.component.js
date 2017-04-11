@@ -27,6 +27,12 @@ class NavigationDrawer extends Component {
           onClick={toggleDrawer}>
           <h2>Hello World Async</h2>
         </Link>
+
+        <Link
+          to='bills'
+          onClick={toggleDrawer}>
+          <h2>Bills</h2>
+        </Link>
       </div>
     )
   }
