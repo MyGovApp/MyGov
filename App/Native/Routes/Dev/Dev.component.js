@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import { View, Text, ScrollView, Image } from 'react-native'
 import { BillStatusSvg } from '../../Globals'
 import s from './Dev.styles'
