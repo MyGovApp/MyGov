@@ -9,6 +9,7 @@ app.use(function (req, res, next) {
 
 app.use(require('./routes/bills'))
 app.use(require('./routes/bill'))
+app.use(require('./routes/helloWorldAsync'))
 
 if (!module.parent) {
   app.listen(process.env.PORT || 3001, () => {
