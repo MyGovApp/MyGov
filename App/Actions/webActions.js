@@ -1,5 +1,3 @@
-// import { AsyncStorage } from 'react-native'
-// import { pull } from 'lodash'
 import fetch from '../Utilities/isomorphic-fetch'
 
 // NOTE:
@@ -13,17 +11,15 @@ export {
   fetchBills,
   searchBills,
   toggleDrawer,
-  // toggleToMyBills,
   updateBillFilters
 }
 
 function fetchBills () {
+  console.log('ping2')
   return dispatch => {
+    console.log('ping3')
     dispatch({ type : 'START_REQUEST' })
-    return Promise.all([
-      fetchApi(dispatch)
-      // fetchMyBills(dispatch)
-    ])
+    return fetchApi(dispatch)
   }
 }
 
@@ -37,16 +33,6 @@ const fetchApi = (dispatch) => (
       .catch(err => console.log('Error: ', err))
 )
 
-// const fetchMyBills = (dispatch) => (
-//   AsyncStorage.getItem('myBills')
-//   .then(myBills => {
-//     if (!myBills) return []
-//     return JSON.parse(myBills)
-//   })
-//   .then(myBills => dispatch({ type: 'RECEIVE_MYBILLS', myBills }))
-//   .catch(err => console.log('err : ', err))
-// )
-
 function searchBills (search) {
   return {
     type: 'SEARCH_BILLS',
@@ -55,25 +41,6 @@ function searchBills (search) {
 }
 
 function toggleDrawer () { return { type: 'TOGGLE_DRAWER' } }
-
-// function toggleToMyBills (billId) {
-//   return dispatch => {
-//     return AsyncStorage.getItem('myBills')
-//       .then(myBills => {
-//         if (!myBills) return []
-//         return JSON.parse(myBills)
-//       })
-//       .then(myBills => {
-//         const newMyBills = myBills.find(bill => bill === billId)
-//           ? [ ...pull(myBills, billId) ]
-//           : [ ...myBills, billId ]
-//
-//         dispatch({ type: 'RECEIVE_MYBILLS', myBills: newMyBills })
-//         AsyncStorage.setItem('myBills', JSON.stringify(newMyBills))
-//       })
-//       .catch(err => console.log('err : ', err))
-//   }
-// }
 
 function updateBillFilters (updates) {
   return {
