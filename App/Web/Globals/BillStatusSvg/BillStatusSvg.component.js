@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import s from './BillStatusSvg.styles.scss'
 
 const BillStatusSvg = ({ status, progress, chamber }) => {
   const green = '#B8E986'
@@ -196,16 +197,46 @@ const BillStatusSvg = ({ status, progress, chamber }) => {
     const x = (xIndex * ((325 - 20) / 6)) + 20
     const y = yOffset + 30
 
-    return
+    return (
+      <svg
+        x={x || '20'}
+        y={y || '22'}
+      >
+        {text.length > 1 && (
+          <circle
+            cy='10'
+            cx='10'
+            r='10'
+            fill={color}
+          />
+        )}
+        <circle
+          cx='15'
+          cy='10'
+          r='10'
+          fill={color}
+        />
+        <text
+          x='12'
+          y='14'
+          fill={lightBlue}
+          fontSize='12'
+          fontWeight='bold'
+          textAnchor='middle'
+        >{text}</text>
+      </svg>
+    )
   }
 
   return (
-    <svg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'>
-      <g>
-        <rect fill='#D0011B' x='0' y='0' width='50' height='100' />
-        <rect fill='#50E3C2' x='50' y='0' width='50' height='100' />
-      </g>
-    </svg>
+    <figure className={s.figureContainer}>
+      <svg width='350' height='60' viewBox='0 0 350 60' xmlns='http://www.w3.org/2000/svg'>
+        <g>
+          <rect stroke='#50E3C2' fill='none' x='0' y='0' width='350' height='60' />
+        </g>
+        {TextBubble({ text: chartText.t1, color: chartColors.PC })}
+      </svg>
+    </figure>
   )
 }
 

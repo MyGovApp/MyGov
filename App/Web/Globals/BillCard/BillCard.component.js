@@ -38,7 +38,7 @@ class BillCard extends Component {
         >
           {showFullTitle ? officialTitle : truncTitle}
         </h2>
-        <h3 className={s.billId}>{upperCase(billId)}</h3>
+        <h3 className={s.billId}>{upperId}</h3>
         <LabelValue label='Status: ' value={capitalize(status)} />
         <LabelValue label='Date Introduced: ' value={pDateIntroduced} />
         <LabelValue label='Last Action: ' value={pDateLastAction} />
