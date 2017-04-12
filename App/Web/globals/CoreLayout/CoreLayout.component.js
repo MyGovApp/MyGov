@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import Header from 'Globals/Header'
 import classes from './CoreLayout.styles.scss'
-// import MainNav from 'Globals/MainNav'
+import MainNav from 'Globals/MainNav'
 import NavigationDrawer from 'Globals/NavigationDrawer'
 
 class CoreLayout extends Component {
@@ -35,6 +35,7 @@ class CoreLayout extends Component {
           <main id='main' className={classes.main}>
             {children}
           </main>
+          <MainNav />
         </div>
         <NavigationDrawer />
       </div>
