@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
-import { Link } from 'react-router'
 import classes from './NavigationDrawer.styles.scss'
+import DrawerButton from 'Globals/DrawerButton'
+import I from '../../../Native/Themes/Images'
 
 class NavigationDrawer extends Component {
   constructor () {
@@ -16,23 +17,22 @@ class NavigationDrawer extends Component {
         className={classes.drawer}
         style={toggleStyle}>
 
-        <Link
-          to='hello-world'
-          onClick={toggleDrawer}>
-          <h2>Hello World</h2>
-        </Link>
-
-        <Link
-          to='hello-world-async'
-          onClick={toggleDrawer}>
-          <h2>Hello World Async</h2>
-        </Link>
-
-        <Link
-          to='bills'
-          onClick={toggleDrawer}>
-          <h2>Bills</h2>
-        </Link>
+        <DrawerButton text='isIndex' isIndex />
+        <DrawerButton text='Test' leftIcon={I.tabledIcon} />
+        <DrawerButton text='Test' />
+        <DrawerButton text='Test' />
+        <DrawerButton text='Test' />
+        <DrawerButton text='Test' />
+        <DrawerButton text='Test' />
+        <DrawerButton text='Test' />
+        <DrawerButton text='Test' />
+        <DrawerButton text='Test' />
+        <DrawerButton text='Test' />
+        <DrawerButton text='Test' />
+        <DrawerButton text='Test' />
+        <DrawerButton text='Test' />
+        <DrawerButton text='Test' />
+        <DrawerButton text='Test' />
       </div>
     )
   }

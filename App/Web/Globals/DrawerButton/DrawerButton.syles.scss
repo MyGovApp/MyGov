@@ -1,0 +1,33 @@
+@import "../../themes/base";
+
+.container {
+  background-color: $backgroundWhite;
+  padding: 8px;
+  border-bottom: solid 1px $frost;
+  border-left: solid 1px $frost;
+}
+
+.indexContainer {
+  background-color: $secondaryBlue;
+  border-left: solid 1px $secondaryBlue !important;
+}
+
+.text {
+  font-size: 20px;
+}
+
+.indexText {
+  color: white;
+}
+
+.iconLeft {
+  height: 30px;
+  width: 30px;
+  padding-right: 10px;
+}
+
+.leftGroup {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
