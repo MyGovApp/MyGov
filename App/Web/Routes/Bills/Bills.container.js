@@ -8,7 +8,8 @@ const mapDispatchToProps = {
 
 const mapStateToProps = (state, ownProps) => ({
   bills: state.bills.bills,
-  renderPage: state.bills.renderPage
+  renderPage: state.bills.renderPage,
+  loading: state.bills.loading
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Bills)

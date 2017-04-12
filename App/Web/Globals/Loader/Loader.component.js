@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import classes from './Loader.styles.scss'
 
-const Loader = () => {
+const Loader = ({ containerStyles = {} }) => {
   return (
-    <div className={classes.wrap}>
+    <div className={classes.wrap} style={{ ...containerStyles }}>
       <div className={classes.loader} />
       <div className={classes.loaderbefore} />
       <div className={classes.circular} />
@@ -11,6 +11,10 @@ const Loader = () => {
       <div className={classes.text}>Loading</div>
     </div>
   )
+}
+
+Loader.propTypes = {
+  containerStyles: PropTypes.object
 }
 
 module.exports = Loader
