@@ -13,13 +13,25 @@ class Bills extends Component {
     this.props.fetchBills()
   }
 
+  renderBillsList = ({ bills }) => (
+    <div>
+      { bills.map((bill, i) => (<BillCard key={i} {...bill} />))}
+    </div>
+  )
+
   render () {
-    const { renderPage, loading } = this.props
-    const shortBills = this.props.bills.slice(0, 50 * renderPage)
+    const { renderPage, loading, bills } = this.props
+    const shortBills = bills.slice(0, 50 * renderPage)
+
+    const BillsList = this.renderBillsList
+
     return (
       <div className={s.mainContent}>
         {loading ? <Loader containerStyles={{ marginTop: '200px' }} />
-        : shortBills.map((bill, i) => (<BillCard key={i} {...bill} />))
+        : <div>
+          <p className={s.billsCount}>{`${bills.length} bills match your filters`}</p>
+          <BillsList bills={shortBills} />
+        </div>
         }
       </div>
     )
