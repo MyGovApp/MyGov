@@ -42,7 +42,7 @@ class BillCard extends Component {
         <LabelValue label='Status: ' value={capitalize(status)} />
         <LabelValue label='Date Introduced: ' value={pDateIntroduced} />
         <LabelValue label='Last Action: ' value={pDateLastAction} />
-        <BillStatusSvg {...{ status, progress, chamber }} />
+        <BillStatusSvg {...{ status, progress, chamber }} scale={0.95} />
       </div>
     )
   }

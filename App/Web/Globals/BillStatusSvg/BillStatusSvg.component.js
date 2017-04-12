@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import s from './BillStatusSvg.styles.scss'
 
-const BillStatusSvg = ({ status, progress, chamber }) => {
+const BillStatusSvg = ({ status, progress, chamber, scale = 1 }) => {
   const green = '#B8E986'
   let yellow = '#FFF1BF'
   const red = '#FFD1D1'
@@ -232,7 +232,7 @@ const BillStatusSvg = ({ status, progress, chamber }) => {
 
   return (
     <figure className={s.figureContainer}>
-      <svg width='350' height='60' viewBox='0 0 350 60' xmlns='http://www.w3.org/2000/svg'>
+      <svg width={350 * scale} height={60 * scale} viewBox='0 0 350 60' xmlns='http://www.w3.org/2000/svg'>
         <line
           className='lS1'
           x1='20'
