@@ -302,14 +302,14 @@ const BillStatus = ({ status, progress, chamber }) => {
         stroke={chartColors.secondaryRight}
         strokeWidth='4'
       />
-      {TextBubble({ text: chartText.t1, color: chartColors.PC })}
-      {TextBubble({ text: chartText.t2, xIndex: 1, color: chartColors.PF })}
-      {TextBubble({ text: chartText.t3, xIndex: 2, color: chartColors.SC })}
-      {TextBubble({ text: chartText.t4, xIndex: 3, color: chartColors.SF })}
-      {TextBubble({ text: 'C', xIndex: 4, color: chartColors.C })}
-      {TextBubble({ text: chartText.primary, xIndex: 5, yOffset: 15, color: chartColors.primary })}
-      {TextBubble({ text: chartText.secondary, xIndex: 5, yOffset: -15, color: chartColors.secondary })}
-      {TextBubble({ text: 'P', xIndex: 6, color: chartColors.P })}
+      <TextBubble {...{ text: chartText.t1, color: chartColors.PC }} />
+      <TextBubble {...{ text: chartText.t2, xIndex: 1, color: chartColors.PF }} />
+      <TextBubble {...{ text: chartText.t3, xIndex: 2, color: chartColors.SC }} />
+      <TextBubble {...{ text: chartText.t4, xIndex: 3, color: chartColors.SF }} />
+      <TextBubble {...{ text: 'C', xIndex: 4, color: chartColors.C }} />
+      <TextBubble {...{ text: chartText.primary, xIndex: 5, yOffset: 15, color: chartColors.primary }} />
+      <TextBubble {...{ text: chartText.secondary, xIndex: 5, yOffset: -15, color: chartColors.secondary }} />
+      <TextBubble {...{ text: 'P', xIndex: 6, color: chartColors.P }} />
     </Svg>
   )
 }

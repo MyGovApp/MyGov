@@ -322,10 +322,10 @@ BillStatusSvg.propTypes = {
   status: React.PropTypes.string,
   progress: PropTypes.object,
   chamber: PropTypes.string,
-  text: PropTypes.string,
-  xIndex: PropTypes.number,
-  yOffset: PropTypes.number,
-  color: PropTypes.string
+  text: PropTypes.string, // eslint-disable-line
+  xIndex: PropTypes.number, // eslint-disable-line
+  yOffset: PropTypes.number, // eslint-disable-line
+  color: PropTypes.string // eslint-disable-line
 }
 
 module.exports = BillStatusSvg
