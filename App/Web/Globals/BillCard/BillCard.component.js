@@ -3,6 +3,7 @@ import { truncate, upperCase, capitalize } from 'lodash'
 import moment from 'moment'
 import s from './BillCard.styles.scss'
 import LabelValue from '../../Globals/LabelValue'
+import BillStatusSvg from 'Globals/BillStatusSvg'
 
 class BillCard extends Component {
   constructor () {
@@ -41,6 +42,7 @@ class BillCard extends Component {
         <LabelValue label='Status: ' value={capitalize(status)} />
         <LabelValue label='Date Introduced: ' value={pDateIntroduced} />
         <LabelValue label='Last Action: ' value={pDateLastAction} />
+        <BillStatusSvg {...{ status, progress, chamber }} />
       </div>
     )
   }
