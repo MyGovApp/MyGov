@@ -194,12 +194,12 @@ const BillStatusSvg = ({ status, progress, chamber }) => {
   }
 
   const TextBubble = ({ text, xIndex, yOffset, color }) => {
-    const x = (xIndex * ((325 - 20) / 6))
+    const x = (xIndex * ((325 - 20) / 6)) + 5
     const y = yOffset + 22
 
     return (
       <svg
-        x={x || '10'}
+        x={x || '0'}
         y={y || '22'}
       >
         <g>
@@ -233,9 +233,78 @@ const BillStatusSvg = ({ status, progress, chamber }) => {
   return (
     <figure className={s.figureContainer}>
       <svg width='350' height='60' viewBox='0 0 350 60' xmlns='http://www.w3.org/2000/svg'>
-        <g>
-          <rect stroke='#50E3C2' fill='none' x='0' y='0' width='350' height='60' />
-        </g>
+        <line
+          className='lS1'
+          x1='20'
+          y1='32'
+          x2={(1 * ((325 - 20) / 6)) + 20}
+          y2='32'
+          stroke={chartColors.lS1}
+          strokeWidth='4'
+        />
+        <line
+          className='lS2'
+          x1={(1 * ((325 - 20) / 6)) + 20}
+          y1='32'
+          x2={(2 * ((325 - 20) / 6)) + 20}
+          y2='32'
+          stroke={chartColors.lS2}
+          strokeWidth='4'
+        />
+        <line
+          className='lS3'
+          x1={(2 * ((325 - 20) / 6)) + 20}
+          y1='32'
+          x2={(3 * ((325 - 20) / 6)) + 20}
+          y2='32'
+          stroke={chartColors.lS3}
+          strokeWidth='4'
+        />
+        <line
+          className='lS4'
+          x1={(3 * ((325 - 20) / 6)) + 20}
+          y1='32'
+          x2={(4 * ((325 - 20) / 6)) + 20}
+          y2='32'
+          stroke={chartColors.lS4}
+          strokeWidth='4'
+        />
+        <line
+          className='primaryLeft'
+          x1={(4 * ((325 - 20) / 6)) + 20}
+          y1='32'
+          x2={(5 * ((325 - 20) / 6)) + 20}
+          y2={32 + 15}
+          stroke={chartColors.primaryLeft}
+          strokeWidth='4'
+        />
+        <line
+          className='secondaryLeft'
+          x1={(4 * ((325 - 20) / 6)) + 20}
+          y1='32'
+          x2={(5 * ((325 - 20) / 6)) + 20}
+          y2={32 - 15}
+          stroke={chartColors.secondaryLeft}
+          strokeWidth='4'
+        />
+        <line
+          className='primaryRight'
+          x1={(5 * ((325 - 20) / 6)) + 20}
+          y1={32 + 15}
+          x2='325'
+          y2='32'
+          stroke={chartColors.primaryRight}
+          strokeWidth='4'
+        />
+        <line
+          className='secondaryRight'
+          x1={(5 * ((325 - 20) / 6)) + 20}
+          y1={32 - 15}
+          x2='325'
+          y2='32'
+          stroke={chartColors.secondaryRight}
+          strokeWidth='4'
+        />
         <TextBubble {...{ text: chartText.t1, color: chartColors.PC }} />
         <TextBubble {...{ text: chartText.t2, xIndex: 1, color: chartColors.PF }} />
         <TextBubble {...{ text: chartText.t3, xIndex: 2, color: chartColors.SC }} />
