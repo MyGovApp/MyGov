@@ -194,36 +194,38 @@ const BillStatusSvg = ({ status, progress, chamber }) => {
   }
 
   const TextBubble = ({ text, xIndex, yOffset, color }) => {
-    const x = (xIndex * ((325 - 20) / 6)) + 20
-    const y = yOffset + 30
+    const x = (xIndex * ((325 - 20) / 6))
+    const y = yOffset + 22
 
     return (
       <svg
-        x={x || '20'}
+        x={x || '10'}
         y={y || '22'}
       >
-        {text.length > 1 && (
+        <g>
+          {text.length > 1 && (
+            <circle
+              cy='10'
+              cx='10'
+              r='10'
+              fill={color}
+            />
+          )}
           <circle
+            cx='15'
             cy='10'
-            cx='10'
             r='10'
             fill={color}
           />
-        )}
-        <circle
-          cx='15'
-          cy='10'
-          r='10'
-          fill={color}
-        />
-        <text
-          x='12'
-          y='14'
-          fill={lightBlue}
-          fontSize='12'
-          fontWeight='bold'
-          textAnchor='middle'
-        >{text}</text>
+          <text
+            x={text.length > 1 ? '12' : '15'}
+            y='14'
+            fill={lightBlue}
+            fontSize='12'
+            fontWeight='bold'
+            textAnchor='middle'
+          >{text}</text>
+        </g>
       </svg>
     )
   }
@@ -234,7 +236,14 @@ const BillStatusSvg = ({ status, progress, chamber }) => {
         <g>
           <rect stroke='#50E3C2' fill='none' x='0' y='0' width='350' height='60' />
         </g>
-        {TextBubble({ text: chartText.t1, color: chartColors.PC })}
+        <TextBubble {...{ text: chartText.t1, color: chartColors.PC }} />
+        <TextBubble {...{ text: chartText.t2, xIndex: 1, color: chartColors.PF }} />
+        <TextBubble {...{ text: chartText.t3, xIndex: 2, color: chartColors.SC }} />
+        <TextBubble {...{ text: chartText.t4, xIndex: 3, color: chartColors.SF }} />
+        <TextBubble {...{ text: 'C', xIndex: 4, color: chartColors.C }} />
+        <TextBubble {...{ text: chartText.primary, xIndex: 5, yOffset: 15, color: chartColors.primary }} />
+        <TextBubble {...{ text: chartText.secondary, xIndex: 5, yOffset: -15, color: chartColors.secondary }} />
+        <TextBubble {...{ text: 'P', xIndex: 6, color: chartColors.P }} />
       </svg>
     </figure>
   )
