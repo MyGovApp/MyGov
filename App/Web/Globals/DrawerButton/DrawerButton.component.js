@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react'
 import s from './DrawerButton.syles.scss'
-import I from '../../../Native/Themes/Images'
 
 class DrawerButton extends Component {
   setup () {
@@ -9,14 +8,13 @@ class DrawerButton extends Component {
     return {
       indexContainer: this.props.isIndex ? s.indexContainer : '',
       indexText: this.props.isIndex ? s.indexText : '',
-      leftIconContainer: leftIcon && !rightIcon ? s.leftIconContainer : '',
       leftIcon,
       rightIcon
     }
   }
 
   render () {
-    const { indexContainer, indexText, leftIcon, rightIcon, leftIconContainer } = this.setup()
+    const { indexContainer, indexText, leftIcon, rightIcon } = this.setup()
 
     return (
       <div

@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux'
 import { routerReducer as router } from 'react-router-redux'
 import NavigationDrawer from '../../Modules/NavigationDrawer/NavigationDrawer.modules'
+import DrawerContent from '../../Modules/DrawerContent/DrawerContent.modules'
 
 export const reducers = (asyncReducers) => {
   return combineReducers({
     // Add sync reducers here
+    DrawerContent,
     NavigationDrawer,
     router,
     ...asyncReducers })

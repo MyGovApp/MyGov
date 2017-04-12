@@ -1,5 +1,5 @@
 import { camelCase } from 'lodash'
-import filterTopics from '../../../Native/Navigation/DrawerContent/billFilters'
+import filterTopics from '../../DrawerContent/billFilters'
 
 const filterBillsByTopic = (bills, topics) => {
   if (!topics.length) return bills

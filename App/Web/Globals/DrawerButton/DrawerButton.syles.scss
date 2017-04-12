@@ -5,6 +5,8 @@
   padding: 8px;
   border-bottom: solid 1px $frost;
   border-left: solid 1px $frost;
+  display: flex;
+  justify-content: space-between;
 }
 
 .indexContainer {
@@ -21,8 +23,12 @@
 }
 
 .iconLeft {
-  height: 30px;
-  width: 30px;
+  height: 28px;
+  padding-right: 10px;
+}
+
+.iconRight {
+  height: 22px;
   padding-right: 10px;
 }
 

@@ -5,7 +5,7 @@ import { camelCase } from 'lodash'
 import { images as I } from '../../Themes'
 import { DrawerButton } from '../../Globals'
 import s from './DrawerContent.styles'
-import billFilters from './billFilters'
+import billFilters from '../../../Modules/DrawerContent/billFilters'
 
 class DrawerContent extends Component {
   componentDidMount () {
