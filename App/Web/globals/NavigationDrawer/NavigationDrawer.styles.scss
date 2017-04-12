@@ -1,4 +1,4 @@
-@import "../../Themes/base";
+@import "../../themes/base";
 
 .drawer {
     position: absolute;
@@ -6,7 +6,7 @@
     right: 0;
     height: 100%;
     width: 80%;
-    background-color: $darkBlue;
+    background-color: $primaryBlue;
     transition: .5s ease-in-out;
     padding: 0 20px 0 20px;
 

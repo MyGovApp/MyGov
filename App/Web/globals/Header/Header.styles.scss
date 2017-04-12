@@ -1,9 +1,9 @@
-@import "../../Themes/base";
+@import "../../themes/base";
 
 .header {
   height: 40px;
   width: 100%;
-  background-color: $darkBlue;
+  background-color: $primaryBlue;
   display: flex;
   position: relative;
   justify-content: space-between;
@@ -12,7 +12,7 @@
   top: 0;
 
   p {
-    color: $white;
+    color: $backgroundWhite;
     text-align: center;
     padding-bottom: 2px;
     font-size: 18px;

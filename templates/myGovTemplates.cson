@@ -4,12 +4,15 @@
   'nerpCommentHeading':
     'prefix':'nerpCommentHeading'
     'body':'// ------------------------------------\n// ${1:Heading}\n// ------------------------------------\n${2}\n'
+  'nerpDumbComponent':
+    'prefix':'nerpDumbComponent'
+    'body':'import React, { PropTypes } from \'react\'\nimport classes from \'./${1:ComponentName}.styles.scss\'\n\nconst ${1:ComponentName} = ({ ${2:exampleProp1}${3:, exampleProp2 }}) => {\n\treturn (\n\t\t<div>\n\t\t\t<h2> ${2:exampleProp1}: {${2:exampleProp1}}</h2>\n\t\t\t<h2> ${3:exampleProp2}: {${3:exampleProp2}}</h2>\n\t\t</div>\n\t)\n}\n\n${1:ComponentName}.propTypes = {\n\t${2:exampleProp1}: PropTypes.number.isRequired,\n\t${3:exampleProp2}: PropTypes.number\n}\n\nmodule.exports = ${1:ComponentName}\n'
   'nerpIndex':
     'prefix':'nerpIndex'
     'body':'import ${1:ExampleComponent} from \'./${1:ExampleComponent}.${2:component}.js\'\n\nexport default ${1:ExampleComponent}\n'
   'nerpModules':
     'prefix':'nerpModules'
-    'body':'import { handleAction, createReducer } from \'../../Utilities/handleAction\'\n\nhandleAction(\'ACTION_TYPE\', (state, action) => ({\n}))\n\nconst initialState = {${1}}\n\nexport default createReducer(initialState)\n'
+    'body':'import ReduxModules from \'../../Utilities/ReduxModules\'\nconst modules = new ReduxModules()\n\nmodules.handleAction(\'ACTION_TYPE\', (state, action) => ({\n}))\n\nmodules.initialState = {${1}}\n\nexport default modules.createReducer()\n'
   'nerpNativeComponent':
     'prefix':'nerpNativeComponent'
     'body':'import React, { Component, PropTypes } from \'react\'\nimport { ${2:Text, TouchableOpacity} } from \'react-native\'\nimport styles from \'./${1:ComponentName}.styles\'\n\nclass ${1:ComponentName} extends Component {\n\trender () {\n\t\treturn (\n\t\t\t${3:<TouchableOpacity onPress={this.props.onPress\\}>\n\t\t\t\t<Text style={styles.text\\}>{this.props.text\\}</Text>\n\t\t\t</TouchableOpacity>}\n\t\t)\n\t}\n}\n\n${1:ComponentName}.propTypes = {\n\t${4:onPress: PropTypes.func.isRequired,\n\ttext: PropTypes.string.isRequired}\n}\n\nexport default ${1:ComponentName}\n\n'
@@ -22,6 +25,12 @@
   'nerpNativeTestSetup':
     'prefix':'nerpNativeTestSetup'
     'body':'import React from \'react\'\n${2:import { Provider \\} from \'react-redux\'\nimport configureMockStore from \'redux-mock-store\'\nimport thunk from \'redux-thunk\'\n\nimport ${1:Example}Container from \'../${1:Example}.container\'}\nimport ${1:Example}Component from \'../${1:Example}.component\'\n\nconst props = {${3}}\n${2:\nconst newStore = configureMockStore([thunk])\n\nconst mockStore = newStore({\n\t${1:Example}: {${4}\\}\n\\})\n\nexport const ContainerWrapper = () => (\n\t<Provider store={mockStore\\}>\n\t\t<${1:Example}Container {...props\\} />\n\t</Provider>\n)\n}\nexport const ComponentWrapper = () => (<${1:Example}Component {...props} />)\n'
+  'nerpPlainRouteIndex':
+    'prefix':'nerpPlainRouteIndex'
+    'body':'import ${1:CoreLayout} from \'${2}\'\n\nexport const createRoutes = (store) => {\n\tconst routes = {\n\t\tpath: \'/\',\n\t\tcomponent: ${1:CoreLayout},\n\t\tindexRoute\t: { onEnter: (nextState, replace) => replace(\'/${3:hello-world}\') },\n\t\tgetChildRoutes (location, next) {\n\t\t\trequire.ensure([], (require) => {\n\t\t\t\tnext(null, [\n\t\t\t\t\trequire(\'./${4:Bills}\').default(store)${5}\n\t\t\t\t])\n\t\t\t})\n\t\t}\n\t}\n\n\treturn routes\n}\n\nexport default createRoutes\n'
+  'nerpPlainRoute':
+    'prefix':'nerpPlainRoute'
+    'body':'import { injectReducer } from \'store/reducers\'\n\nexport default (store) => ({\n\tpath: \'${1:bills}\',\n\tgetComponent (nextState, next) {\n\t\trequire.ensure([\n\t\t\t\'./${2:Bills}.container\',\n\t\t\t\'./${2:Bills}.modules\'\n\t\t], (require) => {\n\t\t\tconst ${2:Bills} = require(\'./${2:Bills}.container\').default\n\t\t\tconst ${1:bills}Reducer = require(\'./${2:Bills}.modules\').default\n\n\t\t\tinjectReducer(store, {\n\t\t\t\tkey: \'${1:bills}\',\n\t\t\t\treducer: ${1:bills}Reducer\n\t\t\t})\n\n\t\t\tnext(null, ${2:Bills})\n\t\t})\n\t}\n})\n'
   'nerpReduxContainer':
     'prefix':'nerpReduxContainer'
     'body':'import { connect } from \'react-redux\'\n${3:import { ${5:actionCreator} \\} from \'${2}\'}\nimport ${1:ExampleComponent} from \'./${1:ExampleComponent}.component.js\'\n\n${3:const mapDispatchToProps = {\n\t${4:actionCreator}\n}}\n\n${5:const mapStateToProps = (state, ownProps) => ({\n\t${6:exampleProp}: state.${1:ExampleComponent}.${6:exampleProp}\n\\})}\n\nexport default connect(mapStateToProps, mapDispatchToProps)(${1:ExampleComponent})\n\n'

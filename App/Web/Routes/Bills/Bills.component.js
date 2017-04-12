@@ -1,4 +1,6 @@
 import React, { Component, PropTypes } from 'react'
+import BillCard from 'Globals/BillCard'
+import s from './Bills.styels.scss'
 
 class Bills extends Component {
   constructor () {
@@ -14,9 +16,8 @@ class Bills extends Component {
     const { renderPage } = this.props
     const shortBills = this.props.bills.slice(0, 50 * renderPage)
     return (
-      <div>
-        <h2>Bills Route</h2>
-        {shortBills.map((bill, i) => (<p key={i}>{i} | {bill.officialTitle}</p>))}
+      <div className={s.mainContent}>
+        {shortBills.map((bill, i) => (<BillCard key={i} {...bill} />))}
       </div>
     )
   }

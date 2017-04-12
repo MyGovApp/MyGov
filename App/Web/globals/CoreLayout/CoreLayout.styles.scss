@@ -1,4 +1,4 @@
-@import "../../Themes/base";
+@import "../../themes/base";
 
 .coreLayout {
   position: relative;
@@ -15,7 +15,7 @@
 .main {
   overflow-wrap: break-word;
   overflow-y: auto;
-  background-color: $appBackground;
+  background-color: $backgroundGray;
   height: 100%;
   width: 100%;
   padding-bottom: 90px;
