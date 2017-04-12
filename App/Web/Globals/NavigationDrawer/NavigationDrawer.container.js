@@ -1,9 +1,10 @@
 import { connect } from 'react-redux'
-import { toggleDrawer } from '../../../Actions/webActions'
-import NavigationDrawer from './NavigationDrawer.component.js'
+import { toggleDrawer, updateBillFilters } from '../../../Actions/webActions'
+import NavigationDrawer from './NavigationDrawer.component'
 
 const mapDispatchToProps = {
-  toggleDrawer
+  toggleDrawer,
+  updateBillFilters
 }
 
 const mapStateToProps = (state, ownProps) =>
