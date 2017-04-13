@@ -10,7 +10,8 @@ export const createRoutes = (store) => {
         next(null, [
           require('./HelloWorld').default(store),
           require('./HelloWorldAsync').default(store),
-          require('./Bills').default(store)
+          require('./Bills').default(store),
+          require('./Bill').default(store)
         ])
       })
     }
