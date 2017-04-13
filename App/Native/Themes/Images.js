@@ -7,6 +7,7 @@ const images = {
   centralAsiaIcon: require('../../Assets/Images/centralAsiaIcon.png'),
   checkIcon: require('../../Assets/Images/checkIcon.png'),
   checkIcon2: require('../../Assets/Images/checkIcon2.png'),
+  clearInputX: require('../../Assets/Images/clearInputX.png'),
   congressIcon: require('../../Assets/Images/congressIcon.png'),
   crimeIcon: require('../../Assets/Images/crimeIcon.gif'),
   devIcon: require('../../Assets/Images/devIcon.png'),

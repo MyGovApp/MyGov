@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import BillCard from 'Globals/BillCard'
 import Loader from 'Globals/Loader'
 import s from './Bills.styels.scss'
+import SearchInput from '../../Globals/SearchInput'
 
 class Bills extends Component {
   constructor () {
@@ -29,6 +30,7 @@ class Bills extends Component {
       <div className={s.mainContent}>
         {loading ? <Loader containerStyles={{ marginTop: '200px' }} />
         : <div>
+          <SearchInput />
           <p className={s.billsCount}>{`${bills.length} bills match your filters`}</p>
           <BillsList bills={shortBills} />
         </div>
