@@ -2,7 +2,7 @@
 
 .container {
   background-color: $backgroundWhite;
-  padding: 10px;
+  padding: 10px 10px 0 10px;
   border-radius: 2px;
   margin-bottom: 15px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
@@ -11,4 +11,25 @@
 
 .billId {
   padding: 10px;
+}
+
+.billDetail {
+  height: 50px;
+  width: 100%;
+  border: none;
+  border-top: solid 1px $frost;
+  background: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.billDetail:focus {
+  outline: none;
+}
+
+
+.billDetailIcon {
+  margin-right: 15px;
 }

@@ -1,7 +1,9 @@
 import React, { Component, PropTypes } from 'react'
 import { truncate, upperCase, capitalize } from 'lodash'
+import { Link } from 'react-router'
 import moment from 'moment'
 import s from './BillCard.styles.scss'
+import I from '../../../Native/Themes/Images'
 import LabelValue from '../../Globals/LabelValue'
 import BillStatusSvg from 'Globals/BillStatusSvg'
 
@@ -43,6 +45,11 @@ class BillCard extends Component {
         <LabelValue label='Date Introduced: ' value={pDateIntroduced} />
         <LabelValue label='Last Action: ' value={pDateLastAction} />
         <BillStatusSvg {...{ status, progress, chamber }} scale={0.95} />
+        <Link to='bill' style={{ textDecoration: 'none' }}>
+          <button className={s.billDetail}>
+            <img src={I.billDetailIcon} className={s.billDetailIcon} height='30' /><h3>Bill Details</h3>
+          </button>
+        </Link>
       </div>
     )
   }
