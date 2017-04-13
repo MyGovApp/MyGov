@@ -15,6 +15,7 @@ import {
   sortBills } from './'
 
 const filterBills = (allBills, options, search, myBills) => {
+  return allBills
   const params = [ allBills, options, search, myBills ]
 
   const runMainLogic = (...params) => {

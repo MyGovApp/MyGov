@@ -16,7 +16,7 @@ class Bills extends Component {
 
   renderBillsList = ({ bills }) => (
     <div>
-      { bills.map((bill, i) => (<BillCard key={i} {...bill} />))}
+      {bills.map((bill, i) => (<BillCard key={i} {...bill} />))}
     </div>
   )
 
@@ -28,7 +28,7 @@ class Bills extends Component {
 
     return (
       <div className={s.mainContent}>
-        {loading ? <Loader containerStyles={{ marginTop: '200px' }} />
+        {loading ? <Loader />
         : <div>
           <SearchInput />
           <p className={s.billsCount}>{`${bills.length} bills match your filters`}</p>

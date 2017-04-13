@@ -45,7 +45,7 @@ class BillCard extends Component {
         <LabelValue label='Date Introduced: ' value={pDateIntroduced} />
         <LabelValue label='Last Action: ' value={pDateLastAction} />
         <BillStatusSvg {...{ status, progress, chamber }} scale={0.95} />
-        <Link to='bill' style={{ textDecoration: 'none' }}>
+        <Link to={`bill/${billId}`} style={{ textDecoration: 'none' }}>
           <button className={s.billDetail}>
             <img src={I.billDetailIcon} className={s.billDetailIcon} height='30' /><h3>Bill Details</h3>
           </button>

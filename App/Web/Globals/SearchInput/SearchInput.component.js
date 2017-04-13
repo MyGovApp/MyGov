@@ -28,6 +28,7 @@ class SearchInput extends Component {
 }
 
 SearchInput.propTypes = {
+  searchBills: PropTypes.func.isRequired
 }
 
 module.exports = SearchInput
