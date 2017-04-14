@@ -2,6 +2,8 @@ import React, { Component, PropTypes } from 'react'
 import moment from 'moment'
 import s from './Bill.styles.scss'
 import Loader from 'Globals/Loader'
+import LabelValue from 'Globals/LabelValue'
+import BillStatusSvg from 'Globals/BillStatusSvg'
 
 class Bill extends Component {
   constructor () {
@@ -37,36 +39,67 @@ class Bill extends Component {
   }
 
   render () {
-    const { loading } = this.state
+    const { loading, summary } = this.state
+    console.log('summary :  : ', summary)
+    const {
+      billId,
+      officialTitle,
+      introducedOn,
+      lastActionAt,
+      chamber,
+      status,
+      progress,
+      detailedStatus,
+      sponsor,
+      toggleToMyBills,
+      isAdded } = this.props
 
-    if (this.props.billId) {
-      const {
-        billId,
-        officialTitle,
-        introducedOn,
-        lastActionAt,
-        chamber,
-        status,
-        progress,
-        detailedStatus,
-        sponsor,
-        toggleToMyBills,
-        isAdded } = this.props
-
-      const upperId = billId.toUpperCase()
-      const pDateIntroduced = moment(introducedOn).format('MMM D, YYYY')
-      const pDateLastAction = moment(lastActionAt).format('MMM D, YYYY')
-      const sponsorFull = `${sponsor.title}. ${sponsor.first_name} ${sponsor.last_name}`
-    }
+    const upperId = billId.toUpperCase()
+    const pDateIntroduced = moment(introducedOn).format('MMM D, YYYY')
+    const pDateLastAction = moment(lastActionAt).format('MMM D, YYYY')
+    const sponsorFull = `${sponsor.title}. ${sponsor.first_name} ${sponsor.last_name}`
 
     return (
       <div className={s.mainContent}>
         {loading ? <Loader />
-        : <h2>{this.props.billId}</h2>
+        : <div>
+          <div className={s.summaryContainer}>
+            <h3 className={s.sectionTitle}>{upperId}</h3>
+            <h2>{officialTitle}</h2>
+            <LabelValue label='Introduced: ' value={pDateIntroduced} />
+            <LabelValue label='Sponsor: ' value={sponsorFull} />
+            <LabelValue label='Chamber: ' value={chamber} />
+          </div>
+          <div className={s.summaryContainer}>
+            <h3 className={s.sectionTitle}>Bill Progress</h3>
+            <LabelValue label='Status: ' value={status} />
+            <LabelValue label='Detailed Status: ' value={detailedStatus} />
+            <LabelValue label='Progress: ' value={progress.text} />
+            <LabelValue label='Last Action On: ' value={pDateLastAction} />
+            <BillStatusSvg {...{ progress, chamber, status }} />
+          </div>
+          <div className={s.summaryContainer}>
+            <h3 className={s.sectionTitle}>Bill Summary</h3>
+            {summary}
+          </div>
+        </div>
       }
       </div>
     )
   }
+}
+
+Bill.defaultProps = {
+  billId: '',
+  officialTitle: '',
+  introducedOn: '',
+  lastActionAt: '',
+  chamber: '',
+  status: '',
+  progress: {},
+  detailedStatus: '',
+  sponsor: {},
+  isAdded: false
 }
 
 Bill.propTypes = {
