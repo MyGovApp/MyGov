@@ -6,10 +6,8 @@ const mapDispatchToProps = {
   fetchBills
 }
 
-const mapStateToProps = (state, ownProps) => {
-  console.log('ownProps.params.bill :  : ', ownProps.params.bill)
-  console.log('state.bills.bills.length :  : ', state.bills.bills.length)
-  return {}
-}
+const mapStateToProps = (state, ownProps) => ({
+  ...state.bills.bills.find(bill => bill.billId === ownProps.params.bill)
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(Bill)
