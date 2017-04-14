@@ -9,7 +9,11 @@ router.get('/api/v1/bill/', (req, res) => {
     .then(html => cheerio.load(html))
     .then($ => scrapeSummary($))
     .then(summary => {
-      res.status(200).json(summary ? summary : 'A summary is in progress.') // eslint-disable-line
+      const defaultResponse = {
+        summaryText: 'A summary is in progress.',
+        summaryHtml: '<p>A summary is in progress.</p>'
+      }
+      res.status(200).json(summary ? summary : defaultResponse) // eslint-disable-line
     })
     .catch(err => {
       console.log(err)
@@ -18,13 +22,16 @@ router.get('/api/v1/bill/', (req, res) => {
 })
 
 const scrapeSummary = ($) => {
-  let summary = ''
+  let summaryText = ''
+  let summaryHtml = ''
   $('#bill-summary > p').each((i, pTag) => {
-    summary += `${$(pTag).text()}
+    summaryText += `${$(pTag).text()}
 
 `
+    summaryHtml += `${$(pTag)}`
   })
-  return summary
+
+  return { summaryText, summaryHtml }
 }
 
 module.exports = router

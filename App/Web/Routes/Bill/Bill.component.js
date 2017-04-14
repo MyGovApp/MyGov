@@ -10,7 +10,7 @@ class Bill extends Component {
     super()
     this.state = {
       loading: true,
-      summary: 'loading...'
+      summary: '<p>loading...</p>'
     }
   }
 
@@ -34,7 +34,7 @@ class Bill extends Component {
     fetch('http://192.168.0.17:3001/api/v1/bill', {
       headers: { url: props.urls.congress }
     }).then(res => res.json())
-      .then(summary => this.setState({ summary }))
+      .then(summary => this.setState({ summary: summary.summaryHtml }))
       .catch(err => console.log(err))
   }
 
@@ -80,7 +80,7 @@ class Bill extends Component {
           </div>
           <div className={s.summaryContainer}>
             <h3 className={s.sectionTitle}>Bill Summary</h3>
-            {summary}
+            <div className={s.billSummary} dangerouslySetInnerHTML={{ __html: summary }} />
           </div>
         </div>
       }

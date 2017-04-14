@@ -19,7 +19,7 @@ class Bill extends Component {
     fetch('http://192.168.0.17:3001/api/v1/bill', {
       headers: { url: this.props.urls.congress }
     }).then(res => res.json())
-      .then(summary => this.setState({ summary }))
+      .then(summary => this.setState({ summary: summary.summaryText }))
       .catch(err => console.log(err))
   }
 
