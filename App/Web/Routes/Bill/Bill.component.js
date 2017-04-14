@@ -30,7 +30,6 @@ class Bill extends Component {
   }
 
   fetchBillSummary (props) {
-    console.log('fetching bill summary')
     fetch('http://192.168.0.17:3001/api/v1/bill', {
       headers: { url: props.urls.congress }
     }).then(res => res.json())
@@ -40,7 +39,7 @@ class Bill extends Component {
 
   render () {
     const { loading, summary } = this.state
-    console.log('summary :  : ', summary)
+
     const {
       billId,
       officialTitle,
