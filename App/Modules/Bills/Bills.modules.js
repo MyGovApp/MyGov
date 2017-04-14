@@ -7,6 +7,7 @@ m.handleAction('START_REQUEST', (s, a) => ({
 
 m.handleAction('RECEIVE_BILLS', (s, a) => ({
   bills: a.bills,
+  fetchTimestamp: a.fetchTimestamp,
   loading: false
 }))
 
@@ -23,7 +24,8 @@ m.initialState = {
   renderPage: 1,
   bills: [],
   filteredBills: [],
-  myBills: []
+  myBills: [],
+  fetchTimestamp: 0
 }
 
 export default m.createReducer()

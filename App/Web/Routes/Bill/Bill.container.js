@@ -1,7 +1,9 @@
 import { connect } from 'react-redux'
+import { fetchBills } from '../../../Actions/webActions'
 import Bill from './Bill.component.js'
 
 const mapDispatchToProps = {
+  fetchBills
 }
 
 const mapStateToProps = (state, ownProps) => {

@@ -10,6 +10,10 @@ class Bill extends Component {
     }
   }
 
+  componentDidMount () {
+    this.props.fetchBills()
+  }
+
   render () {
     const { loading } = this.state
 
@@ -22,6 +26,7 @@ class Bill extends Component {
 }
 
 Bill.propTypes = {
+  fetchBills: PropTypes.func.isRequired
 }
 
 module.exports = Bill

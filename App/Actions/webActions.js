@@ -1,4 +1,5 @@
 import fetch from '../Utilities/isomorphic-fetch'
+import { store } from '../Web/main'
 
 // NOTE:
 // Search the project for an actionCreator to identify dispatchers
@@ -16,10 +17,18 @@ export {
 }
 
 function fetchBills () {
-  return dispatch => {
-    dispatch({ type : 'START_REQUEST' })
-    return fetchApi(dispatch)
+  const prevFetchTimestamp = store.getState().bills.fetchTimestamp
+  const currentTime = Date.now()
+  const oneHour = 1000 * 60 * 60
+
+  if (currentTime > prevFetchTimestamp + oneHour) {
+    return dispatch => {
+      dispatch({ type : 'START_REQUEST' })
+      return fetchApi(dispatch)
+    }
   }
+
+  return { type: null }
 }
 
 const fetchApi = (dispatch) => (
@@ -27,7 +36,8 @@ const fetchApi = (dispatch) => (
     .then(res => res.json())
       .then(bills => dispatch({
         type: 'RECEIVE_BILLS',
-        bills
+        bills,
+        fetchTimestamp: Date.now()
       }))
       .catch(err => console.log('Error: ', err))
 )

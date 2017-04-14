@@ -18,7 +18,7 @@ export const browserHistory = useRouterHistory(createBrowserHistory)({
 // react-router-redux reducer under the key "router" in src/Routes/index.js,
 // so we need to provide a custom `selectLocationState` to inform
 // react-router-redux of its location.
-const store = createStore(window.__INITIAL_STATE__, browserHistory)
+export const store = createStore(window.__INITIAL_STATE__, browserHistory)
 const history = syncHistoryWithStore(browserHistory, store, {
   selectLocationState: (state) => state.router
 })
