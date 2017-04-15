@@ -69,6 +69,11 @@ class Bill extends Component {
             <LabelValue label='Introduced: ' value={pDateIntroduced} />
             <LabelValue label='Sponsor: ' value={sponsorFull} />
             <LabelValue label='Chamber: ' value={chamber} />
+            <button
+              className={s.button1}
+              onClick={() => toggleToMyBills(billId)}>
+              {`${isAdded ? 'Remove From' : 'Add To'} My Bills`}
+            </button>
           </div>
           <div className={s.summaryContainer}>
             <h3 className={s.sectionTitle}>Bill Progress</h3>

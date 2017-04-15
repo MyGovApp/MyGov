@@ -1,5 +1,6 @@
 import fetch from '../Utilities/isomorphic-fetch'
 import { store } from '../Web/main'
+import { pull } from 'lodash'
 
 // NOTE:
 // Search the project for an actionCreator to identify dispatchers
@@ -13,6 +14,7 @@ export {
   scrollReachEnd,
   searchBills,
   toggleDrawer,
+  toggleToMyBills,
   updateBillFilters
 }
 
@@ -21,14 +23,14 @@ function fetchBills () {
   const currentTime = Date.now()
   const oneHour = 1000 * 60 * 60
 
-  if (currentTime > prevFetchTimestamp + oneHour) {
-    return dispatch => {
+  return dispatch => {
+    dispatch(getMyBills())
+    if (currentTime > prevFetchTimestamp + oneHour) {
       dispatch({ type : 'START_REQUEST' })
       return fetchApi(dispatch)
     }
+    return { type: null }
   }
-
-  return { type: null }
 }
 
 const fetchApi = (dispatch) => (
@@ -42,6 +44,13 @@ const fetchApi = (dispatch) => (
       .catch(err => console.log('Error: ', err))
 )
 
+const getMyBills = () => {
+  const myBillsCache = localStorage.getItem('myBills')
+  const myBills = myBillsCache ? JSON.parse(myBillsCache) : []
+
+  return { type: 'RECEIVE_MYBILLS', myBills }
+}
+
 function scrollReachEnd () {
   return { type: 'SCROLL_REACH_END' }
 }
@@ -54,6 +63,18 @@ function searchBills (search) {
 }
 
 function toggleDrawer () { return { type: 'TOGGLE_DRAWER' } }
+
+function toggleToMyBills (billId) {
+  const myBillsCache = localStorage.getItem('myBills')
+  const myBills = myBillsCache ? JSON.parse(myBillsCache) : []
+
+  const newMyBills = myBills.find(bill => bill === billId)
+    ? [ ...pull(myBills, billId) ]
+    : [ ...myBills, billId ]
+
+  localStorage.setItem('myBills', JSON.stringify(newMyBills))
+  return { type: 'RECEIVE_MYBILLS', myBills: newMyBills }
+}
 
 function updateBillFilters (updates) {
   return {
