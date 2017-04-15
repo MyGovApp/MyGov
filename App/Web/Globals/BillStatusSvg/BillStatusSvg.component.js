@@ -325,6 +325,7 @@ BillStatusSvg.propTypes = {
   status: React.PropTypes.string,
   progress: PropTypes.object,
   chamber: PropTypes.string,
+  scale: PropTypes.number,
   text: PropTypes.string, // eslint-disable-line
   xIndex: PropTypes.number, // eslint-disable-line
   yOffset: PropTypes.number, // eslint-disable-line

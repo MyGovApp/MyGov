@@ -23,7 +23,8 @@ class Header extends Component {
   }
 
   setLeftIcon = (location) => {
-    const pathname = location.pathname[0] === '/' ? location.pathname.slice(1) : location.pathname
+    let pathname = location.pathname
+    pathname = pathname[0] === '/' ? pathname.slice(1) : pathname
 
     const BackButton = this.renderBackButton
     const PlaceHolder = this.renderPlaceHolder
@@ -37,7 +38,8 @@ class Header extends Component {
   }
 
   setRightIcon = (location) => {
-    const pathname = location.pathname[0] === '/' ? location.pathname.slice(1) : location.pathname
+    let pathname = location.pathname
+    pathname = pathname[0] === '/' ? pathname.slice(1) : pathname
 
     const PlaceHolder = this.renderPlaceHolder
     const BillsMenuIcon = this.renderBillsMenuIcon

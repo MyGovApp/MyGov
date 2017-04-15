@@ -28,7 +28,6 @@ class NavigationDrawer extends Component {
   render () {
     const {
       drawerOpen,
-      toggleDrawer,
       updateBillFilters,
       sortOrder,
       sortBy,
@@ -126,7 +125,6 @@ class NavigationDrawer extends Component {
 
 NavigationDrawer.propTypes = {
   drawerOpen: PropTypes.bool,
-  toggleDrawer: PropTypes.func,
   updateBillFilters: PropTypes.func,
   sortOrder: PropTypes.string,
   sortBy: PropTypes.string,
