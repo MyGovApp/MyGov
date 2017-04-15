@@ -68,7 +68,7 @@ class Header extends Component {
     return (
       <img
         onClick={route ? () => browserHistory.push(route) : browserHistory.goBack}
-        style={{ width: '30px', height: '30px' }}
+        style={{ width: '30px', height: '30px', cursor: 'pointer' }}
         src={I.leftChevronIcon}
       />
     )
