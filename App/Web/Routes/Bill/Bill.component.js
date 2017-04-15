@@ -16,7 +16,7 @@ class Bill extends Component {
 
   componentDidMount () {
     this.props.fetchBills()
-    if (this.props.urls) {
+    if (this.props.urls.congress) {
       this.setState({ loading: false })
       this.fetchBillSummary(this.props)
     }
@@ -50,6 +50,7 @@ class Bill extends Component {
       progress,
       detailedStatus,
       sponsor,
+      urls,
       toggleToMyBills,
       isAdded } = this.props
 
@@ -81,6 +82,11 @@ class Bill extends Component {
             <h3 className={s.sectionTitle}>Bill Summary</h3>
             <div className={s.billSummary} dangerouslySetInnerHTML={{ __html: summary }} />
           </div>
+          <div className={s.summaryContainer}>
+            <h3 className={s.sectionTitle}>More Info</h3>
+            <a className={s.externalLink} href={urls.congress}>Congress.gov</a>
+            <a className={s.externalLink} href={urls.govtrack}>GovTrack.us</a>
+          </div>
         </div>
       }
       </div>
@@ -97,6 +103,7 @@ Bill.defaultProps = {
   status: '',
   progress: {},
   detailedStatus: '',
+  urls: {},
   sponsor: {},
   isAdded: false
 }

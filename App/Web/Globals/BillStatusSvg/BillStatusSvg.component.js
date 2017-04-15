@@ -1,7 +1,10 @@
 import React, { PropTypes } from 'react'
 import s from './BillStatusSvg.styles.scss'
 
-const BillStatusSvg = ({ status, progress, chamber, scale = 1 }) => {
+const BillStatusSvg = ({ status, progress, chamber, scale }) => {
+  const containerWidth = document.getElementById('coreLayout').offsetWidth
+  const svgScale = scale ? scale : containerWidth / 400
+
   const green = '#B8E986'
   let yellow = '#FFF1BF'
   const red = '#FFD1D1'
@@ -232,7 +235,7 @@ const BillStatusSvg = ({ status, progress, chamber, scale = 1 }) => {
 
   return (
     <figure className={s.figureContainer}>
-      <svg width={350 * scale} height={60 * scale} viewBox='0 0 350 60' xmlns='http://www.w3.org/2000/svg'>
+      <svg width={350 * svgScale} height={60 * svgScale} viewBox='0 0 350 60' xmlns='http://www.w3.org/2000/svg'>
         <line
           className='lS1'
           x1='20'

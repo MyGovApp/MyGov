@@ -31,8 +31,6 @@ class BillCard extends Component {
     const upperId = upperCase(billId)
     const pDateIntroduced = moment(introducedOn).format('MMM D, YYYY')
     const pDateLastAction = moment(lastActionAt).format('MMM D, YYYY')
-    const containerWidth = document.getElementById('main-content').offsetWidth
-    const svgScale = containerWidth / 400
 
     return (
       <div className={s.container}>
@@ -46,7 +44,7 @@ class BillCard extends Component {
         <LabelValue label='Status: ' value={capitalize(status)} />
         <LabelValue label='Date Introduced: ' value={pDateIntroduced} />
         <LabelValue label='Last Action: ' value={pDateLastAction} />
-        <BillStatusSvg {...{ status, progress, chamber }} scale={svgScale} />
+        <BillStatusSvg {...{ status, progress, chamber }} />
         <Link to={`bill/${billId}`} style={{ textDecoration: 'none' }}>
           <button className={s.billDetail}>
             <img src={I.billDetailIcon} className={s.billDetailIcon} height='30' /><h3>Bill Details</h3>

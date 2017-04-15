@@ -2,6 +2,7 @@
 
 .mainContent {
   background-color: $backgroundWhite;
+  min-height: 100%;
   padding: 10px;
 }
 
@@ -24,4 +25,8 @@
     padding: 10px;
     text-align: justify;
   }
+}
+
+.externalLink {
+  margin-top: 15px;
 }

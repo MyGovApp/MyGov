@@ -6,61 +6,80 @@ import HamburgerMenu from 'Globals/HamburgerMenu'
 import I from '../../../Native/Themes/Images'
 
 class Header extends Component {
-  constructor () {
-    super()
-    this.state = {
-      showBackButton: false,
-      text: '',
-      location: ''
-    }
-  }
-
   componentWillMount () {
     this.setState({
-      text: startCase(window.location.pathname)
+      text: startCase(window.location.pathname),
+      LeftIcon: this.setLeftIcon(window.location),
+      RightIcon: this.setRightIcon(window.location)
     })
 
     browserHistory.listen((location) => {
-      const routeChanged = location !== this.state.location.pathname
-
-      console.log('routeChanged :  : ', routeChanged)
-
       this.setState({
         text: startCase(location.pathname),
-        showBackButton: routeChanged,
-        location: location.pathname
+        LeftIcon: this.setLeftIcon(location),
+        RightIcon: this.setRightIcon(location)
       })
     })
   }
 
-  renderBackButton = () => {
-    if (this.state.showBackButton) {
-      return (
-        <img
-          onClick={browserHistory.goBack}
-          style={{ width: '30px', height: '30px' }}
-          src={I.leftChevronIcon}
-        />
-      )
-    }
+  setLeftIcon = (location) => {
+    const pathname = location.pathname[0] === '/' ? location.pathname.slice(1) : location.pathname
 
-    return (<div className='backButtonPlaceholder' style={{ width: '30px', height: '30px' }} />)
+    const BackButton = this.renderBackButton
+    const PlaceHolder = this.renderPlaceHolder
+
+    switch (true) {
+      case /^bill\//.test(pathname):
+        return () => <BackButton route='/bills' />
+      default:
+        return () => <PlaceHolder />
+    }
+  }
+
+  setRightIcon = (location) => {
+    const pathname = location.pathname[0] === '/' ? location.pathname.slice(1) : location.pathname
+
+    const PlaceHolder = this.renderPlaceHolder
+    const BillsMenuIcon = this.renderBillsMenuIcon
+
+    switch (true) {
+      case /^bills/.test(pathname):
+        return () => <BillsMenuIcon />
+      default:
+        return () => <PlaceHolder />
+    }
+  }
+
+  renderBillsMenuIcon = () => {
+    const { toggleDrawer, drawerOpen } = this.props
+    return (<HamburgerMenu
+      onClick={toggleDrawer}
+      open={drawerOpen}
+    />)
+  }
+
+  renderPlaceHolder = () => (
+    <div className='placeholder' style={{ width: '30px', height: '30px' }} />
+  )
+
+  renderBackButton = ({ route }) => {
+    return (
+      <img
+        onClick={route ? () => browserHistory.push(route) : browserHistory.goBack}
+        style={{ width: '30px', height: '30px' }}
+        src={I.leftChevronIcon}
+      />
+    )
   }
 
   render () {
-    const { toggleDrawer, drawerOpen } = this.props
-    const { text } = this.state
-
-    const BackButton = this.renderBackButton
+    const { text, LeftIcon, RightIcon } = this.state
 
     return (
       <nav id={'header'} className={classes.header}>
-        <BackButton />
+        <LeftIcon />
         <p>{text}</p>
-        <HamburgerMenu
-          onClick={toggleDrawer}
-          open={drawerOpen}
-        />
+        <RightIcon />
       </nav>
     )
   }

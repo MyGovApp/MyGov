@@ -27,7 +27,7 @@ class Bills extends Component {
     const BillsList = this.renderBillsList
 
     return (
-      <div id='main-content' className={s.mainContent}>
+      <div className={s.mainContent}>
         {loading ? <Loader />
         : <div>
           <SearchInput />

@@ -36,6 +36,6 @@
     "react/no-unused-prop-types" : 1,
     "react/jsx-no-undef" : 1,
     "no-unused-vars" : 1,
-    "camelcase": 0
+    "no-unneeded-ternary" : 0
   }
 }
