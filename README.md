@@ -1,7 +1,5 @@
 # MyGov | An app by the people, for the people.
 
-Note: MyGov is currently in pre-alpha development. MVP alpha deployments for iOS and web are tentatively scheduled for the beginning of June 2017. Only the bill tracking features shown in the first two GIFs below will be available in the alpha release, but additional features will soon follow. Take a look at the [living MyGov prototype](https://invis.io/VJ9VWH3SG#/212448806_Login_Screen) to get a peek at what is coming next!
-
 ## Intro
 
 MyGov is an open-source, 100% transparent, non-partisan American political engagement app for Android, iOS, and the web. It is MyGov's goal to create a more engaged and informed American public, and to make the American government more responsive to the will of the people. Using MyGov you can:
@@ -19,14 +17,6 @@ MyGov makes keeping up with Congress and voicing your opinion on legislation eas
 ![Demo GIF 1](https://media.giphy.com/media/l4FGCQiMSvYqOKM5q/giphy.gif)
 ![Demo GIF 2](https://media.giphy.com/media/3oKIPE1BJDhFxTAn72/giphy.gif)
 ![Demo GIF 2](https://media.giphy.com/media/3o7bukMcySOVMCgpmE/giphy.gif)
-
-## Download MyGov
-
-Web - alpha release scheduled for 6/1/17
-
-iOS - alpha release scheduled for 6/1/17
-
-Android - alpha release scheduled for 7/1/17
 
 ## MyGov's Mission
 
@@ -86,6 +76,3 @@ In addition to the primary goals that focus on the American public, MyGov also s
 2. Assisting with communication to constituents.
 3. Verifying accounts and normalizing poll numbers to provide the most objectively correct numbers possible.
 
-## Contributing
-
-At this early stage of development I would ask that you contact me directly at ianclancaster@gmail.com if you are interested in contributing. I will be setting up more developed contribution guidelines as the app matures.
